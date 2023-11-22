@@ -6,7 +6,8 @@
     width: 1200px;
     display: flex;
     flex-wrap: wrap;
-    margin: 10px;            
+    margin: auto;
+    
 }
 .line{ /*底線*/
     border-bottom:0.5px dotted #7c7676;
