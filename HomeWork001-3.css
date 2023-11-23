@@ -133,7 +133,7 @@ h1{ /*產品標題*/
     font-weight: bold;            
 }
 .star-no img{ /*星星-不存在*/  
-    opacity: 0
+    display: none;
 }
 .people-no{ /*評星人數-不存在*/
     font-size: 11px;
