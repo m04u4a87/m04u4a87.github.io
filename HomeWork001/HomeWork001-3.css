@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.card-group{/*所有卡片*/
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    
+}
+.line{ /*底線*/
+    border-bottom:0.5px dotted #7c7676;
+}
+.card{/*單張卡片*/
+    width: 180px;
+    height: 360px;
+    padding: 10px;
+    margin: 10px 0px;           
+}
+.card:hover{/*碰到單張卡片十的變色效果*/
+    background-color: #fff7ba;
+    cursor:pointer;
+}
+
+.ProductImg{ /*產品圖片底部*/
+    position: relative;
+}
+.ProductImg img{ /*產品圖片*/
+    width: 180px;
+    height: 180px; 
+}
+.love_shopping { /*浮動愛心+購物車*/
+    background-color: #444242;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    opacity:0;
+    position: absolute;  
+    bottom: 3px;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+/*碰卡片，浮動愛心+購物車顯示*/
+.card:hover .love_shopping { 
+    opacity:0.8;
+}
+
+.love_shopping .love{/*愛心*/
+    width: 25px;
+    height: 25px;     
+}
+.love_shopping .shopping{/*購物車*/
+    width: 25px;
+    height: 25px;  
+}
+
+.publicity{ /*滿一件折ooo元等紅字宣傳語*/
+    width: 160px;
+    font-size: 13px;
+    color: #DD2726;
+    font-family:Helvetica;
+    text-indent: .5em;
+}
+.publicity-no{ /*滿一件折ooo元-不存在*/
+    font-size: 13px;
+    opacity: 0 
+}
+
+.preorder{ /*預購*/
+    display: inline-block;
+    color: #FFFFFF;
+    background: #FF960A;
+    border-radius: 4px;
+    font: 13px/18px Helvetica, sans-serif;
+    padding: 1px 4px;
+    
+}
+h1{ /*產品標題*/
+    width: 180px;
+    font-size: 13px;
+    line-height: 20px;
+    color: #666666;
+    font-family:"SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight:normal;
+    display:-webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;  
+    overflow: hidden; 
+    margin: 5px ;
+}
+
+.price{    /*$+金額+售價已折*/        
+    color: #D62872; 
+    /* height: 50px;  */
+    margin: 15px 0px 0px 5px;
+}
+
+.symbol{ /*$*/  
+    font: bold 13px Helvetica;
+    
+}
+.money /*金額*/  
+{
+    font-size:24px;
+    font-family:"Oxygen",sans-serif;
+    font-weight:lighter;
+}
+.discount{ /*售價已折*/  
+    color: #999999;
+    font-size:12px;         
+}
+.discount-no{ /*售價已折-不存在*/ 
+    font-size:12px; 
+    opacity: 0           
+}
+
+.star-num{ /*星星+評星人數的共同設定*/
+    margin: 10px 0; 
+    height: 15px;
+    margin: 0px 0px 5px 5px;            
+}
+.star img{ /*星星*/  
+    width: 15px; 
+    vertical-align:-10%;          
+}
+.people{ /*評星人數*/
+    
+    color: #B3b3b3;
+    font-size: 11px;
+    font-family:"SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;            
+}
+.star-no img{ /*星星-不存在*/  
+    display: none;
+}
+.people-no{ /*評星人數-不存在*/
+    font-size: 11px;
+    opacity:0;
+}
+
+.sales{ /*總銷售*/
+    color: #454545;
+    font-size: 12px;
+    font-family:"SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0px 0px 0px 5px; 
+}
+.sales-no{ /*總銷售-不存在*/
+    font-size: 12px;
+    opacity: 0;
+}
+
+.mark_behind{ /*備註符號後方的灰底-內容物靠右*/
+    background-color: #EEEEEE;
+    width: 180px;
+    height: 26px;
+    display: flex;
+    justify-content:flex-end;
+    margin: 5px 0px 0px 0px; 
+    padding: 0 5px;
+    box-sizing:border-box;           
+}
+.mark_behind-order{/*備註符號後方的灰底-內容物置中(可訂購專用)*/
+    background-color: #EEEEEE;
+    width: 180px;
+    height: 26px;
+    display: flex;
+    justify-content:center;
+    margin: 5px 0px 0px 0px; 
+    padding: 0 5px;
+    box-sizing:border-box;           
+}
+.mark span{ /*速+登記+贈品+折價券-共同設定*/
+    color: #FFFFFF;
+    padding: 2px 4px; 
+    border-radius: 3px;
+    font:bold 12px/26px "Helvetica"; 
+}
+.fast{ /*速*/
+    background-color: #BE0211;           
+}
+.Registe,.giveaway,.coupon{ /*登記+贈品+折價券*/            
+    background-color:#FF4C76;
+}    
+/*速+登記+贈品+折價券-不存在*/
+.fast-no,.Registe-no,.giveaway-no,.coupon-no{
+    display: none;           
+}
+.order{/*可訂購時通知*/
+    color: #969696;
+    font:bold 13px/26px "Helvetica";
+}
+.order-no{/*可訂購時通知-不存在*/
+    display: none;           
+}
