@@ -9,46 +9,47 @@
             margin: 0;
             padding: 0;
         }
-        .container{
+        .container{ /*區塊*/
             width: 1200px;
             margin: auto;
             border-bottom: 1px solid #9f9a9a;
             margin-top: 20px;
             padding: 20px 0;
         }
-        .container:nth-child(even) .bottom_container{
+        .container:nth-child(even) .bottom_container{ /*兩個區塊的下半部，要交錯*/
             flex-direction: row-reverse;
         }
-        a{
+        a{ /*所有超連結，不要底線*/
             text-decoration: none;
         }
-        img{
+        img{ /*所有圖片四邊圓角*/
             border-radius: 10px;
         }
-        .top_container{
+        .top_container{ /*每個區塊上半部*/
             display:flex;
             justify-content: space-between; 
             height: 40px;
             margin-bottom: 20px;        
         }
-        .top_container h2{
+        .top_container h2{  /*每個區塊上半部，日文大標題*/
             font-size: 26px;
             color: #202124;
         }
-        .top_container span{
+        .top_container span{ /*每個區塊上半部，英文小標題*/
             font-family: neue-haas-grotesk-display, sans-serif;
             font-weight: 500;
             font-size: 14px;
             padding-left: 16px;
             color: #6c6d6e;;
         }
-        .top_container a{
+        .top_container a{ /*每個區塊上半部，看全部的連結*/
             font-size: 13px;
             color: #f65936;
             font-weight: bold;
             line-height: 40px;
         }
-        .top_container a::after{
+        .top_container a::after{ /*每個區塊上半部，看全部的連結，後面的小箭頭*/
+            font-size: 13px;
             content: '→';
             font-weight: bold;
             width: 20px;
@@ -57,66 +58,64 @@
             border-radius: 50%;
             margin-left: 10px;
         }
-        .bottom_container{
+        .bottom_container{ /*每個區塊下半部*/
             display:flex;
             width: 100%;
         }
         
-        .square_big{
+        .square_big{ /*每個區塊下半部，大方塊*/
             width: 50%;
         }
-        h3,p{
+        h3,p{ /*每個區塊下半部，h3和p*/
             color: #222222;
         }
-        .square_big .word{
+        .square_big .word{ /*每個區塊下半部，大方塊，文字(標題+說明+日期)*/
             display:flex;
             margin-top: 10px;
         }
-        .square_big .word h3{
+        .square_big .word h3{ /*每個區塊下半部，大方塊，文字，大標題*/
             width: 50%;
             font-size: 24px;
         }
-        .square_big .word span{
-            width: 50%;            
+        .square_big .word span{ /*每個區塊下半部，大方塊，文字，說明+日期文字*/
+            width: 50%;
+            font-size: 13px;           
         }
-        .square_big .word p{
-            font-size: 13px;
-        }
-        .square_small{
+        .square_small{ /*每個區塊下半部，四個小方塊*/
             display: flex;
             flex-wrap: wrap;
             justify-content:space-evenly;
         }
-        .square_small .square_alone{
+        .square_small .square_alone{ /*每個區塊下半部，四個小方塊*/
             width: 250px;
             display: flex;
             flex-direction: column;
         }
-        .square_small .square_alone span{
+        .square_small .square_alone span{ /*每個區塊下半部，四個小方塊，文字(標題+日期)*/
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
-        .square_small h3{
+        .square_small h3{ /*每個區塊下半部，四個小方塊，標題*/
             font-size:16px;
         }
-        .square_small .date{
+        .square_small .date{ /*每個區塊下半部，四個小方塊，日期*/
             font-size: 12px;
             margin-top:auto;
         }
-        a:hover{
+        a:hover{ /*所有的超連結，滑鼠摸到時，透明度提升*/
             opacity: 0.8;
         }
-        .type{
+        .type{ /*每個區塊下半部，大方塊和四個小方塊，類別*/
             height: 20px;
             font-size: 15px;
             margin-bottom: 10px;
         }
-        .else::before{
+        .else::before{ /*每個區塊下半部，大方塊，類別的圖示*/
             content: url(https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_other.svg);
             vertical-align: middle;
         }
-        .sea::before{
+        .sea::before{ /*每個區塊下半部，四個小方塊，類別的圖示*/
             content: url(https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_ocean.svg);
             vertical-align: middle;
         }
@@ -202,7 +201,7 @@
                             <h3>11月はサンゴ白化啓発月間　〜日常でできること〜</h3>
                             <span>
                                 <p>世界のサンゴ礁を救うことを使命としている環境NGO団体コーラル・リーフ・アライアンス（The Coral Reef Alliance）は、2023年11月を「サ</p>
-                                <p class="date">                              2023.11.09</p>
+                                <p class="date">2023.11.09</p>
                             </span>
                         </span>
                     </a>
