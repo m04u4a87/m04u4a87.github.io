@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 1200px;
+            margin: auto;
+            border-bottom: 1px solid #9f9a9a;
+            margin-top: 20px;
+            padding: 20px 0;
+        }
+        .container:nth-child(even) .bottom_container{
+            flex-direction: row-reverse;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            border-radius: 10px;
+        }
+        .top_container{
+            display:flex;
+            justify-content: space-between; 
+            height: 40px;
+            margin-bottom: 20px;        
+        }
+        .top_container h2{
+            font-size: 26px;
+            color: #202124;
+        }
+        .top_container span{
+            font-family: neue-haas-grotesk-display, sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            padding-left: 16px;
+            color: #6c6d6e;;
+        }
+        .top_container a{
+            font-size: 13px;
+            color: #f65936;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        .top_container a::after{
+            content: '→';
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #f65936;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .bottom_container{
+            display:flex;
+            width: 100%;
+        }
+        
+        .square_big{
+            width: 50%;
+        }
+        h3,p{
+            color: #222222;
+        }
+        .square_big .word{
+            display:flex;
+            margin-top: 10px;
+        }
+        .square_big .word h3{
+            width: 50%;
+            font-size: 24px;
+        }
+        .square_big .word span{
+            width: 50%;            
+        }
+        .square_big .word p{
+            font-size: 13px;
+        }
+        .square_small{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+        }
+        .square_small .square_alone{
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+        .square_small .square_alone span{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .square_small h3{
+            font-size:16px;
+        }
+        .square_small .date{
+            font-size: 12px;
+            margin-top:auto;
+        }
+        a:hover{
+            opacity: 0.8;
+        }
+        .type{
+            height: 20px;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .else::before{
+            content: url(https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_other.svg);
+            vertical-align: middle;
+        }
+        .sea::before{
+            content: url(https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/common/icon/icon_ocean.svg);
+            vertical-align: middle;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+        <section class="container">
+
+            <div class="top_container">
+                <h2 class="title">旅行者にできること
+                    <span>What Travelers Can Do</span>
+                </h2>
+                <a href="#">すべて見る</a>
+            </div>
+            <div class="bottom_container">
+                <span class="square_big">
+                    <a href="#" class="square_alone">
+                        <p class="type sea">海</p>
+                        <img src="https://picsum.photos/600/400/?random=05" alt="壞掉的圖片">
+                        <span class="word">
+                            <h3>11月はサンゴ白化啓発月間　〜日常でできること〜</h3>
+                            <span>
+                                <p>世界のサンゴ礁を救うことを使命としている環境NGO団体コーラル・リーフ・アライアンス（The Coral Reef Alliance）は、2023年11月を「サ</p>
+                                <p class="date">                              2023.11.09</p>
+                            </span>
+                        </span>
+                    </a>
+                </span>
+
+                <span class="square_small">
+                    <a href="#" class="square_alone">
+                        <p class="type else">その他</p>
+                        <img src="https://picsum.photos/250/190/?random=01" alt="壞掉的圖片">
+                        <span>
+                            <h3>マウイ島の山火事救援金</h3>
+                            <p class="date">2023.08.18</p>
+                        </span>
+                    </a>
+                    <a href="#" class="square_alone">
+                        <p class="type"></p>
+                        <img src="https://picsum.photos/250/190/?random=02" alt="壞掉的圖片">
+                        <span>
+                            <h3>2023年7月後半～9月にハワイで開催されるカルチャーイベント</h3>
+                            <p class="date">2023.07.20</p>
+                        </span>
+                    </a>
+                    <a href="#" class="square_alone">
+                        <p class="type"></p>
+                        <img src="https://picsum.photos/250/190/?random=03" alt="壞掉的圖片">
+                        <span>
+                            <h3>第46回プリンスロット•フラフェスティバル、7月に開催</h3>
+                            <p class="date">2023.06.22</p>
+                        </span>
+                    </a>
+                    <a href="#" class="square_alone">
+                        <p class="type"></p>
+                        <img src="https://picsum.photos/250/190/?random=04" alt="壞掉的圖片">
+                        <span>
+                            <h3>今年もアースデーにビーチクリーンを開催！</h3>
+                            <p class="date">2023.04.18</p>
+                        </span>
+                    </a>
+                </span>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="top_container">
+                <h2 class="title">旅行者にできること
+                    <span>What Travelers Can Do</span>
+                </h2>
+                <a href="#">すべて見る</a>
+            </div>
+            <div class="bottom_container">
+                <span class="square_big">
+                    <a href="#" class="square_alone">
+                        <p class="type sea">海</p>
+                        <img src="https://picsum.photos/600/400/?random=05" alt="壞掉的圖片">
+                        <span class="word">
+                            <h3>11月はサンゴ白化啓発月間　〜日常でできること〜</h3>
+                            <span>
+                                <p>世界のサンゴ礁を救うことを使命としている環境NGO団体コーラル・リーフ・アライアンス（The Coral Reef Alliance）は、2023年11月を「サ</p>
+                                <p class="date">                              2023.11.09</p>
+                            </span>
+                        </span>
+                    </a>
+                </span>
+
+                <span class="square_small">
+                    <a href="#" class="square_alone">
+                        <p class="type else">その他</p>
+                        <img src="https://picsum.photos/250/190/?random=01" alt="壞掉的圖片">
+                        <span>
+                            <h3>マウイ島の山火事救援金</h3>
+                            <p class="date">2023.08.18</p>
+                        </span>
+                    </a>
+                    <a href="#" class="square_alone">
+                        <p class="type"></p>
+                        <img src="https://picsum.photos/250/190/?random=02" alt="壞掉的圖片">
+                        <span>
+                            <h3>2023年7月後半～9月にハワイで開催されるカルチャーイベント</h3>
+                            <p class="date">2023.07.20</p>
+                        </span>
+                    </a>
+                    <a href="#" class="square_alone">
+                        <p class="type"></p>
+                        <img src="https://picsum.photos/250/190/?random=03" alt="壞掉的圖片">
+                        <span>
+                            <h3>第46回プリンスロット•フラフェスティバル、7月に開催</h3>
+                            <p class="date">2023.06.22</p>
+                        </span>
+                    </a>
+                    <a href="#" class="square_alone">
+                        <p class="type"></p>
+                        <img src="https://picsum.photos/250/190/?random=04" alt="壞掉的圖片">
+                        <span>
+                            <h3>今年もアースデーにビーチクリーンを開催！</h3>
+                            <p class="date">2023.04.18</p>
+                        </span>
+                    </a>
+                </span>
+            </div>
+        </section>  
+    
+</body>
+</html>
