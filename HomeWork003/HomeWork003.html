@@ -29,7 +29,7 @@
             display:flex;
             justify-content: space-between; 
             height: 40px;
-            margin-bottom: 20px;        
+            margin-bottom: 20px;       
         }
         .top_container h2{  /*每個區塊上半部，日文大標題*/
             font-size: 26px;
@@ -40,7 +40,7 @@
             font-weight: 500;
             font-size: 14px;
             padding-left: 16px;
-            color: #6c6d6e;;
+            color: #6c6d6e;
         }
         .top_container a{ /*每個區塊上半部，看全部的連結*/
             font-size: 13px;
@@ -60,11 +60,10 @@
         }
         .bottom_container{ /*每個區塊下半部*/
             display:flex;
-            width: 100%;
-        }
-        
+            gap: 40px;  
+        }      
         .square_big{ /*每個區塊下半部，大方塊*/
-            width: 50%;
+            width:50%;
         }
         h3,p{ /*每個區塊下半部，h3和p*/
             color: #222222;
@@ -84,7 +83,7 @@
         .square_small{ /*每個區塊下半部，四個小方塊*/
             display: flex;
             flex-wrap: wrap;
-            justify-content:space-evenly;
+            justify-content:space-between;
         }
         .square_small .square_alone{ /*每個區塊下半部，四個小方塊*/
             width: 250px;
@@ -92,6 +91,7 @@
             flex-direction: column;
         }
         .square_small .square_alone span{ /*每個區塊下半部，四個小方塊，文字(標題+日期)*/
+
             display: flex;
             flex-direction: column;
             flex-grow: 1;
