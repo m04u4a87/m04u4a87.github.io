@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            font-family: 微軟正黑體;
+            font-weight: lighter;
+        }
+        .wrap:nth-child(even){
+            flex-direction: row-reverse;
+        }
+        .all{
+            margin: auto;
+            width: 1200px;
+        }
+        .wrap{
+            position: relative;
+        }
+        .Subject{ /*第一區塊*/
+            color: rgb(255, 255, 255);
+        }
+        .Subject_title{  /*第一區塊_紅區(數字+標題文字)*/
+            background-color: brown;
+            width: 300px;
+            height: 90px;
+        }
+        .Subject_title p{ /*第一區塊_紅區_數字*/
+            display: inline-block;          
+            font-size: 100px;
+            writing-mode: vertical-rl;
+            vertical-align:middle; 
+        }
+        .Subject_title h1{ /*第一區塊_紅區_標題文字*/
+            font-size: 40px;
+            line-height:2em;
+        }
+        .Subject_content{ /*第一區塊_黑區(標題+內容)*/
+            background-color: rgb(0, 0, 0);
+            width: 270px;
+            padding: 20px 15px 30px;
+            line-height: 25px;       
+        }
+        .Subject_content h2{ /*第一區塊_黑區_標題*/
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+        .img{/*第二區塊*/
+            position: relative;           
+            bottom:180px;
+            left: 150px;
+            z-index:-1;    
+        }
+        img{ /*第二區塊_圖片*/
+            display: block;
+            width: 700px;
+            height: 440px;
+        }
+        
+        .img::after{ /*第二區塊_圖片_youtu圖案*/
+            content: '▶';
+            font-size: 30px;
+            color: #fff;
+            font-weight: bold;
+            display: inline-block;
+            width: 60px;
+            text-align: center;
+            background-color: rgb(205, 23, 23);
+            position: absolute;
+            top: 220px;
+            left: 670px;   
+        }
+        .gray{ /*第三區塊_灰色方塊*/
+            display: block;
+            width: 440px;
+            height: 290px;
+            background-color: #eeeeee;
+            position:relative;
+            bottom: 500px;
+            left: 400px;
+            z-index: -2;
+        }
+        .introduce{ /*第四區塊_詳細介紹*/   
+            background-color: #eeeeee;
+            width: 685px;
+            position: absolute;
+            top:505px;
+            left: 60px; 
+        }
+        .introduce_content{ /*第四區塊_詳細介紹_所有內容*/
+            padding:10px;
+        }
+        .introduce_content h3{ /*第四區塊_詳細介紹_大標題*/
+            font-weight: bold;
+            color: brown;
+            margin-bottom: 10px;
+        }
+        .introduce_content h3::after{ /*第四區塊_詳細介紹_大標題_線*/
+            content: '';
+            display: inline-block;
+            width: 450px;
+            height: 1.5px;
+            background-color: brown;
+            vertical-align: middle;
+        }
+        .introduce_content h4{ /*第四區塊_詳細介紹_小標題*/
+            display: inline-block;
+            font-size: 12px;
+            font-weight: normal;
+            color: #ffffff;
+            background-color: black;
+            padding: 2px 5px;
+        }
+        .introduce_content p{ /*第四區塊_詳細介紹_內容*/
+            font-weight:normal;
+            font-size: 12px;
+            color: #605f5f;
+            text-indent:-1em;
+            margin-left: 20px;
+        }
+        .introduce_content p::before{ /*第四區塊_詳細介紹_內容_紅點*/
+            content: '•';
+            width: 3px;
+            height: 3px;
+            color: rgb(205, 23, 23);
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="all">
+        <div class="wrap">
+        <!-- 第一區塊 紅黑主旨區 Subject(主旨) -->       
+            <div class="Subject">
+                <div class="Subject_title">
+                    <h1><P>01</P>操控樂趣</h1>
+                </div>
+                <div class="Subject_content">
+                    <h2>人人滿意的駕駛體驗</h2>
+                    <p>透過最佳重量分配,實現平順起步、直線穩定加速,過彎同時保持 車身平穩,帶給駕駛更靈敏的道路反饋,享受隨心馳騁的行駛快感。</p>
+                </div>
+            </div>
+            <!-- 第二區塊 中心圖片 img -->
+            <div class="img">
+                <img src="	https://www.toyota.com.tw/asset/img/tech_tnga/advantage-1-video-button-bg.png?9e068d9b">
+                <!-- 第三區塊 灰色方塊裝飾 decorate(裝飾) -->
+                <div class="gray"></div>
+            </div>            
+            <!-- 第四區塊 詳細介紹 introduce(介紹) -->
+            <div class="introduce">          
+                <div class="introduce_content">
+                    <h3>因為我們做了這些革新</h3>
+                    <h4>低重心設計</h4>
+                    <p>透過低重心設計,不僅呈現更低伏的外觀,更能減少車身側傾,保持高速行駛穩定性。</p>
+                    <h4>車體剛性強化</h4>
+                    <p>車身結構採用超高強度鋼材,提高車輛穩定性,同時藉由雷射強化焊接技術·大幅增加 焊點數量,提升車身抗扭剛性,強化駕馭穩定性及安全性。</p>
+                    <h4>四輪獨立懸吊</h4>
+                    <p>搭載全新四輪獨立懸吊設定,透過懸吊的高承載強度,保持輪胎抓地力,同時兼顧轉向 靈敏度與清晰路感回饋,提升駕馭樂趣。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <!-- 第一區塊 紅黑主旨區 Subject(主旨) -->       
+                <div class="Subject">
+                    <div class="Subject_title">
+                        <h1><P>01</P>操控樂趣</h1>
+                    </div>
+                    <div class="Subject_content">
+                        <h2>人人滿意的駕駛體驗</h2>
+                        <p>透過最佳重量分配,實現平順起步、直線穩定加速,過彎同時保持 車身平穩,帶給駕駛更靈敏的道路反饋,享受隨心馳騁的行駛快感。</p>
+                    </div>
+                </div>
+                <!-- 第二區塊 中心圖片 img -->
+                <div class="img">
+                    <img src="	https://www.toyota.com.tw/asset/img/tech_tnga/advantage-1-video-button-bg.png?9e068d9b">
+                    <!-- 第三區塊 灰色方塊裝飾 decorate(裝飾) -->
+                    <div class="gray"></div>
+                </div>            
+                <!-- 第四區塊 詳細介紹 introduce(介紹) -->
+                <div class="introduce">          
+                    <div class="introduce_content">
+                        <h3>因為我們做了這些革新</h3>
+                        <h4>低重心設計</h4>
+                        <p>透過低重心設計,不僅呈現更低伏的外觀,更能減少車身側傾,保持高速行駛穩定性。</p>
+                        <h4>車體剛性強化</h4>
+                        <p>車身結構採用超高強度鋼材,提高車輛穩定性,同時藉由雷射強化焊接技術·大幅增加 焊點數量,提升車身抗扭剛性,強化駕馭穩定性及安全性。</p>
+                        <h4>四輪獨立懸吊</h4>
+                        <p>搭載全新四輪獨立懸吊設定,透過懸吊的高承載強度,保持輪胎抓地力,同時兼顧轉向 靈敏度與清晰路感回饋,提升駕馭樂趣。</p>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    
+</body>
+</html>
