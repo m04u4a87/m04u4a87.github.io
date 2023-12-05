@@ -11,23 +11,43 @@
             font-family: 微軟正黑體;
             font-weight: lighter;
         }
-        .wrap:nth-child(even) {
-            
+        .wrap:nth-child(even) .Subject {
+            transform: translate(660px, 0);
         }
+        .wrap:nth-child(even) .img::after {
+            transform: translate(-780px, 0);
+        }
+        .wrap:nth-child(even) img {
+            transform: translate(-120px, 0);
+        }
+        .wrap:nth-child(even) .gray {
+            transform: translate(-200px, 0);
+        }
+        .wrap:nth-child(even) .introduce {
+            transform: translate(215px, 0);
+        }
+        .wrap:nth-child(even) .Subject_title {
+            flex-direction:row-reverse;
+        }
+
         .all{
-            margin: auto;
-            width: 1200px;
+            margin:auto;
+            width: 960px;
         }
         .wrap{
             position: relative;
+            margin: 100px 0;
         }
         .Subject{ /*第一區塊*/
             color: rgb(255, 255, 255);
+            display: inline-block;
+            
         }
         .Subject_title{  /*第一區塊_紅區(數字+標題文字)*/
             background-color: brown;
             width: 300px;
             height: 90px;
+            display: flex;
         }
         .Subject_title p{ /*第一區塊_紅區_數字*/
             display: inline-block;          
@@ -36,8 +56,9 @@
             vertical-align:middle; 
         }
         .Subject_title h1{ /*第一區塊_紅區_標題文字*/
+            display: inline-block;
             font-size: 40px;
-            line-height:2em;
+            line-height:2.2em;
         }
         .Subject_content{ /*第一區塊_黑區(標題+內容)*/
             background-color: rgb(0, 0, 0);
@@ -50,18 +71,15 @@
             font-weight: bold;
             padding-bottom: 5px;
         }
-        .img{/*第二區塊*/
-            position: relative;           
-            bottom:180px;
-            left: 150px;
-            z-index:-1;    
-        }
         img{ /*第二區塊_圖片*/
             display: block;
             width: 700px;
             height: 440px;
-        }
-        
+            position: relative;           
+            bottom:180px;
+            left: 150px;
+            z-index:-1;    
+        }       
         .img::after{ /*第二區塊_圖片_youtu圖案*/
             content: '▶';
             font-size: 30px;
@@ -72,17 +90,17 @@
             text-align: center;
             background-color: rgb(205, 23, 23);
             position: absolute;
-            top: 220px;
-            left: 670px;   
+            top: 310px;
+            left: 800px;   
         }
         .gray{ /*第三區塊_灰色方塊*/
             display: block;
             width: 440px;
             height: 290px;
             background-color: #eeeeee;
-            position:relative;
-            bottom: 500px;
-            left: 400px;
+            position:absolute;
+            bottom: 400px;
+            left: 500px;
             z-index: -2;
         }
         .introduce{ /*第四區塊_詳細介紹*/   
@@ -139,7 +157,7 @@
         <!-- 第一區塊 紅黑主旨區 Subject(主旨) -->       
             <div class="Subject">
                 <div class="Subject_title">
-                    <h1><P>01</P>操控樂趣</h1>
+                    <P>01</P><h1>操控樂趣</h1>
                 </div>
                 <div class="Subject_content">
                     <h2>人人滿意的駕駛體驗</h2>
@@ -162,6 +180,7 @@
                     <p>車身結構採用超高強度鋼材,提高車輛穩定性,同時藉由雷射強化焊接技術·大幅增加 焊點數量,提升車身抗扭剛性,強化駕馭穩定性及安全性。</p>
                     <h4>四輪獨立懸吊</h4>
                     <p>搭載全新四輪獨立懸吊設定,透過懸吊的高承載強度,保持輪胎抓地力,同時兼顧轉向 靈敏度與清晰路感回饋,提升駕馭樂趣。</p>
+                    
                 </div>
             </div>
         </div>
@@ -170,7 +189,7 @@
             <!-- 第一區塊 紅黑主旨區 Subject(主旨) -->       
                 <div class="Subject">
                     <div class="Subject_title">
-                        <h1><P>01</P>操控樂趣</h1>
+                        <P>01</P><h1>操控樂趣</h1>
                     </div>
                     <div class="Subject_content">
                         <h2>人人滿意的駕駛體驗</h2>
