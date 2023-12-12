@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", Sans-serif;
+            font-weight: 300;
+            color: #1d273b;
+        }
+        .all{ /*上方預留導覽列的寬度*/
+            padding-top: 115px;
+        }
+        .bg1-1{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-1.svg'),
+            url('HTML完整切版作業圖檔/cloud-2.svg');
+            background-repeat: no-repeat;
+            background-position: 
+            center top,
+            left 90%; 
+        }
+        .bg2{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-3.svg'),
+            url('HTML完整切版作業圖檔/cloud-4.svg');
+            background-repeat: no-repeat;
+            background-position: 
+            right top,
+            left 87%; 
+        }
+        .bg1-3{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-5.svg'),
+            url('HTML完整切版作業圖檔/cloud-6.svg');
+            background-repeat: no-repeat;
+            background-position: 
+            60% 15%,
+            85% 40%; 
+        }       
+        .bg3{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-7.svg'),
+            url('HTML完整切版作業圖檔/cloud-8.svg'),
+            url('HTML完整切版作業圖檔/cloud-9.svg');
+            background-repeat: no-repeat;
+            background-position: 
+            right 10%,
+            95% 35%,
+            98% 95%; 
+        }
+        .bg4{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-10.svg'),
+            url('HTML完整切版作業圖檔/cloud-11.svg'),
+            url('HTML完整切版作業圖檔/cloud-12.svg');
+            background-repeat: no-repeat;
+            background-position: 
+            right top,
+            left 35%,
+            right 90%; 
+        }
+        .bg5{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-13.svg');
+            background-repeat: no-repeat;
+            background-position: left 5%;
+        }
+        .bg6{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-14.svg');
+            background-repeat: no-repeat;
+            background-position: right top; 
+        }
+        .bg7{
+            background-image: 
+            url('HTML完整切版作業圖檔/cloud-15.svg'),
+            url('HTML完整切版作業圖檔/cloud-16.svg');
+            background-repeat: no-repeat;
+            background-position: 
+            left 15%,
+            95% 75%; 
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            vertical-align:top;
+        }
+        .nav{ /*導覽列*/
+            width: 100%;
+            position: fixed;
+            background-color: #ffffff;
+            z-index: 10;
+            transition: .5s;
+        }
+        .nav.shadow {  /*導覽列滾動會出現陰影事件*/
+        box-shadow: 0px 6px 10px 0px rgba(235, 238, 236, 0.46);
+        }       
+        .nav .wrap{/*導覽列_內容_flex*/
+            width: 1200px;
+            display: flex;
+            margin: 20px auto;
+        }
+        .wrap .wrap_img{/*導覽列_內容_flex_包圖層*/
+            width: 250px;
+        }
+        .wrap .wrap_img img{/*導覽列_內容_flex_包圖層_圖本身*/
+        }
+        .wrap .wrap_directory{/*導覽列_內容_flex_包目錄*/
+            width: 800px;
+            text-align: end;
+            margin: auto 0;
+        }
+        .wrap .wrap_directory a{/*導覽列_內容_flex_包目錄_目錄本身*/
+            display: inline-block;
+            color: #5d6678;
+            font-size: 16px;
+            padding: 10px 15px;
+            transition: 1.5s;
+        }
+        .wrap .wrap_directory .home{/*導覽列_內容_flex_包目錄_目錄本身_home(加固定底線)*/
+            text-decoration: underline solid #adb6c7 ;
+            text-underline-offset:.5em;
+            text-decoration-thickness:0.5px;
+        }
+        .wrap .wrap_directory a:hover{
+            text-decoration: underline solid #adb6c7 ;
+            text-underline-offset:.5em;
+            text-decoration-thickness:0.5px;
+        }
+        .wrap .wrap_a{/*導覽列_內容_flex_包按鈕*/
+            width: 150px;
+            text-align: end;
+            margin: auto 0;
+        }       
+        .wrap .wrap_a a{/*導覽列_內容_flex_包按鈕_按鈕本身*/
+            display: inline-block;
+            font-size: 14px;
+            border-radius:5px;          
+            padding: 10px 15px;
+            font-weight:bold;
+            height: 18px;
+            line-height: 18px;
+            color:#858589;
+            border: 1px solid #c7c8cb;
+            transition: .5s;  
+        }       
+        .wrap .wrap_a a:hover{ /*導覽列_內容_flex_包按鈕_按鈕本身_動畫*/
+            color:#ffffff; 
+            background-color: #1fde82;
+            border: 1px solid #1fde82;
+        }
+        .content{/*第一區塊_所有內容*/
+            width: 1200px;
+            display: flex;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 0px auto;
+        }
+        .word{ /*第一區塊_文字部分+超連結*/
+            width:500px;
+        }
+        .word .title{ /*第一區塊_文字部分_標題*/
+            
+            display: block;
+            margin: 0px 0 20px;
+            line-height: 1.2;
+            font-weight: 300;
+        }
+        .word h1{ /*第一區塊_文字部分_標題_h1*/
+            font-size: 58px;
+        }
+        h2{ /*第一區塊_文字部分_標題_h2*/
+            font-size: 42px;
+        }
+        .word p{ /*第一區塊_文字部分_說明*/
+            margin: 35px 0px 45px ;
+            color: #5d6678;
+            width: 450px;
+            font-weight: 300;
+        }
+        .word .a{ /*第一區塊_超連結_按鈕+圖片*/
+            display: flex;
+            gap: 25px;
+        }
+        .word .a img{
+            height: 100%;
+        }
+        .word .button{ /*第一區塊_超連結_按鈕*/
+            font-size: 14px;
+            border-radius:5px;          
+            padding: 10px 15px;
+            font-weight:bold;
+            height: 18px;
+            line-height: 18px;
+            border: 1px solid #1fde82;
+        }
+        .word .button1{ /*第一區塊_超連結_按鈕_按鈕一*/
+            color:#ffffff; 
+            background-color: #1fde82;
+            box-shadow:0px 8px 32px 0px rgba(31,222,130,0.46);
+            transition: .5s;
+        }
+        .word .button1:hover /*第一區塊_超連結_按鈕_按鈕一_動畫*/
+        {
+            background-color: #5d6678;
+            border: 1px solid #5d6678;
+            box-shadow:none
+        }
+        .word .button2{ /*第一區塊_超連結_按鈕_按鈕二*/
+            color:#858589;
+            border: 1px solid #c7c8cb;
+            transition: .5s;  
+        }
+        .word .button2:hover{ /*第一區塊_超連結_按鈕_按鈕二_動畫*/
+            color:#ffffff; 
+            background-color: #1fde82;
+        }
+        .pic img{ /*第一區塊_超連結_圖片*/
+            width: 500px;
+            height: 500px;
+        }
+        .bg1-2 .content /*第一區塊_內容反轉*/
+        {
+            flex-direction: row-reverse;
+        }
+        .title_card{ /*第二區塊_標題+卡片清單*/
+            width: 1200px;
+            margin: 10px auto;
+        }
+        .title_card h2{ /*第二區塊_標題*/
+            width: 500px;
+            margin-left: 50px;
+        }
+        .card_list{ /*第二區塊_卡片清單*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card{ /*第二區塊_卡片清單_卡片*/
+            box-shadow:0px 8px 32px 0px rgba(139, 143, 141, 0.46);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 45px 20px 10px;
+            width: 300px;
+        }
+        .card img{ /*第二區塊_卡片清單_卡片_圓圖*/
+            box-shadow:0px 8px 32px 0px rgba(31,222,130,0.46);
+            border-radius: 50% 50% 50% 50%;
+        }
+        .card h3{  /*第二區塊_卡片清單_卡片_標題*/
+            font-size: 22px;
+            margin: 50px 0 20px;
+        }
+        .card p{ /*第二區塊_卡片清單_卡片_說明*/
+            font-size: 15px;
+            margin-bottom: 40px;
+            color: #838fa5;
+            line-height: 1.8em;
+        }
+        .card a{ /*第二區塊_卡片清單_卡片_超連結*/
+            font-size: 14px;
+            color: #747d92;
+            font-weight: 500;
+            transition: .5s;           
+        }
+        .card a:hover{/*第二區塊_卡片清單_卡片_超連結_動畫*/
+            color: #1fde82;
+        }
+        .bg3{ /*第三區塊_藍底*/
+            background-color: #2570ff;
+        }
+        .num_choose{  /*第三區塊_數字方塊+選擇文字*/
+            width: 1200px;
+            display: flex;
+            margin: 0px auto;
+            gap: 100px;
+            padding: 50px 0px;
+        }
+        .num_choose p{ /*第三區塊_數字方塊+選擇文字_所有文字*/
+            color: #ffffff;
+            font-size: 14px;
+        }
+        .num_list{ /*第三區塊_數字方塊+選擇文字_數字方塊清單*/
+            display: flex;
+            flex-wrap: wrap;
+            width: 600px;
+        }
+        .num{ /*第三區塊_數字方塊清單_方塊*/
+            background-color: #3f81ff;
+            width: 220px;
+            border-radius: 10px;
+            padding: 35px 30px;
+            margin: 10px;
+        }
+            .num p{ /*第三區塊__數字方塊清單_大數字+說明*/
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        .num .big_num{ /*第三區塊_數字方塊清單_大數字*/
+            font-size: 58px;
+            font-weight: 500;
+        }
+        .num_choose .wrap{ /*第三區塊__選擇文字*/
+            width: 350px;
+            margin: auto 0px;
+        }
+        .num_choose .choose{ /*第三區塊__選擇文字_內容*/
+            height:350px;
+        }
+        .num_choose .choose h2{ /*第三區塊__選擇文字_h2*/
+            color:#ffffff ;
+            margin-bottom: 30px;
+            line-height: 1.2em;
+        }
+        .num_choose .choose p{ /*第三區塊_選擇文字_p*/
+            margin-bottom: 40px;
+            line-height: 1.8em;
+        }
+        .num_choose .choose a{ /*第三區塊_選擇文字_a*/
+            color: #ffffff;
+            font-size: 14px;
+            border:1px solid #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: .5s;  
+        }
+        .num_choose .choose a:hover{ /*第三區塊__選擇文字_a_動畫*/
+            background-color: #1fde82;
+            border:1px solid  #1fde82;
+        }
+        .work_steps{ /*第四區塊*/
+            margin: 60px auto;
+            width: 1200px;
+        }
+        .work_steps h2{/*第四區塊_標題*/
+            margin-bottom: 50px;
+        } 
+        .step_list{/*第四區塊_步驟清單(人類圖+數字圖&文字區)*/
+            display: flex;
+            position: relative;
+        }
+        .people_img{ /*第四區塊_步驟清單_人類圖*/
+            width: 350px;
+            text-align: center;
+            margin: auto 0;
+        }
+        .step{  /*第四區塊_步驟清單_數字圖+文字區*/
+            display: flex;
+            width: 550px;
+            justify-content: end;
+        }
+        .step_num{ /*第四區塊_步驟清單_數字圖*/
+            text-align: center;
+            margin: auto 10px;
+            width: 100px;
+        }
+        .step img{ /*第四區塊_步驟清單_數字圖_圖本身*/
+            width: 80px;
+            height: 80px;
+            box-shadow:0px 8px 32px 0px rgba(31,222,130,0.46);
+            border-radius: 50% 50% 50% 50%;
+        }
+        .step .step_word{ /*第四區塊_步驟清單_文字區*/
+            width: 350px;
+            margin: auto 10px;
+        }
+        .step_word :nth-child(1){ /*第四區塊_步驟清單_文字區_文字1*/
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+        .step_word :nth-child(2){ /*第四區塊_步驟清單_文字區_文字2*/
+            font-size: 14px;
+            color: #838fa5;
+            line-height: 1.8em;
+            width: 350px;
+        }
+        .step_list:nth-child(odd) /*第四區塊_內容反轉*/
+        {
+            flex-direction: row-reverse;
+        }
+        .step_list:nth-child(odd) .step /*第四區塊_內容反轉*/
+        {
+            justify-content:start;
+        }
+        .step_list:nth-of-type(1) { /*第四區塊_步驟清單_第一步高度*/
+            height: 260px;
+        }
+        .step_list:nth-of-type(2) { /*第四區塊_步驟清單_第二步高度*/
+            height: 260px;
+        }
+        .step_list:nth-of-type(3) { /*第四區塊_步驟清單_第三步高度*/
+            height: 260px;
+        }
+        .step_list:nth-of-type(4) { /*第四區塊_步驟清單_第四步高度*/
+            height: 320px;
+        }
+        .step_list:nth-of-type(5) { /*第四區塊_步驟清單_第五步高度*/
+            height: 290px;
+        }
+        .step_list:nth-of-type(1) .step { /*第四區塊_步驟清單_第一數字*/
+            
+        }
+        .step_list:nth-of-type(2) .step { /*第四區塊_步驟清單_第二數字*/
+            transform: translateX(-80px);
+        }
+        .step_list:nth-of-type(3) .step { /*第四區塊_步驟清單_第三數字*/
+            transform: translateX(60px);
+        }
+        .step_list:nth-of-type(4) .step { /*第四區塊_步驟清單_第四數字*/
+            transform: translateX(-130px);
+        }
+        .step_list:nth-of-type(5) .step { /*第四區塊_步驟清單_第五數字*/
+            transform: translate(75px,-30px);
+        }
+        .line1 img{ /*第四區塊_步驟清單_第一條線*/
+            position: absolute;
+            left: 300px;
+            top: 190px;
+        }
+        .line2 img{ /*第四區塊_步驟清單_第二條線*/
+            position: absolute;
+            left: 280px;
+            top: 190px;
+        }
+        .line3 img{ /*第四區塊_步驟清單_第三條線*/
+            position: absolute;
+            left: 240px;
+            top: 190px;
+        }
+        .line4 img{ /*第四區塊_步驟清單_第四條線*/
+            position: absolute;
+            left: 230px;
+            top: 220px;
+        }
+        .bg5,.bg7{ /*第五區塊、第七區塊_灰底*/
+            background-color: #f9fbff;
+            padding: 10px 0px;
+        }
+        .projects{ /*第五區塊*/
+            width: 1200px;      
+            margin: 40px auto;       
+        }
+        .projects_word{ /*第五區塊_文字區(標題+超連結)*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin:40px 0px;
+        }
+        .projects_word h2{ /*第五區塊_文字區_標題*/
+            width: 400px;           
+        }
+        .projects_word a{ /*第五區塊_文字區_超連結*/
+            font-size: 14px;
+            border-radius:5px;          
+            padding: 10px 15px;
+            font-weight:bold;
+            height: 18px;
+            line-height: 18px;
+            color:#ffffff; 
+            background-color: #1fde82;
+            border: 1px solid #1fde82;
+            box-shadow:0px 8px 32px 0px rgba(31,222,130,0.46);
+            transition: .5s;
+        }
+        .projects_word a:hover /*第五區塊_文字區_超連結_動畫*/
+        {
+            background-color: #5d6678;
+            border: 1px solid #5d6678;
+            box-shadow:none
+        }
+        .projects_img_flex { /*第五區塊_圖片區_flex*/
+            display: flex;
+            justify-content: space-between;
+        }
+        .projects_img img{ /*第五區塊_圖片區_圖片本體*/
+            border-radius: 10px;
+            width: 370px;
+            height: 404px;
+        }
+        .test{ /*第五區塊_圖片區_當作父層*/
+            position: relative;
+        }
+        .opacity{ /*第五區塊_隱藏區_文字+超連結*/
+            background-color: #1fde82;            
+            width: 370px;
+            height: 404px;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition:.5s;           
+        }
+        .opacity p{ /*第五區塊_隱藏區_文字+超連結_文字*/
+            color: #ffffff;
+            font-weight: 400;
+            font-size: 40px;
+            margin:50px 30px;
+            line-height: 1.5;  
+        }
+        .opacity a{ /*第五區塊_隱藏區_文字+超連結_超連結*/
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-block;
+            margin:120px 30px 0px;
+            transition: .5s;
+        }
+        .projects_img:hover .opacity { /*第五區塊_隱藏區_文字+超連結_顯示動畫*/
+            opacity: 0.95;
+        }
+        .opacity a:hover{ /*第五區塊_隱藏區_文字+超連結_超連結_變色動畫*/
+            color: #4b5c7f;
+        }
+        .consultation{ /*第六區塊*/
+            width: 1200px;
+            margin: 50px auto;
+            padding: 35px 0;
+        }
+        .consultation_wrap{/*第六區塊_包裹(做flex)*/
+            display: flex;
+            justify-content: center;
+        }
+        .consultation_img{ /*第六區塊_圖片區*/
+            width: 600px;
+            text-align: center;
+        }
+        .consultation_sign{ /*第六區塊_登記區_包裹(白底)*/
+            width: 480px;
+            height: 500px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow:0px 4px 44px 0px rgba(17,29,48,0.06);
+            margin:auto ;
+        }
+        .consultation_sign_context{/*第六區塊_登記區_放h2+input內容*/
+            width: 400px;
+            height: 450px;
+            margin:20px auto ;
+        }
+        .consultation_sign_context h2{/*第六區塊_登記區_放h2+input內容_h2*/
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .label{ /*第六區塊_登記區_放h2+input內容_input內容_label(做框線)*/
+            border-radius: 5px;
+            border: 1px solid #d1d3d9;
+            line-height: 1em;
+            padding: 10px 15px;
+            margin-bottom:5px;
+        }
+        .label input,textarea{ /*第六區塊_登記區_放h2+input內容_input內容_label(拿原本框線)*/
+            border: none; /*外框線不顯示*/
+            outline: none; /*點著時，外框線不顯示*/
+            background-color: transparent;
+            width: 100%;
+        }
+        .submit input{  /*第六區塊_登記區_放h2+input內容_input內容_submit(拿原本框線)*/
+            border:none; 
+            font-size: 14px;
+            border-radius:5px;          
+            padding: 8px 15px;
+            font-weight:bold;
+            color:#ffffff; 
+            background-color: #1fde82;
+            border: 1px solid #1fde82;
+            box-shadow:0px 8px 32px 0px rgba(31,222,130,0.46);
+            transition: .5s;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit:hover input /*第六區塊_登記區_放h2+input內容_input內容_submit_動畫*/
+        {
+            background-color: #5d6678;
+            border: 1px solid #5d6678;
+            box-shadow:none;
+        } 
+        .Subscribe{/*第七區塊_標題+輸入區*/
+            width: 600px;
+            margin: 60px auto ;
+        }
+        .Subscribe h2{/*第七區塊_標題+輸入區_標題*/
+            width: 500px;
+            margin: 10px auto ;
+        }
+        .Subscribe_label{/*第七區塊_標題+輸入區_輸入區*/
+            width: 600px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .Subscribe_label div{ /*第七區塊_標題+輸入區_輸入區_div*/
+            display: inline-block;
+        }
+        .Subscribe_label .label{/*第七區塊_標題+輸入區_輸入區_email*/ 
+            width: 450px;
+        }
+        .Subscribe_label .submit input{/*第七區塊_標題+輸入區_輸入區_submit*/
+        padding:10px 15px;
+        }          
+        .footer{ /*頁尾*/
+            
+        }
+        .footer_container{ /*頁尾_內容容器*/
+            width: 1200px;
+            margin: 50px auto;
+        }
+        .row{  /*頁尾_內容容器_列*/
+            display: flex;
+            justify-content:space-evenly;
+        }
+        .col{ /*頁尾_內容容器_每一行*/
+            width: 25%;
+            margin: 2px 0;           
+        }
+        .col h3{ /*頁尾_內容容器_每一行_標題*/
+            font-size: 24px;
+            font-weight: 400;
+            margin: 10px 0px 25px;
+        }
+        .col a img{ /*頁尾_內容容器_第一行_logo*/
+            margin-bottom: 25px;
+        }
+        .col .phone{ /*頁尾_內容容器_第一行+最後一行_文字*/
+            margin: 10px 0px;
+            font-size: 14px;
+        }
+        .col .green{ /*頁尾_內容容器_第一行_文字(要變色部分)*/
+            color: #1fde82;
+            font-weight: 500;
+        }
+        .col h3+p{ /*頁尾_內容容器_最後一行_文字*/
+            margin-bottom: 30px;
+            color: #838fa5;
+        }
+        ul{ /*頁尾_內容容器__每一行_ul*/
+            list-style: none;
+        }
+        ul li{ /*頁尾_內容容器__每一行_ul_li*/
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        ul li a{ /*頁尾_內容容器__每一行_ul_li_a*/
+            color: #838fa5;
+        }
+        .col .icon a { /*頁尾_內容容器__每一行_icon區_a(撐開高度)*/
+            display: inline-block;   
+        }        
+        .col .icon a svg{ /*頁尾_內容容器__每一行_icon區_a(撐開高度)_svg*/
+            border: 1px solid #c0c7d2;
+            height: 15px;
+            width: 15px;
+            margin:3px;
+            border-radius: 50%;
+            padding: 10px;           
+            fill: #c0c7d2; 
+        }
+        .col .icon a:hover svg{ /*頁尾_內容容器__每一行_icon區_a(撐開高度)_svg_動畫*/
+            fill: #ffffff; 
+            background-color: #1fde82;
+        }
+        .copyright{/*商標*/
+            width: 1200px;
+            margin: 0px auto;              
+        }
+        .copyright .wrap{ /*商標_flex*/
+            display: flex;
+            justify-content: space-between;
+        }
+        .copyright .wrap p,a{ /*商標_文字設定*/
+            color: #5d6678;
+            font-size: 12px; 
+        }
+        .copyright_Zemez a{ /*商標_文字設定_左邊超連結*/
+            color: #1fde82;
+            font-weight: 400;
+        }
+        .copyright_Zemez a:hover{ /*商標_文字設定_左邊超連結_動畫*/
+            color: #4b5c7f;
+        }
+        .wrap .copyright_FAQ a{ /*商標_文字設定_右邊超連結*/
+            margin-left: 20px;
+        }
+        .top svg{ /*top箭頭*/
+            width: 18px;
+            height:18px;
+            fill: #1fde82;
+            position: fixed;
+            right: 25px;
+            bottom: 20px;
+            transition: .3s;
+            visibility: hidden;
+        }
+        .top.visible svg{  /*top箭頭滾動時顯示事件*/
+            visibility: visible;
+        }
+        .copyright a svg:hover{ /*_top箭頭_動畫*/
+            fill: #4b5c7f;  
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 導覽列 -->
+    <nav class="nav"> 
+        <div class="wrap"> 
+            <div class="wrap_img"> 
+                    <img src="HTML完整切版作業圖檔/logo.png" alt="壞掉的logo">                      
+            </div> 
+            <div class="wrap_directory"> 
+                    <a href="#" class="home">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Team</a>
+                    <a href="#">Case studio</a>
+                    <a href="#">Contacts</a>
+            </div>
+            <div class="wrap_a"> 
+                    <a href="#">SUBSCRIBE</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="all" id="top">
+        <!-- 第一區塊-1 -->
+        <div class="learn_more" >
+            <div class="bg1-1">
+                <div class="content">
+                    <div class="word">
+                        <h1 class="title">Our creativity is your success</h1>
+                        <p>We break all boundaries if they happen on our way of project’s development!</p>
+                        <div class="a">
+                            <a href="#" class="button button1">LEARN MORE</a>
+                            <a href="#"><img src="HTML完整切版作業圖檔/asset 1.svg" alt="壞掉的圖片"></a>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="HTML完整切版作業圖檔/asset 2.svg" alt="壞掉的圖片">
+                    </div>     
+                </div>
+            </div>
+            <!-- 第一區塊-2 -->
+            <div class="bg1-2">
+                <div class="content">
+                    <div class="word">
+                        <h2 class="title">Creative challenges are our passion</h2>
+                        <p>Our team of designers and developers work closely together to build a creative and positive working environment. Functionality is as important to us as aesthetics.</p>
+                        <div class="a">
+                            <a href="#" class="button button1">ABOUT US</a>
+                            <a href="#" class="button button2">CONTACT US</a>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="HTML完整切版作業圖檔/asset 3.webp" alt="壞掉的圖片">
+                    </div>     
+                </div>
+            </div>
+            <!-- 第二區塊 -->
+            <div class="bg2">
+                <div class="title_card">      
+                    <h2>We provide a wide range of creative services</h2>
+                    <div class="card_list">     
+                        <div class="card">          
+                            <img src="HTML完整切版作業圖檔/asset 4.svg" alt="壞掉的圖片">
+                            <h3>Web Design & Brending</h3>
+                            <p>A great brand combines design and conveys company’s value messaging to evoke emotion and drive strategy.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                        <div class="card">  
+                            <img src="HTML完整切版作業圖檔/asset 5.svg" alt="壞掉的圖片">
+                            </svg>
+                            <h3>Graphic Design</h3>
+                            <p>Rich experience plus unlimited imagination create our successful service discovered by clients.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                        <div class="card">  
+                            <img src="HTML完整切版作業圖檔/asset 6.svg" alt="壞掉的圖片">
+                            <h3>Video Production</h3>
+                            <p>Creating and handling professional video is our strong point. It plays major role in your digital business strategy.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                        <div class="card">  
+                            <img src="HTML完整切版作業圖檔/asset 7.svg" alt="壞掉的圖片">
+                            <h3>SEO</h3>
+                            <p>We provide everything your site needs to perform at it’s highest capabilities on the major search engines.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                        <div class="card">  
+                            <img src="HTML完整切版作業圖檔/asset 8.svg" alt="壞掉的圖片">
+                            </svg>
+                            <h3>Digital Marketing</h3>
+                            <p>We do collateral design, interactive design, hoarding, signage, presentation centres, and more.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                        <div class="card">  
+                            <img src="HTML完整切版作業圖檔/asset 9.svg" alt="壞掉的圖片">
+                            <h3>Infographics</h3>
+                            <p>Turn your data into captivating artwork that will keep your audience engaged. Our team can help you with it.</p>
+                            <a href="#">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 第一區塊-3 -->
+            <div class="bg1-3">
+                <div class="content">
+                    <div class="word">
+                        <h2 class="title">If you have any questions, please contact us</h2>
+                        <p>Our professional support team try to do their best to provide you with high-quality consultations concerning any question about our services.</p>
+                        <div class="a">
+                            <a href="#" class="button button1">CONTACT US</a>
+                            <a href="#" class="button button2">SUBSCRIBE</a>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="HTML完整切版作業圖檔/asset 36.svg" alt="壞掉的圖片">
+                    </div>     
+                </div>
+            </div>
+        </div>
+        <!-- 第三區塊 -->
+        <div class="bg3">
+            <div class="num_choose">
+                <div class="num_list">
+                    <div class="num">
+                        <p class="big_num">1880+</p>
+                        <p>Completed projects to the end by our specialists.</p>
+                    </div>
+                    <div class="num">
+                        <p class="big_num">56</p>
+                        <p>A large team of the best specialists.</p>
+                    </div>
+                    <div class="num">
+                        <p class="big_num">2000+</p>
+                        <p>Customers who were satisfied with our work.</p>
+                    </div>
+                    <div class="num">
+                        <p class="big_num">100%</p>
+                        <p>Our values are good organization and result orientation.</p>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="choose">
+                        <h2>Why choose our studio for your projects?</h2>
+                        <p>We are a command of professional and enthusiastic people, who like what they do and are always in the process of growing and improving their skills.</p>
+                        <a href="#">ORDER SERVICE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第四區塊 -->
+        <div class="bg4">
+            <div class="work_steps">
+                <h2>Steps of our work</h2>
+                <div class="step_list">
+                    <div class="people_img">
+                        <img src="HTML完整切版作業圖檔/people01.svg" alt="壞掉的圖片">
+                    </div>
+                    <div class="step">
+                        <div class="step_num">
+                            <img src="HTML完整切版作業圖檔/number-01.svg" alt="壞掉的圖片">
+                        </div>
+                        <div class="step_word">
+                            <p>Meeting With The Customer</p>
+                            <p>The first meeting is very import to form contact and discuss the main ideas of the project.</p>
+                        </div>
+                    </div>
+                    <div class="line1">
+                        <img src="HTML完整切版作業圖檔/line01.svg" alt="壞掉的線">
+                    </div>
+                </div>
+                <div class="step_list">
+                    <div class="people_img">
+                        <img src="HTML完整切版作業圖檔/people02.svg" alt="壞掉的圖片">
+                    </div>
+                    <div class="step">
+                        <div class="step_num">
+                            <img src="HTML完整切版作業圖檔/number-02.svg" alt="壞掉的圖片">
+                        </div>
+                        <div class="step_word">
+                            <p>We Consider And Analyze The Work Plan</p>
+                            <p>When we understand the main eideas, we proceed to discussing the work plan and analyzing it.</p>
+                        </div>
+                    </div>
+                    <div class="line2">
+                        <img src="HTML完整切版作業圖檔/line02.svg" alt="壞掉的線">
+                    </div>
+                </div>
+                <div class="step_list">
+                    <div class="people_img">
+                        <img src="HTML完整切版作業圖檔/people03.svg" alt="壞掉的圖片">
+                    </div>
+                    <div class="step">
+                        <div class="step_num">
+                            <img src="HTML完整切版作業圖檔/number-03.svg" alt="壞掉的圖片">
+                        </div>
+                        <div class="step_word">
+                            <p>Work Hard On The Project</p>
+                            <p>Our professional team start to handle with your project and embody the conception of the project.</p>
+                        </div>
+                    </div>
+                    <div class="line3">
+                        <img src="HTML完整切版作業圖檔/line03.svg" alt="壞掉的線">
+                    </div>
+                </div>
+                <div class="step_list">
+                    <div class="people_img">
+                        <img src="HTML完整切版作業圖檔/people04.svg" alt="壞掉的圖片">
+                    </div>
+                    <div class="step">
+                        <div class="step_num">
+                            <img src="HTML完整切版作業圖檔/number-04.svg" alt="壞掉的圖片">
+                        </div>
+                        <div class="step_word">
+                            <p>Once Again We Analyze And Check Everything</p>
+                            <p>We meet, analyze and check the done work and make needed corrections.</p>
+                        </div>
+                    </div>
+                    <div class="line4">
+                        <img src="HTML完整切版作業圖檔/line04.svg" alt="壞掉的線">
+                    </div>
+                </div>
+                <div class="step_list">
+                    <div class="people_img">
+                        <img src="HTML完整切版作業圖檔/people05.svg" alt="壞掉的圖片">
+                    </div>
+                    <div class="step">
+                        <div class="step_num">
+                            <img src="HTML完整切版作業圖檔/number-05.svg" alt="壞掉的圖片">
+                        </div>
+                        <div class="step_word">
+                            <p>We Finish The Work And Give It To The Customer</p>
+                            <p>The project is ready and we give it to the customer. Also we ask for the feedback from the customer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第五區塊 -->
+        <div class="bg5">
+            <div class="projects">
+                <div class="projects_word">
+                    <h2>Our team's work with Projects</h2>
+                    <a href="#">ALL PROJECTS</a>
+                </div>
+                <div class="projects_img_flex">
+                    <div class="projects_img">
+                            <div class="test">
+                                <img src="HTML完整切版作業圖檔/project-1.jpg" alt="壞掉的圖片">
+                                    <div class="opacity">
+                                        <p>Minimal Creative "Impuls"</p>
+                                        <a href="#">VIEW SITE </a>
+                                    </div>
+                            </div>
+                        </div>
+                    <div class="projects_img">
+                        <div class="test">
+                            <img src="HTML完整切版作業圖檔/project-2.jpg" alt="壞掉的圖片">
+                                <div class="opacity">
+                                    <p>Travel Company "Tour Up"</p>
+                                    <a href="#">VIEW SITE </a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="projects_img">
+                        <div class="test">
+                            <img src="HTML完整切版作業圖檔/project-3.jpg" alt="壞掉的圖片">
+                                <div class="opacity">
+                                    <p>Restaurant Pizza "Little Italy"</p>
+                                    <a href="#">VIEW SITE </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>            
+
+            </div>
+        </div>
+        <!-- 第六區塊 -->
+        <div class="bg6">
+            <div class="consultation">
+                <div class="consultation_wrap">
+                    <div class="consultation_img">
+                        <img src="HTML完整切版作業圖檔/three_people.svg" alt="壞掉的圖片">
+                    </div>
+                    <div class="consultation_sign">
+                        <div class="consultation_sign_context">
+                            <h2>Sign up for our consultation</h2>
+                            <div class="label">
+                                <label for="name"></label>
+                                <input type="text" id="name" value size="40" placeholder="Name">
+                            </div>
+                            <div class="label">
+                                <label for="email" ></label>
+                                <input type="email" id="email" value size="40"  placeholder="Email">
+                            </div>
+                            <div class="label">
+                                <label for="message"></label>
+                                <textarea name="" id="message" cols="40" rows="10" placeholder="Message" style="resize:vertical;height: 115px;" ></textarea>
+                            </div>
+                            <div class="submit">
+                                <label ></label>
+                                <input type="submit" value="SEAD" id="submit" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第七區塊 -->
+        <div class="bg7">
+            <div class="Subscribe">
+                <h2>Subscribe to our news and learn more</h2>
+                <div class="Subscribe_label">
+                    <div class="label">
+                        <label for="email" ></label>
+                        <input type="email" id="email" value size="40"  placeholder="Your Email" required>
+                    </div>
+                    <div class="submit">
+                        <label ></label>
+                        <input type="submit" value="SUBSCRIBE" id="submit" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 頁尾 -->
+        <footer class="footer">
+            <div class="footer_container">
+                <div class="row">
+                    <div class="col">
+                        <a href="#">
+                            <img src="HTML完整切版作業圖檔/logo.png" alt="">
+                        </a>
+                        <div class="phone">
+                            <a href="#">
+                                <span class="green">Phone:</span>
+                                <span>+ 1 (045) - 224 - 12 - 67</span>
+                            </a>
+                        </div>
+                            <div class="phone">
+                            <a href="#">
+                                <span class="green">Mail:</span>
+                                <span>info@demolink.org</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design & brending</a></li>
+                            <li><a href="#">Web development</a></li>
+                            <li><a href="#">Full Optimization</a></li>
+                            <li><a href="#">Research & Strategy</a></li>
+                            <li><a href="#">Management & Marketing</a></li>
+                            <li><a href="#">Free support</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>About Company</h3>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Case studio</a></li>
+                            <li><a href="#">Contacts</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Our Social Networks</h3>
+                        <p>Join us in the social networks and keep up on the latest news.</p>
+                        <div class="icon">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>
+                            </a>
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg>
+                            </a>
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                            </a>
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- 商標 -->
+        <div class="copyright">
+            <div class="wrap">
+                <div class="copyright_Zemez">
+                    <p>Copyright © 2018 Wordpress Maikon. All Rights Reserved. | Theme design by
+                        <a href="#">Zemez</a>
+                    </p>
+                </div>
+                <div class="copyright_FAQ">
+                    <a href="">Privacy & Policy</a>
+                    <a href="">FAQ</a>
+                </div>
+            </div> 
+        </div>       
+        <!-- 回頂端 -->
+        <a href="#top" class="top">
+            <?xml version="1.0" ?><svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><path d="M82.6074,62.1072,52.6057,26.1052a6.2028,6.2028,0,0,0-9.2114,0L13.3926,62.1072a5.999,5.999,0,1,0,9.2114,7.6879L48,39.3246,73.396,69.7951a5.999,5.999,0,1,0,9.2114-7.6879Z"/></svg>
+        </a>
+    </section>
+
+    <script>
+        /*classList：是 DOM 的一個唯讀屬性，也是一個物件，可以使用裡面的方法，新增、刪除、修改class*/
+
+        const nav = document.querySelector('.nav');  /*透過選擇器(.nav)，取得DOM元素，放進變數nav*/
+        window.addEventListener('scroll', () =>     /*針對「視窗」，新增「滾動」這個事件，進行監聽*/
+            {
+                const scroll = window.scrollY;         /*將滾動視窗y軸這件事，放進變數scroll*/
+
+                if (scroll > 0) {                      /*如果變數scroll(滾動視窗y軸)大於0*/
+                nav.classList.add('shadow');           /*就在變數nav的class，新增一個叫做shadow的class*/
+                } else {                               /*否則移除叫做shadow的class*/
+                nav.classList.remove('shadow');
+                }
+            }
+        );
+    </script>
+    <script>
+        /*classList：是 DOM 的一個唯讀屬性，也是一個物件，可以使用裡面的方法，新增、刪除、修改class*/
+
+        const arrow = document.querySelector('.top');  /*透過選擇器(.top)，取得DOM元素，放進變數arrow*/
+        window.addEventListener('scroll', () =>     /*針對「視窗」，新增「滾動」這個事件，進行監聽*/
+            {
+                const scroll = window.scrollY;         /*將滾動視窗y軸這件事，放進變數scroll*/
+
+                if (scroll > 0) {                           /*如果變數scroll(滾動視窗y軸)大於0*/
+                    arrow.classList.add('visible');         /*就在變數arrow的class，新增一個叫做visible的class*/   
+                } else {                                    /*否則移除叫做visible的class*/
+                    arrow.classList.remove('visible');
+                }
+            }
+        );
+    </script>
+
+</body>
+</html>
