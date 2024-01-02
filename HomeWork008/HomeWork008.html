@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋體' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}</style>
+</head>
+<body>
+    <!-- list-group-item-success 背景色 -->
+    <!-- text-bg-danger 紅底色 -->
+    <!-- text-bg-success 綠底色 -->
+
+    <div class="container border border-2 border-secondary-subtle rounded-1 p-4 my-5" style="width:500px">
+
+        <!-- 第一區塊 按鈕區 btn-group -->
+        <div class="btn-group d-flex my-3" role="group" aria-label="Default button group">
+            <button type="button" class="btn start  btn-outline-success">開始遊戲</button>
+            <button type="button" class="btn again  btn-outline-success">放棄重來</button>
+            <button type="button" class="btn seeAnswer btn-outline-success">偷看答案</button>
+        </div>
+        <!-- 第三區塊 輸入區 input-group -->  
+        <div class="input-group">
+            <span class="input-group-text border-success text-success">答案</span>
+            <input type="text" class="form-control border-success " placeholder="請輸入您猜想的4個數字(不可重複)" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="send btn btn-success" type="button" id="button-addon2">送出</button>
+        </div>
+
+        <!-- 第二區塊 歷程區 list-group -->       
+        <!-- <ul class="list-group my-3 " >
+            <li class="list-group-item border-success p-2">
+                <span class="float-right text-bg-success p-1 rounded-1 ">1234</span>
+                aaa               
+            </li>
+            <li class="list-group-item border-success p-2">
+                <span class="float-right text-bg-danger p-1 rounded-1">1234</span>
+                aaa               
+            </li>            
+        </ul> -->
+        <ul class="history list-group my-3">
+        </ul>
+    </div>
+    <!-- bootstrap -->  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>
+
+    //=====宣告初始值=====
+        let answer = null;        
+        const start = document.querySelector('.start');     //抓DOM元素-開始遊戲
+        const again = document.querySelector('.again');     //抓DOM元素-放棄重來
+        const input = document.querySelector('.form-control'); // 抓DOM元素-輸入框
+        const seeAnswer = document.querySelector('.seeAnswer'); //抓DOM元素-偷看答案
+        const send = document.querySelector('.send'); //抓DOM元素-送出按鈕
+        const history = document.querySelector('.history'); //抓DOM元素-歷程區
+
+    // =====function函式，一開網頁就執行=====
+        window.onload = function()
+        { 
+            //關閉各按鈕與輸入的操作
+            input.disabled = true;
+            again.disabled = true;
+            seeAnswer.disabled = true;
+            send.disabled = true;
+        }
+
+    // =====function函式，亂數=====
+        //亂數公式
+        function random(min, max) 
+        { 
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }       
+        //以亂數公式，產生4個不重複的數字
+        function generateRandom(){
+            const array = []; //產生空陣列
+            while (array.length < 4)  //建立迴圈，陣列的長度滿4個數字前，一直迴轉
+            {
+                const randomNum = random(0, 9); //套用亂數公式，產生1個亂數(範圍是數字0~9)
+                if (!array.includes(randomNum)){  //如果此亂數，原本不包括在陣列中
+                    array.push(randomNum); //就將此亂數，推入陣列(目的是排除重複數字)
+                }
+            }
+            return answer = array.join(''); //迴圈結束時(滿4個數字)，將數字們組裝起來，進行回傳
+        }
+
+    // =====function函式，判斷猜測數字為幾A幾B=====
+        function judgeAB(guess){
+            let judgeA = 0
+            let judgeB = 0
+            for (let i=0;i<4;i++){
+                if(guess[i]===answer[i]){ 
+                    judgeA++
+                }
+                else if(guess.includes(answer[i])){
+                    judgeB++
+                }
+            }
+            return `${judgeA}A${judgeB}B`
+        }
+
+    // =====function函式，檢查數字是否有重複=====
+        function repeatNum(num){
+            for (let i = 0; i < 4; i++) { // 有重複數字
+                for (let j = i+1; j < 4; j++) {
+                    if (num[i] === num[j]) {
+                    return true; 
+                    }   
+                }
+            }
+            return false; // 無重複數字
+        }
+
+    // =====事件-開始遊戲=====
+        start.addEventListener('click', function() {
+            //產生4位數字的亂數
+            answer = generateRandom()           
+            //啟用各按鈕與輸入的操作&關閉開始遊戲
+            input.disabled = false;
+            again.disabled = false;
+            seeAnswer.disabled = false;
+            send.disabled = false;
+            start.disabled = true;
+            history.innerHTML=''
+        });
+
+    // =====事件-偷看答案=====
+        seeAnswer.addEventListener('click', function() {
+            alert(`答案是：${answer}`);
+        });
+
+    // =====事件-放棄重來=====
+        again.addEventListener('click', function() {
+            //跳出原本的答案
+            alert(`這輪的答案是：${answer}\n按下確定後，遊戲將重新開始~`);
+            //重新產生亂數
+            answer = generateRandom()   
+            history.innerHTML = '';   
+        });
+
+    // =====事件-送出=====
+        send.addEventListener('click', function() {
+            //輸入的數字為猜測數字
+            const guess = input.value;
+            
+            //如果輸入不是數字、輸入不是4個或輸入重複數字，跳視窗提醒
+            if (isNaN(guess) || guess.length !== 4 || repeatNum(guess)) {   
+                alert('請輸入不重複的4個數字唷!');
+                input.value = '';
+                return;
+            }
+
+            //建立歷程區的li，並設定class
+            const historyItem = document.createElement('li');
+            historyItem.className = 'list-group-item border-success p-2';
+
+            //列出判斷完畢的結果
+            const judgeResult = judgeAB(guess);
+
+            //如果猜中，幾A幾B底色為綠色，關閉各按鈕與輸入的操作&啟用開始遊戲
+            if (judgeResult === '4A0B') {
+                historyItem.innerHTML = `<span class="float-right text-bg-success p-1 rounded-1">${judgeResult}</span>\t${guess}\t<span class="text-danger">答對了!!</span>`;
+                input.disabled = true;
+                again.disabled = true;
+                seeAnswer.disabled = true;
+                send.disabled = true;
+                start.disabled = false;                
+            } 
+            //如果猜錯，幾A幾B底色為紅色
+            else {   
+                historyItem.innerHTML = `<span class="float-right text-bg-danger p-1 rounded-1">${judgeResult}</span>\t${guess}`;
+            }
+            
+            // 將項目插入歷程區
+            history.appendChild(historyItem);
+
+            // 清空輸入框
+            input.value = '';
+        })
+    </script>
+</body>
+</html>
