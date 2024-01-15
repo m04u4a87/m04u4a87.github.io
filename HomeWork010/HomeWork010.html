@@ -181,11 +181,13 @@
             toDoContent.disabled = true;
             editBtn.style.display = 'inline-block';
             saveBtn.style.display = 'none';
+            saveTodoItems();
         });
 
         //事件-點擊刪除按鈕
         delBtn.addEventListener('click', function() {
             toDoItem.remove();
+            saveTodoItems();
         });
 
         return toDoItem;
@@ -193,16 +195,16 @@
 
     //=====function-待辦清單存到localStorage=====
     function saveTodoItems() {
-        const toDoItems = [];
-        const toDoList = document.querySelectorAll('.toDoList');
+    const toDoItems = [];
+    const toDoContentList = document.querySelectorAll('.toDoContent');
 
-        toDoList.forEach((item) => {
-            const toDoContent = item.querySelector('.toDoContent').value;
-            toDoItems.push(toDoContent);
-        });
+    toDoContentList.forEach((contentElement) => {
+        const toDoContent = contentElement.value;
+        toDoItems.push(toDoContent);
+    });
 
-        localStorage.setItem('toDoItems', JSON.stringify(toDoItems));
-    }
+    localStorage.setItem('toDoItems', JSON.stringify(toDoItems));
+}
 
     //=====function-載入localStorage中的待辦清單=====
     function loadTodoItems() {
