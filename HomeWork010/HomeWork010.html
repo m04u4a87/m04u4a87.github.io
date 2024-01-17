@@ -136,9 +136,12 @@
         const checkbox = document.createElement('input');
         checkbox.classList.add('form-check-input', 'mt-0');
         checkbox.type = 'checkbox';
+        const isChecked = localStorage.getItem(`isChecked_${content}`); 
+        checkbox.checked = isChecked === 'true';
         check.appendChild(checkbox);
         toDoItem.appendChild(check);
 
+        
         //輸入的待辦內容
         const toDoContent = document.createElement('input');
         toDoContent.type = 'text';
@@ -146,6 +149,7 @@
         toDoContent.value = content;
         toDoItem.appendChild(toDoContent);
         toDoContent.disabled = true;
+
 
         //編輯按鈕
         const editBtn = document.createElement('button');
@@ -187,6 +191,12 @@
         //事件-點擊刪除按鈕
         delBtn.addEventListener('click', function() {
             toDoItem.remove();
+            saveTodoItems();
+        });
+
+        //事件-勾選事件
+        checkbox.addEventListener('change', function() {
+            localStorage.setItem(`isChecked_${content}`, checkbox.checked);
             saveTodoItems();
         });
 
