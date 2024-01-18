@@ -197,7 +197,6 @@
         //事件-勾選事件
         checkbox.addEventListener('change', function() {
             localStorage.setItem(`isChecked_${content}`, checkbox.checked);
-            saveTodoItems();
         });
 
         return toDoItem;
