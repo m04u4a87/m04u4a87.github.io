@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+<style>
+    body{
+        width: 70%;
+    }
+    /*內容-格子-票劵清單*/
+    .grid-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    /*內容-格子-單張票劵*/
+    .grid {
+        width: calc(50% - 20px);
+        margin: 10px;
+        display: flex;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+    /*內容-格子-單張票劵-碰到效果*/
+    .grid:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    /*內容-格子-單張票劵-文字內容*/
+    .grid-content {
+        width: 50%;
+        padding: 10px;
+    }
+    /*內容-格子-單張票劵-文字內容-標題*/
+    .grid-content h2 {
+        font-size: calc(16px + .1vw);
+    }
+    /*內容-格子-單張票劵-文字內容-日期&訂單標號*/
+    .grid-content p {
+        font-size: calc(14px + .1vw);
+    }
+    /*內容-格子-單張票劵-操作*/
+    .grid-operate {
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        align-items: center;
+    }
+    /*內容-格子-單張票劵-操作-按鈕們*/
+    .button {
+        width: 50px;
+        height: 50px;
+        font-size: calc(14px + .1vw);
+        border: 1px solid;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        margin-right: 5px;
+        font-weight: bold;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    /*內容-格子-單張票劵-操作-取票按鈕*/
+    .getTicket {
+        background-color: #0072e3;
+        border: 2px ridge #0072e3;
+        color: #fff;
+    }
+    /*內容-格子-單張票劵-操作-退票按鈕*/
+    .returnTicket {
+        background-color: #e31a00;
+        border: 2px ridge #e31a00;
+        color: #fff;
+    }
+    /*內容-格子-單張票劵-操作-下載按鈕*/
+    .download {
+        border: 2px ridge #e39700;
+        color: #e39700;
+    }
+    /*內容-格子-單張票劵-操作-明細按鈕*/
+    .details {
+        border: 2px ridge #888888;
+        color: #888888;
+    }
+    /*內容-格子-單張票劵-操作-取票按鈕*/
+    .getTicket:hover {
+        background-color: #005ab5;
+        border: 2px ridge #005ab5;
+    }
+    /*內容-格子-單張票劵-操作-退票按鈕*/
+    .returnTicket:hover {
+        background-color: #ab1502;
+        border: 2px ridge #ab1502;
+    }
+    /*內容-格子-單張票劵-操作-下載按鈕*/
+    .download:hover {
+        border: 2px ridge #c98600;
+        color: #c98600;
+    }
+    /*內容-格子-單張票劵-操作-明細按鈕*/
+    .details:hover {
+        border: 2px ridge #616161;
+        color: #616161;
+    }
+    /*明細的彈跳視窗*/
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        inset: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    /*明細的彈跳視窗-內容*/
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+    }
+    /*明細的彈跳視窗-關閉圖案*/
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: calc(24px + .1vw);
+        font-weight: bold;
+    }
+    /*明細的彈跳視窗-碰到效果*/
+    .close:hover{
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    /*明細的彈跳視窗-水平線*/
+    hr {
+        margin:20px 0px;
+    }
+</style>
+</head>
+<body>
+    <!-- 格子清單 -->
+    <div class="grid-list">
+        <!-- 單個格子 -->
+        <div class="grid">
+            <div class="grid-content">
+                <h2>第一波 免費住宿抽獎活動</h2>
+                <p class="date">2024-02-01 00:00 ~ 2024-02-08 00:00</p>
+                <p class="orderNumber">訂單編號：2402020743191190037594</p>
+            </div>
+            <div class="grid-operate">
+                <a href="#" class="getTicket button">取票</a>
+                <a href="#" class="returnTicket button">退票</a>
+                <a href="#" class="download button">下載</a>
+                <a href="#" class="details button">明細</a>
+            </div>
+        </div>
+    </div>
+    <!-- 彈跳視窗 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <div>
+            <h3>票券資訊</h3>
+            <p>票號: 2402020743191075656578</p>
+            <p>票種: 抽獎劵</p>
+            <p>單價: $0</p>
+            <p>有效期限: 2024-02-01 00:00 ~ 2024-02-08 00:00</p>
+        </div>
+        <hr>
+        <div>
+            <h3>參加人資訊</h3>
+            <p>姓名: 譚舒舒</p>
+            <p>電子郵件: 123456@gmail.com</p>
+            <p>行動電話: 886909090090</p>
+        </div>
+        </div>
+    </div>
+
+    <script>
+    
+    //明細的彈跳視窗
+    var modal = document.getElementById('modal');
+    var closeBtn = document.getElementsByClassName('close')[0];
+    //點擊明細按鈕，顯示彈出視窗
+    document.getElementsByClassName('details')[0].onclick = function() {
+        modal.style.display = 'block';
+    }
+    //點擊關閉叉叉，關閉彈出視窗
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+    </script>
+            
+</body>
+</html>
