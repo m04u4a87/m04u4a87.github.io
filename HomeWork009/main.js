@@ -100,7 +100,7 @@ function renderingCalendar() {
       curr.getMonth() === today.getMonth() &&
       curr.getDate() === today.getDate()
     ) {
-      dateEl.classList.add("badge", "rounded-pill", "text-bg-primary");
+      dateEl.classList.add("badge", "rounded-pill","bg-primary", "text-white");
     }
     dateDom.append(dateEl);
 
