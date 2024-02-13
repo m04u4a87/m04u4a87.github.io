@@ -130,6 +130,7 @@
 
         /*目錄-導覽列*/
         .menu{
+            /* width: 40%; */
         }
         /*目錄-所有目錄*/
         .main-menu{
@@ -154,34 +155,29 @@
         /*目錄-所有超連結&個人檔案*/
         .main-menu a,.menu-personalProfile{
             display: inline-block;
-            color: #2E6193;
+            color:  #273da7;
             cursor: pointer;
             line-height: 30px;
         }
         /*目錄-所有超連結-碰到的變化*/
         .main-menu a:hover{
-            color: #fff;
-            background-color: #273da7;
-            border-radius: 10px;
-            padding: 0px 5px;
+            font-weight:bold;
         }
         /*目錄-個人檔案-碰到的變化*/
         .menu-personalProfile:hover{
-            color: #fff;
-            background-color: #273da7;
-            border-radius: 10px;
-            padding: 0px 3px;
+            font-weight:bold;
         }
         /*目錄-個人檔案-箭頭-碰到的變化*/
         .menu-personalProfile:hover .icon-arrow{
-            fill: #fff;
+            font-weight:bold;
         }
         /*目錄-箭頭符號*/
         .icon-arrow{
+            transform: rotate(90deg);
             text-align: center;
             vertical-align: middle;
-            width: 15px;
-            height:15px;
+            width: 12px;
+            height:12px;
             line-height: 30px;
             fill: #2E6193;
         }
@@ -191,7 +187,7 @@
         }
         /*目錄-子目錄-平時隱藏*/       
         .sub-menu{
-            display: none;
+            display: block;
         }
         /*目錄-漢堡聯動勾選框-平時隱藏*/  
         .hb-input-item{
@@ -199,12 +195,19 @@
         }
         /*目錄-箭頭聯動勾選框被選時，子目錄顯示*/ 
         .menu-input-item:checked ~.sub-menu {
-            display: block;
+            display: none;
         }
         /*目錄-箭頭聯動勾選框被選時，箭頭轉向*/ 
         .menu-input-item:checked +.menu-personalProfile .icon-arrow {
-            transform: rotate(90deg);
+            transform: rotate(0deg);
             transition: transform .2s;
+        }
+        /*目錄-當頁目錄換色*/
+        .currentPage a{
+            color: #fff;
+            background-color: #273da7;
+            border-radius: 10px;
+            padding: 0px 5px;
         }
 
         /*內容-包裹容器*/
@@ -696,7 +699,7 @@
                 </ul>
             </li>
             <li><a href="https://m04u4a87.github.io/SeniorProject/myTicket.html" class="menu-myTicket">我的票券</a></li>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
+            <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
         </ul>
     </div>
 
