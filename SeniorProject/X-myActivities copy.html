@@ -18,8 +18,6 @@
         }
         body{/*上方預留導覽列的寬度*/
             padding-top: 50px;
-            background-color: #F8FBFF;
-            font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
         }
         /* ↓↓↓↓↓↓等待mona */
         header{
@@ -67,6 +65,7 @@
         }
         .magnifier img{
             width:20px;
+
             vertical-align: middle;
             margin-right: 10px;
         }
@@ -129,77 +128,102 @@
             margin: 20px auto;
         }
 
-        /*目錄*/
+        /*目錄-導覽列*/
         .menu{
-            width: 30%;
+            /* width: 40%; */
         }
-        /*目錄-所有內容*/
+        /*目錄-所有目錄*/
         .main-menu{
-            background-color: #fff;
-            width: 100%;
-            position: sticky;
-            top:70px;
-            z-index: 50;
+            padding: 20px;
+            width: 150px;
+            height: 300px;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
             border-radius: 10px;
         }
-        /*清空預設*/
-        ul{
-            padding-left:0px;
-        }
-        /*目錄-線條*/
-        .main-menu hr{
-            width: 100%;
-            color: #9e9e9e;
-            margin: 0px;
-        }
-        /*目錄-所有超連結*/
-        .main-menu a{
-            font-size:calc(18px + .1vw);
-            display: block;
-            color:  #000;
-            line-height: 70px;
-            padding:0px 25px;
+        /*目錄-會員中心*/
+        .menu-memberCentre{
+            color: #2E6193;
             font-weight: bold;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        /*目錄-會員中心下方的線條*/
+        .menu-memberCentre+hr{
+            margin:5px 0px;
+            width: 100%;
+        }
+        /*目錄-所有超連結&個人檔案*/
+        .main-menu a,.menu-personalProfile{
+            display: inline-block;
+            color:  #273da7;
+            cursor: pointer;
+            line-height: 30px;
         }
         /*目錄-所有超連結-碰到的變化*/
         .main-menu a:hover{
-            color: #0088d2;
+            font-weight:bold;
+        }
+        /*目錄-個人檔案-碰到的變化*/
+        .menu-personalProfile:hover{
+            font-weight:bold;
+        }
+        /*目錄-個人檔案-箭頭-碰到的變化*/
+        .menu-personalProfile:hover .icon-arrow{
+            font-weight:bold;
+        }
+        /*目錄-箭頭符號*/
+        .icon-arrow{
+            transform: rotate(90deg);
+            text-align: center;
+            vertical-align: middle;
+            width: 12px;
+            height:12px;
+            line-height: 30px;
+            fill: #2E6193;
+        }
+        /*目錄-箭頭聯動勾選框，平時隱藏*/
+        .menu-input-item{
+            display: none;
+        }
+        /*目錄-子目錄-平時隱藏*/       
+        .sub-menu{
+            display: block;
         }
         /*目錄-漢堡聯動勾選框-平時隱藏*/  
         .hb-input-item{
             display: none;
         }
+        /*目錄-箭頭聯動勾選框被選時，子目錄顯示*/ 
+        .menu-input-item:checked ~.sub-menu {
+            display: none;
+        }
+        /*目錄-箭頭聯動勾選框被選時，箭頭轉向*/ 
+        .menu-input-item:checked +.menu-personalProfile .icon-arrow {
+            transform: rotate(0deg);
+            transition: transform .2s;
+        }
         /*目錄-當頁目錄換色*/
         .currentPage a{
-            /* border-left: 5px solid #0088d2; */
-            background: linear-gradient(to left, #80C3FF, #6D9FF4);
             color: #fff;
-        }
-        /*目錄-當頁目錄-碰到時不做效果*/
-        .currentPage a:hover{
-            color: #fff;
+            background-color: #273da7;
+            border-radius: 10px;
+            padding: 0px 5px;
         }
 
         /*內容-包裹容器*/
         .content{
-            background-color: #fff;
-            box-shadow:0 0 10px 0px rgb(244, 244, 244);
-            border-radius: 10px;
             width:100%;
             min-height: 100vh;
-            margin-left: 20px;
         }
         /*內容-照片與姓名&主要內容*/
         .photoNameAndMainContent{
-            width: 80%;
-            margin: 40px auto;
+            width: 70%;
+            margin: 0px auto;
         }
         /*內容-照片與姓名*/
         .photoAndName{
             display:flex;
             align-items: center;
-            margin: 40px auto;
         }
         /*內容-照片與姓名-照片外框*/
         .photo{
@@ -215,7 +239,7 @@
         }
         /*內容-照片與姓名-姓名*/
         .name{
-            font-size:calc(16px + 1vw);
+            font-size:calc(12px + 1vw);
             padding-left:15px;
             letter-spacing:3px;
             margin-bottom: 0px;
@@ -230,14 +254,14 @@
         }
         /*內容-我的活動-標籤-文字*/
         .tab > ul li a { 
-            font-size: 18px;
+            font-size: 15px;
             color: #000;
             float: left;
-            padding: 10px 22px;
+            padding: 8px 15px;
             border: 1px solid #4e68e824;
             border-bottom: none;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
             color:#4e68e8;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -291,7 +315,7 @@
         /*內容-卡片清單-單張卡片*/
         .card{
             width: calc(50% - 20px);
-            margin: 15px 0px;
+            margin: 10px;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -334,7 +358,7 @@
         }
         /*內容-卡片-頭部-觀看人數*/
         .viewNumber {
-            font-size: calc(14px + .1vw);
+            font-size: calc(10px + .1vw);
         }
         /*內容-卡片-主體*/
         .card-body {
@@ -347,9 +371,9 @@
         }
         /*內容-卡片-主體-標題*/
         h2 {
-            font-size: calc(16px + .1vw);
+            font-size: calc(14px + .1vw);
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display:-webkit-box;
             -webkit-line-clamp: 1; 
             -webkit-box-orient: vertical;  
@@ -358,7 +382,7 @@
         /*內容-卡片-主體-日期*/
         .date{
             color: #bdbdbd;
-            line-height: 20px;
+            line-height: 15px;
             display:-webkit-box;
             -webkit-line-clamp: 1; 
             -webkit-box-orient: vertical;  
@@ -367,9 +391,9 @@
         /*內容-卡片-主體-簡介*/
         p:not(.name) {
             margin: 10px 0px;
-            font-size: calc(14px + .1vw);
+            font-size: calc(10px + .1vw);
             display:-webkit-box;
-            -webkit-line-clamp: 2; 
+            -webkit-line-clamp: 4; 
             -webkit-box-orient: vertical;  
             overflow: hidden;
 
@@ -381,13 +405,14 @@
             align-items: center;
         }
         /*內容-卡片-尾部-喜歡人數*/
-        .card-footer .likeNumber{
-            margin-left: 5px;
+        .likeNumber{
+            margin: auto 0px;
         }
         /*內容-卡片-尾部-愛心圖案(按喜歡時)*/
         .iconLikeLove svg {
             border: 1px solid #ff5258;
             fill: #ff5258;
+            margin-right: 6px;
             height: 30px;
             width: 30px;
             margin:3px;
@@ -409,7 +434,7 @@
         .hotSale{
             background-color: #1fb0ff;
             color: #fff;
-            font-size: calc(14px + .1vw);
+            font-size: calc(10px + .1vw);
             padding: 5px 15px;
             border-radius: 5px;
             margin-left: auto;
@@ -418,7 +443,7 @@
         .end{
             background-color: #bdbdbd;
             color: #fff;
-            font-size: calc(14px + .1vw);
+            font-size: calc(10px + .1vw);
             padding: 5px 15px;
             border-radius: 4px;
             margin-left: auto;
@@ -435,7 +460,7 @@
             display: flex;
             width: calc(50% - 20px);
             align-items: center;
-            margin: 15px 0px;
+            margin: 10px;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -464,26 +489,26 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             padding: 0px 10px;
         }
         /*內容-格子-單個追蹤單位-標題*/
         .organizersName h2{
-            font-size: calc(16px + .1vw);
+            font-size: calc(14px + .1vw);
             font-weight: bold;
             display:-webkit-box;
-            -webkit-line-clamp: 2; 
+            -webkit-line-clamp: 4; 
             -webkit-box-orient: vertical;  
             overflow: hidden;
         }
         /*內容-格子-單個追蹤單位-總活動數&追蹤人數*/
         .totalActivitiesNumber,.trackNumber{
-            font-size: calc(14px + .1vw);
+            font-size: calc(10px + .1vw);
             margin: 5px 0;
         }
         /*內容-格子-單個追蹤單位-追蹤狀態(勾勾+字)*/
         .trackStatus {
-            font-size: calc(14px + .1vw);
+            font-size: calc(10px + .1vw);
             background-color: #007bff;
             color: #fff;
             border: none;
@@ -514,18 +539,9 @@
         @media screen and (max-width: 767px) {
             .all{
                 width: 100%;
-                margin: 0px auto;
-            }
-            /*內容-包裹容器*/
-            .content{
-                background-color: #fff;
-                box-shadow:none;
-                border-radius: 0px;
-                margin-left: 0px;
             }
             .card{
-                width: 100%;
-                margin: 15px auto;
+                width: calc(100% - 20px);
             }
             .tab ul li a { 
                 width: 100%;
@@ -534,12 +550,19 @@
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
             .grid{
-                width:100%;
-                margin: 15px auto;
+                width: calc(100% - 20px);
             }
             /*內容-格子-單個追蹤單位-標題*/
             .organizersName h2{
-                font-size: calc(18px + .1vw);
+                font-size: calc(16px + .1vw);
+            }
+            /*內容-格子-單個追蹤單位-總活動數&追蹤人數*/
+            .totalActivitiesNumber,.trackNumber{
+                font-size: calc(12px + .1vw);
+            }
+            /*內容-格子-單個追蹤單位-追蹤狀態(勾勾+字)*/
+            .trackStatus {
+                font-size: calc(12px + .1vw);
             }
         }
 
@@ -553,8 +576,8 @@
             .menu {
                 position:absolute;
                 top:0px;
-                left: -300%;
-                width: calc(150px + 10%);
+                left: -200%;
+                width: calc(130px + 10%);
                 height: 100%;
                 background-color: #ffffff; 
                 box-shadow:0 0 50px 0px rgb(225, 225, 225);
@@ -572,6 +595,15 @@
                 margin: 30px auto;
                 width: calc(150px + 20%);
                 font-size: calc(18px + .1vw)
+            }
+            .menu-memberCentre{
+                font-size: calc(20px + .1vw)
+            }
+            .menu-memberCentre+hr{
+                margin:10px 0px;
+            }
+            .main-menu a,.menu-personalProfile{
+                line-height: 40px;
             }
             .hb {
                 width: 30px;
@@ -651,19 +683,23 @@
     <!-- 目錄 -->
     <div class="menu" >
         <ul class="main-menu">
+            <li class="menu-memberCentre">會員中心</li>
+            <hr>
+            <li>
+            <input type="checkbox" class="menu-input-item" name="" id="menu-input-item">
+                <label for="menu-input-item" class="menu-personalProfile">
+                    個人檔案
+                    <svg class="icon-arrow" fill="#000000" width="800px" height="800px" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><path d="M69.8437,43.3876,33.8422,13.3863a6.0035,6.0035,0,0,0-7.6878,9.223l30.47,25.39-30.47,25.39a6.0035,6.0035,0,0,0,7.6878,9.2231L69.8437,52.6106a6.0091,6.0091,0,0,0,0-9.223Z"/></svg>
+                </label>
+                <ul class="sub-menu">
+                    <li><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
+                    <li><a href="https://m04u4a87.github.io/SeniorProject/careerDevelopment.html" class="menu-careerDevelopment">職涯發展</a></li>
+                    <li><a href="https://m04u4a87.github.io/SeniorProject/changeEmail.html" class="menu-changeEmail">變更信箱</a></li>
+                    <li><a href="https://m04u4a87.github.io/SeniorProject/changePassword.html" class="menu-changePassword">變更密碼</a></li>
+                </ul>
+            </li>
             <li><a href="https://m04u4a87.github.io/SeniorProject/myTicket.html" class="menu-myTicket">我的票券</a></li>
-            <hr>
             <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/careerDevelopment.html" class="menu-careerDevelopment">職涯發展</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/changeEmail.html" class="menu-changeEmail">變更信箱</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/changePassword.html" class="menu-changePassword">變更密碼</a></li>
-
-
         </ul>
     </div>
 
@@ -676,6 +712,7 @@
                 <img src="./image/LINE_ALBUM_兒子特輯_240201_1.jpg" class="photo">
                 <p class="name">譚舒舒</p>
             </div>
+            <hr>
 
             <!-- 我的活動 -->
             <div class="myActivities">
