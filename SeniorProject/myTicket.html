@@ -17,14 +17,14 @@
             text-decoration: none;
         }
         body{/*上方預留導覽列的寬度*/
-            padding-top: 50px;
+            padding-top: 60px;
             background-color: #F8FBFF;
             font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
         }
         /* ↓↓↓↓↓↓等待mona */
         header{
             width: 100%;
-            height: 50px;
+            height: 60px;
             background: linear-gradient(to top, #B5D7FF, #8CAEF7);
             position: fixed;
             top: 0;
@@ -138,7 +138,7 @@
             background-color: #fff;
             width: 100%;
             position: sticky;
-            top:70px;
+            top:80px;
             z-index: 50;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
             border-radius: 10px;
@@ -174,13 +174,10 @@
         .currentPage a{
             background: linear-gradient(to left, #80C3FF, #6D9FF4);
             color: #fff;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
         }
         /*目錄-當頁目錄-碰到時不做效果*/
         .currentPage a:hover{
             color: #fff;
-
         }
 
         /*內容-包裹容器*/
@@ -222,6 +219,7 @@
             letter-spacing:3px;
             margin-bottom: 0px;
         }
+
         /*內容-我的票劵-ul預設空格清空*/
         .myTicket ul{
             padding: 0;
@@ -236,6 +234,7 @@
             color: #000;
             float: left;
             padding: 10px 22px;
+            margin-right: 10px;
             border: 1px solid #4e68e824;
             border-bottom: none;
             border-top-right-radius: 10px;
@@ -285,6 +284,7 @@
         .tabLink {
             display: none;
         }
+
         /*內容-格子-票劵清單*/
         .grid-list {
             display: flex;
@@ -297,33 +297,30 @@
             width: 100%;
             margin: 10px 0px;
             display: flex;
-            border: 1px solid #ddd;
+            border: 1px solid #d1d1d1;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease;
+            position:relative;
         }
         /*內容-格子-單張票劵-碰到效果*/
         .grid:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
         }
-        /*內容-格子-單張票劵-三角形*/
-        /* .grid::before{
-            content: '▼';
-            width: 10px;
-            height: 10px;
-            color:#454545
-        } */
         /*內容-格子-單張票劵-文字內容*/
         .grid-content {
-            width: 60%;
+            width: 70%;
             padding: 15px;
-            border-left: 8px solid #0579ed;
+            border-left: 8px solid #7AB8FB;
             border-right: 2px dashed #ddd;
+            position:relative;
         }
+
+
         /*內容-格子-單張票劵-文字內容-標題*/
         .grid-content h2 {
-            font-size: calc(16px + .1vw);
+            font-size: calc(18px + .1vw);
             font-weight: bold;
             margin-bottom: 10px;
             display:-webkit-box;
@@ -334,8 +331,8 @@
         /*內容-格子-單張票劵-文字內容-日期&訂單標號*/
         .grid-content p {
             margin: 5px 0px;
-            font-size: calc(14px + .1vw);
-            color: #616161;
+            font-size: calc(16px + .1vw);
+            color: #7e7e7ee8;
             display:-webkit-box;
             -webkit-line-clamp: 1; 
             -webkit-box-orient: vertical;  
@@ -343,28 +340,109 @@
         }
         /*內容-格子-單張票劵-文字內容-標題*/
         .grid-content .date {
-            color: #585858;
+            color: #7e7e7ee8;
         }
         /*內容-格子-單張票劵-操作*/
         .grid-operate {
             padding: 15px;
-            width: 40%;
+            width: 30%;
             display: flex;
-            justify-content:center;
+            flex-direction: column;
             align-items: center;
+            position: relative;
+        }
+        /*內容-格子-單張票劵-剪口(上)*/
+        .grid-content::before{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border: 1px solid #d1d1d1;
+            border-radius: 0px 0px 10px 10px;
+            background-color:#ffffff;
+            top:-1px;
+            right: -11px;
+            box-shadow: -0px -1px 2px 0px rgba(0, 0, 0, 0.1) inset;
+        }
+        .grid-content::after{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 10px;
+            border-radius: 0px 0px 10px 
+            10px;
+            background-color:#ffffff;
+            top:-5px;
+            right: -11px;
+        }
+        /*內容-格子-單張票劵-剪口(下)*/
+        .grid-operate::before{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-1px;
+            left: -11px;
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+        }
+        .grid-operate::after{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-10px;
+            left: -11px;
         }
         /*內容-格子-單張票劵-操作-按鈕們*/
-        .button {
-            width: 50px;
-            height: 50px;
-            font-size: calc(14px + .1vw);
-            border: 0px solid ;
+        .operate-header{
+            border-bottom: 2px dashed #ddd;
+            width: 100%;
             text-align: center;
-            line-height: 50px;
-            margin-right: 5px;
+        }
+        .getTicket{
+            margin-bottom: 5px;
+            display: inline-block;
+            background-color: #7AB8FB;
+            color: #fff;
+            border-radius: 30px;
+            padding: 8px 30px;
+            font-size: calc(14px + .1vw);
+            border: 1px solid;
             transition: transform .2s;
-            background-color: #efefefa8;
-            color: #797979;
+            font-weight: bold;
+            letter-spacing:3px;
+        }
+        .operate-footer {
+            display: flex;
+            text-align: center;
+            width: 100%;
+            font-size: calc(14px + .1vw);
+            transition: transform .2s;
+            color: #838383fd;
+            font-weight: bold;
+            letter-spacing:3px;
+        }
+        .returnTicket,.download{
+            color: #7e7e7ee8;
+            display: inline-block;
+            margin: 5px 0px;
+            height: 30px;
+            width: 33.33%;
+            line-height: 30px;
+            border-right: 2px dashed #ddd;
+        }
+        .details{
+            color: #7e7e7ee8;
+            display: inline-block;
+            margin: 5px 0px;
+            height: 30px;
+            width: 33.33%;
+            line-height: 30px;
         }
         /*內容-格子-單張票劵-操作-按鈕們-碰到效果*/
         .button:hover {
@@ -388,94 +466,6 @@
             line-height: 14px;
             padding-left: 18px;        
         }
-        /*內容-未完成-操作寬度限定更改*/        
-        .operate-undone{
-            width: 15%;
-        }
-        /*內容-未完成*/
-        .grid-continueOrCancel{
-            width:30%;
-            border-right: 1px solid #ddd;
-            padding: 15px;
-            text-align:center
-        }
-        /*內容-未完成-狀態*/
-        .grid-continueOrCancel .state{
-            color: rgb(255, 255, 255);
-            background-color: #f00;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: calc(14px + .1vw);
-        }
-        /*內容-未完成-倒數時間*/
-        .grid-continueOrCancel .timeLeft{
-            font-size: calc(14px + .1vw);
-            color: rgb(255, 0, 0);
-            font-weight: bold;
-        }
-        /*內容-未完成-倒數時間-背景色*/
-        .grid-continueOrCancel .timeLeft span{
-            background-color: #f00;
-        }
-        /*內容-未完成-繼續填寫按鈕*/
-        .continueWriting{
-            display: block;
-            width: 60px;
-            font-size: calc(10px + .1vw);
-            background-color: rgb(0, 21, 255);
-            color: #ffffff;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 5px;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-            transition: transform .2s;
-        }
-        /*內容-未完成-取消報名按鈕*/
-        .cancelRegistration{
-            width: 60px;
-            font-size: calc(10px + .1vw);
-            border: 0px;
-            background: #d6d6d6;
-            color: #575757;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 5px;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: transform .2s;
-        }
-        /*內容-未完成-繼續填寫-碰到效果*/
-        .continueWriting:hover{
-            background-color: rgb(0, 19, 227);
-            transform: scale(0.95);
-        }
-        /*內容-未完成-取消報名-碰到效果*/
-        .cancelRegistration:hover{
-            background: #c1c1c1;
-            transform: scale(0.95);
-        }
-        /*內容-已取消-取消原因*/        
-        .grid-cancelReason{
-            width:30%;
-            border-right: 1px solid #ddd;
-            padding: 15px;
-            text-align:center;
-
-        }
-        /*內容-已取消-取消原因-標題*/
-        .grid-cancelReason .reason-title{
-            background-color: #feed8c;
-            border-radius: 30px;
-            font-weight: bold;
-
-        }
-        /*內容-已取消-取消原因-原因內容*/  
-        .grid-cancelReason .reason-content{
-            color: #727272;
-            font-weight: bold;
-        }    
         /*切換頁碼*/
         .pageNumber {
             display: flex;
@@ -505,33 +495,64 @@
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
             .grid {
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: 10px;
                 display: inline-block;
-                border-left: 8px solid #0579ed;
+                border-top: 8px solid #0579ed;
             }
             /*內容-格子-單張票劵-文字內容*/
             .grid-content {
                 width: 100%;
                 border-left: 0px;
                 border-right: none;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 2px dashed #ddd;
+            }
+            /*內容-格子-單張票劵-文字內容-標題*/
+            .grid-content h2 {
+                -webkit-line-clamp: 2; 
             }
             /*內容-格子-單張票劵-操作*/
             .grid-operate {
                 width: 100%;
+                padding: 0px;
                 justify-content:space-evenly;
             }
-            /*內容-未完成區*/
-            .grid-continueOrCancel{
-                width:100%;
-                border-right: 0px;
-                border-bottom: 1px solid #ddd;
+            .getTicket{
+                margin: 10px;
             }
-            /*內容-已取消-取消原因*/        
-            .grid-cancelReason{
-                width:100%;
-                border-right: 0px;
-                border-bottom: 1px solid #ddd;
+            /*內容-格子-單張票劵-剪口(上)*/
+            .grid-content::before{
+                width: 15px;
+                height: 21px;
+                border-radius: 10px 0px 0px 10px;
+                top:111px;
+                right: -1px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) inset;
             }
+            .grid-content::after{
+                width: 12px;
+                height: 20px;
+                border-radius: 10px 0px 0px 10px;
+                top:111px;
+                right: -4px;
+            }
+            /*內容-格子-單張票劵-剪口(下)*/
+            .grid-operate::before{
+                width: 15px;
+                height: 21px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:91px;
+                left: -1px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) inset;
+            }
+            .grid-operate::after{
+                width: 12px;
+                height: 20px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:91px;
+                left: -6px;
+            }
+
         }
 
         @media screen and (max-width: 1199px) {
@@ -650,15 +671,11 @@
     <!-- 目錄 -->
     <div class="menu" >
         <ul class="main-menu">
+            <li><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
+            <hr>
             <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/myTicket.html" class="menu-myTicket">我的票券</a></li>
             <hr>
             <li><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/careerDevelopment.html" class="menu-careerDevelopment">職涯發展</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/changeEmail.html" class="menu-changeEmail">變更信箱</a></li>
             <hr>
             <li><a href="https://m04u4a87.github.io/SeniorProject/changePassword.html" class="menu-changePassword">變更密碼</a></li>
 
@@ -681,8 +698,6 @@
             <div class="myTicket">
                 <!-- 我的票劵-標籤連結-->
                 <span id="registered" class="registered-link tabLink">已報名</span>
-                <span id="undone" class="undone-link tabLink">未完成</span>
-                <span id="canceled" class="canceled-link tabLink">已取消</span>
                 <span id="returnTicketHistory" class="returnTicketHistory-link tabLink">退票紀錄</span>
 
                 <!-- 我的票劵-標籤-->
@@ -690,8 +705,6 @@
                     <!-- 我的票劵-標籤本身-->
                     <ul>
                         <li><a href="#registered" class="registered-tab">已報名(2)</a></li>
-                        <li><a href="#undone" class="undone-tab">未完成(1)</a></li>
-                        <li><a href="#canceled" class="canceled-tab">已取消(2)</a></li>
                         <li><a href="#returnTicketHistory" class="returnTicketHistory-tab">退票紀錄(0)</a></li>
                     </ul>
                     <!-- 我的票劵-標籤內容-已報名-->
@@ -706,10 +719,14 @@
                                     <p class="orderNumber">訂單編號：2402020657261239040093</p>
                                 </div>
                                 <div class="grid-operate">
-                                    <a href="#" class="getTicket button">取票</a>
-                                    <a href="#" class="returnTicket button">退票</a>
-                                    <a href="#" class="download button">下載</a>
-                                    <button class="details button" data-bs-toggle="modal" data-bs-target="#myModal1">明細</button>
+                                    <div class="operate-header">
+                                        <a href="#" class="getTicket">取票</a>
+                                    </div>
+                                    <div class="operate-footer">
+                                        <a href="#" class="returnTicket">退票</a>
+                                        <a href="#" class="download">下載</a>
+                                        <a href="#" class="details" data-bs-toggle="modal" data-bs-target="#myModal1">明細</a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- 彈跳視窗 -->
@@ -746,14 +763,18 @@
                             <div class="grid">
                                 <div class="grid-content">
                                     <a href="#"><h2>第一波 免費住宿抽獎活動</h2></a>
-                                    <p class="date">2016-08-19 15:00 ~ 2016-09-09 15:00</p>
-                                    <p class="orderNumber">訂單編號：1608231155374795033010</p>
+                                    <p class="date">2024-02-28 19:00 ~ 2024-02-28 21:00</p>
+                                    <p class="orderNumber">訂單編號：2402020657261239040094</p>
                                 </div>
                                 <div class="grid-operate">
-                                    <a href="#" class="getTicket button">取票</a>
-                                    <a href="#" class="returnTicket button">退票</a>
-                                    <a href="#" class="download button">下載</a>
-                                    <button class="details button" data-bs-toggle="modal" data-bs-target="#myModal2">明細</button>
+                                    <div class="operate-header">
+                                        <a href="#" class="getTicket button">取票</a>
+                                    </div>
+                                    <div class="operate-footer">
+                                        <a href="#" class="returnTicket button">退票</a>
+                                        <a href="#" class="download button">下載</a>
+                                        <a href="#" class="details button" data-bs-toggle="modal" data-bs-target="#myModal2">明細</a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- 彈跳視窗 -->
@@ -778,189 +799,6 @@
                                                 <p>姓名: 譚舒舒</p>
                                                 <p>電子郵件: 123456@gmail.com</p>
                                                 <p>行動電話: 886909090090</p>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 切換頁碼 -->
-                        <nav aria-label="Page navigation example" class="pageNumber" >
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!-- 我的票劵-標籤內容-未完成-->
-                    <div class="undone-content tabContent">
-                        <!-- 格子清單 -->
-                        <div class="grid-list">
-                            <!-- 單個格子 -->
-                            <div class="grid">
-                                <div class="grid-content">
-                                    <a href="#"><h2>2024 藝集講堂 | 劉碧旭【美學旅行：走進歐洲藝術博物館】全十八講(實體+線上課程)</h2></a>
-                                    <p class="date">2024-03-10 14:00 ~ 2024-09-15 16:00</p>
-                                    <p class="orderNumber">訂單編號：2402122007561368342685</p>
-
-                                </div>
-                                <div class="grid-continueOrCancel">        
-                                    <p class="state">狀態: 填寫資料中</p>
-                                    <p class="timeLeft">剩餘時間: 00:29:11</p>                            
-                                    <a href="#" class="continueWriting">繼續填寫</a>
-                                    <button class="cancelRegistration">取消報名</button>
-                                </div>
-                                <div class="grid-operate operate-undone ">
-
-                                    <button class="details button" data-bs-toggle="modal" data-bs-target="#myModal3">明細</button>
-                                </div>
-                            </div>
-                            <!-- 彈跳視窗 -->
-                            <div class="modal" tabindex="-1" id="myModal3">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">票劵明細</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div>
-                                                <h3>票券資訊</h3>
-                                                <p>票號: 2402122007561782024220</p>
-                                                <p>票種: 【六講套票I】(實體課程+線上課程/純線上課程)八五折</p>
-                                                <p>單價: $2040</p>
-                                                <p>有效期限: 2024-03-10 14:00 ~ 2024-09-15 16:00</p>
-                                            </div>
-                                            <hr>
-                                            <div>
-                                                <h3>參加人資訊</h3>
-                                                <p>姓名: </p>
-                                                <p>電子郵件: </p>
-                                                <p>行動電話: </p>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 切換頁碼 -->
-                        <nav aria-label="Page navigation example" class="pageNumber" >
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <!-- 我的票劵-標籤內容-已取消-->
-                    <div class="canceled-content tabContent">
-                        <!-- 格子清單 -->
-                        <div class="grid-list">
-                            <!-- 單個格子 -->
-                            <div class="grid">
-                                <div class="grid-content">
-                                    <a href="#"><h2>【台北二月場次】下班隨手作 ‖ 手作課程-經典北歐酒精畫木托盤</h2></a>
-                                    <p class="date">2024-02-28 19:00 ~ 2024-02-28 21:00</p>
-                                    <p class="orderNumber">訂單編號：2402020657261239040093</p>
-                                </div>
-                                <div class="grid-cancelReason">        
-                                    <p class="reason-title">取消原因 </p>
-                                    <p class="reason-content">報名人自行取消</p>
-                                </div>
-                                <div class="grid-operate operate-undone ">
-                                    <button class="details button" data-bs-toggle="modal" data-bs-target="#myModal4">明細</button>
-                                </div>
-                            </div>
-                            <!-- 彈跳視窗 -->
-                            <div class="modal" tabindex="-1" id="myModal4">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">票劵明細</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div>
-                                                <h3>票券資訊</h3>
-                                                <p>票號: 2402020657266463693710</p>
-                                                <p>票種: 2024/02/28 (三) 1900-2100</p>
-                                                <p>單價: $1380</p>
-                                                <p>有效期限: 2024-02-28 19:00 ~ 2024-02-28 21:00</p>
-                                            </div>
-                                            <hr>
-                                            <div>
-                                                <h3>參加人資訊</h3>
-                                                <p>姓名: </p>
-                                                <p>電子郵件: </p>
-                                                <p>行動電話: </p>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 單個格子 -->
-                            <div class="grid">
-                                <div class="grid-content">
-                                    <a href="#"><h2>設計交流之夜：工藝師與建築師的空間打造</h2></a>
-                                    <p class="date">2024-03-01 19:00 ~ 2024-03-01 20:30</p>
-                                    <p class="orderNumber">訂單編號：2401310739245645659000</p>
-                                </div>
-                                <div class="grid-cancelReason">        
-                                    <p class="reason-title">取消原因 </p>
-                                    <p class="reason-content">未於剩餘期限內完成報名動作</p>
-                                </div>
-                                <div class="grid-operate operate-undone ">
-                                    <button class="details button" data-bs-toggle="modal" data-bs-target="#myModal5">明細</button>
-                                </div>
-                            </div>
-                            <!-- 彈跳視窗 -->
-                            <div class="modal" tabindex="-1" id="myModal5">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">票劵明細</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div>
-                                                <h3>票券資訊</h3>
-                                                <p>票號: 2401310739245745410350</p>
-                                                <p>票種: 一般票</p>
-                                                <p>單價: $350</p>
-                                                <p>有效期限: 2024-03-01 19:00 ~ 2024-03-01 20:30</p>
-                                            </div>
-                                            <hr>
-                                            <div>
-                                                <h3>參加人資訊</h3>
-                                                <p>姓名: </p>
-                                                <p>電子郵件: </p>
-                                                <p>行動電話: </p>
                                             </div>
                                         </div>
                                         <div class="modal-footer">

@@ -17,14 +17,15 @@
             text-decoration: none;
         }
         body{/*上方預留導覽列的寬度*/
-            padding-top: 50px;
+            padding-top: 60px;
             background-color: #F8FBFF;
             font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+            letter-spacing: 1px;
         }
         /* ↓↓↓↓↓↓等待mona */
         header{
             width: 100%;
-            height: 50px;
+            height: 60px;
             background: linear-gradient(to top, #B5D7FF, #8CAEF7);
             position: fixed;
             top: 0;
@@ -138,7 +139,7 @@
             background-color: #fff;
             width: 100%;
             position: sticky;
-            top:70px;
+            top:80px;
             z-index: 50;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
             border-radius: 10px;
@@ -172,9 +173,10 @@
         }
         /*目錄-當頁目錄換色*/
         .currentPage a{
-            /* border-left: 5px solid #0088d2; */
             background: linear-gradient(to left, #80C3FF, #6D9FF4);
             color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
         /*目錄-當頁目錄-碰到時不做效果*/
         .currentPage a:hover{
@@ -196,8 +198,9 @@
             margin: 40px auto;
         }
         /*內容-關於自己-input框線換新樣式*/
-        .aboutMe input,.city{
+        .aboutMe input,.city,.textarea{
             border-radius: 5px;
+            outline: none;
             background-color: #eff2f4;
             border: 1px solid #f3f4fa;
             line-height:25px;
@@ -206,26 +209,27 @@
             font-size:calc(14px + .1vw);
             width:100%;
             margin-bottom: 10px;
+            height: 46px
         }
-        .city{
+        /*內容-關於自己-城市下拉選單和地址並排*/
+        .aboutMe .city{
             width: 20%;
-            display: inline;
         }
-        .address{
-            width: 80%;
+        .aboutMe .address{
+            width: 79%;
         }
         /*內容-關於自己-h2*/
         .aboutMe h2{
             font-size: calc(23px + .1vw);
             line-height: 35px;
             font-weight: bold;
-            color:#273da7;
+            color:#278aff;
         }
         /*內容-關於自己-所有label*/
         .aboutMe label{
             font-size:calc(16px + .1vw);
             line-height: 35px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
         /*內容-關於自己-按鈕清單*/
         .button-list{
@@ -268,10 +272,10 @@
         }
         /*內容-關於自己-附註文字*/
         .aboutMe .note {
-            background-color: rgb(255, 255, 201);
+            background-color: rgba(193, 241, 252, 0.436);
             display: inline-block;
             font-size:calc(16px + .1vw);
-            margin-bottom: 0px;
+            margin-bottom: 45px;
             margin-top: 10px;
         }
         /*內容-關於自己-身分的按鈕*/
@@ -296,6 +300,101 @@
             background-color: #0088d2;
             color: #fff;
         }
+        /*上傳背景&頭像*/
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /*上傳背景*/
+        .upload-container {
+            position: relative;
+        }
+        /*上傳背景-背景圖*/
+        .upload-preview img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            vertical-align: bottom;
+        }
+        /*上傳背景-label*/
+        .upload-preview .upload-label {
+            margin-top: 0px;
+            position: absolute;
+            top: 5px;
+            font-size: 14px;
+            right: 5px;
+            background-color: #6e6e6e90;
+            padding: 5px 10px;
+            line-height: 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            transition: transform .2s;
+        }
+        .upload-preview .upload-label:hover{
+            background-color: #7d7d7dfe;
+            transform: scale(0.95);
+        }
+        /*上傳背景-input*/
+        .upload-input {
+            display: none;
+        }
+        /*上傳背景-提示文字*/
+        .upload-note {
+            width: 100%;
+            font-size: calc(14px + .1vw);
+            position: absolute;
+            right: 0px;
+            top: -20px;
+            margin-bottom: 0px;
+            color: darkgray;
+        }
+        /*上傳頭像*/
+        .avatar-container {
+            position: relative;
+            margin-top: -60px;
+            width: 120px;
+            height: 120px;
+            box-shadow: 0px 2px 5px rgba(175, 175, 175, 0.135);
+            border: solid 5px #ffffff;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        /*上傳頭像-頭像圖*/
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            vertical-align: middle;
+            transform: scale(1);
+            transition: transform .8s; 
+        }
+        /*上傳頭像-label*/
+        .avatar-preview .avatar-label {
+            position: absolute;
+            display: flex;
+            font-weight: bold;
+            width: 100%;
+            height: 50%;
+            font-size: 14px;
+            align-items: center;
+            justify-content: center;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0.53%, rgba(0, 0, 0, 0.43) 98%);
+            color: #ffffff;
+            cursor: pointer;
+
+        }
+        .avatar-container:hover .avatar-preview img{
+            transform: scale(1.1);
+        }
+        /*上傳頭像-input*/
+        .avatar-input {
+            display: none;
+        }
         /*視窗小於768*/
         @media screen and (max-width: 767px) {
             .all{
@@ -308,6 +407,22 @@
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
             border-radius: 0px;
             margin-left: 0px;
+            }
+            /*上傳背景-提示文字*/
+            .upload-note {
+                font-size: calc(10px + .1vw);
+            }
+            .avatar-container {
+                margin-top: -50px;
+                width: 100px;
+                height: 100px;
+            }
+            /*內容-關於自己-城市下拉選單和地址並排*/
+            .aboutMe .city{
+                width: 100%;
+            }
+            .aboutMe .address{
+                width: 100%;
             }
         }
         @media screen and (max-width: 1199px) {
@@ -416,15 +531,11 @@
     <!-- 目錄 -->
     <div class="menu" >
         <ul class="main-menu">
+            <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
+            <hr>
             <li><a href="https://m04u4a87.github.io/SeniorProject/myTicket.html" class="menu-myTicket">我的票券</a></li>
             <hr>
             <li><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
-            <hr>
-            <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/careerDevelopment.html" class="menu-careerDevelopment">職涯發展</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/changeEmail.html" class="menu-changeEmail">變更信箱</a></li>
             <hr>
             <li><a href="https://m04u4a87.github.io/SeniorProject/changePassword.html" class="menu-changePassword">變更密碼</a></li>
 
@@ -440,18 +551,44 @@
             <div class="aboutMe">
                 <h2>關於自己</h2>
                 <p class="note">以下資訊將用於活動推薦及報名使用。</p><br>
-
-                <!-- <div class="uploadPhoto">
-                    <img src="./image/LINE_ALBUM_兒子特輯_240201_1.jpg" class="photo">
-                    <label for="photoFile" class="selectPhoto">更新</label>
-                    <input type="file" name="photoFile" id="photoFile" accept="image/jpeg,image/png,image/gif" class="photoFile">
-                </div> -->
-
-                <label>個人大頭貼</label>
-                <input type="file">
+                <!-- 上傳背景+頭像 -->
+                <div class="upload-section">
+                    <!-- 上傳背景圖 -->
+                    <div class="upload-container">
+                        <div class="upload-preview">
+                            <img src="image/backgroundUploadImg.png" alt="">
+                            <label for="bgImg" class="upload-label">
+                                <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                    <path d="m11.093 15.43-3.039-3.04c.543-.956 1.335-1.903 2.375-2.838 1.341-1.208 3.708-3.25 7.1-6.126a1.795 1.795 0 0 1 2.53 2.53c-2.88 3.398-4.921 5.765-6.125 7.1-.935 1.037-1.882 1.828-2.841 2.373Zm-4.416-1.587 2.965 2.964-1.366 1.906L3 20.508l1.771-5.3 1.906-1.365Z" fill="current"></path>
+                                </svg>
+                                上傳
+                            </label>
+                        </div>
+                        <input id="bgImg" type="file" accept="*/*" class="upload-input">
+                        <div class="upload-note">
+                            <p>建議上傳 1200 × 400 的封面照片、檔案大小不可大於 4 MB</p>
+                        </div>
+                    </div>
+                    <!-- 上傳頭像 -->
+                    <div class="avatar-container">
+                        <div class="avatar-preview">
+                            <img src="image/headImg.png" alt="">
+                            <label for="headImg" class="avatar-label">
+                                <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="transform: rotate(-90deg);">
+                                    <path d="M18 12h2.793a.5.5 0 0 1 .353.854l-3.792 3.792a.5.5 0 0 1-.708 0l-3.792-3.792a.5.5 0 0 1 .353-.854H16c0-3.31-2.69-6-6-6s-6 2.69-6 6a6.006 6.006 0 0 0 5.5 5.98c.275.022.5.244.5.52v1a.477.477 0 0 1-.5.485A7.998 7.998 0 0 1 2 12c0-4.42 3.58-8 8-8s8 3.58 8 8Z" fill="current"></path>
+                                </svg>
+                                更新
+                            </label>
+                        </div>
+                        <input type="file" id="headImg" accept="*/*" class="upload-input">
+                    </div>
+                </div>
 
                 <label>顯示名稱<span class="requiredSymbols">*</span></label></label>
                 <input type="text" required placeholder="您希望怎麼被稱呼">
+
+                <label>個人簡介</label><br>
+                <textarea class="textarea" name="" id="" cols="40" rows="10" placeholder="請輸入您的個人介紹" style="resize:vertical;height: 115px;" ></textarea>
 
                 <label>帳號/Email</label>
                 <input class="accountEmail" type="email" disabled placeholder="12345@gmail.com">
@@ -476,16 +613,18 @@
                 <input type="tel" required placeholder="請輸入您的手機號碼">
 
                 <label>現居地</label><br>
-                <select class="city">
-                    <option value="" disabled="">請選擇縣市</option>
-                    <option value="Taipei City">台北市</option>
-                    <option value="New Taipei City">新北市</option>
-                    <option value="Keelung City">基隆市</option>
-                    <option value="Taoyuan City">桃園市</option>
-                    <option value="Hsinchu County">新竹縣</option>
-                    <option value="Hsinchu City">新竹市</option>
-                </select>
+                <span>
+                    <select class="city">
+                        <option value="" disabled="">請選擇縣市</option>
+                        <option value="Taipei City">台北市</option>
+                        <option value="New Taipei City">新北市</option>
+                        <option value="Keelung City">基隆市</option>
+                        <option value="Taoyuan City">桃園市</option>
+                        <option value="Hsinchu County">新竹縣</option>
+                        <option value="Hsinchu City">新竹市</option>
+                    </select>
                     <input class="address" type="text" required placeholder="請輸入詳細地址">
+                </span>
             </div> 
             <div class="button-list">
                 <button value="discardChanges" class="button button1">捨棄變更</button>
