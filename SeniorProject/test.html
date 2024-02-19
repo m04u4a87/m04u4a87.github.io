@@ -5,121 +5,407 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    /*上傳背景&頭像*/
-    .upload-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    /*上傳背景*/
-    .upload-container {
-        position: relative;
-    }
-    /*上傳背景-背景圖*/
-    .upload-preview img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-        vertical-align: bottom;
-    }
-    /*上傳背景-label*/
-    .upload-label {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: #545454a2;
-        padding: 5px 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        color: #fff;
-        font-weight: bold;
-    }
-    /*上傳背景-input*/
-    .upload-input {
-        display: none;
-    }
-    /*上傳背景-提示文字*/
-    .upload-note {
-        position: absolute;
-        right: 0px;
-        color: darkgray;
-    }
-    /*上傳頭像*/
-    .avatar-container {
-        position: relative;
-        margin-top: -60px;
-        width: 120px;
-        height: 120px;
-        box-shadow: 0px 2px 5px rgba(175, 175, 175, 0.135);
-        border: solid 5px #ffffff;
-        border-radius: 50%;
-        overflow: hidden;
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
         }
-    /*上傳頭像-頭像圖*/
-    .avatar-preview img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        vertical-align: middle;
-    }
-    /*上傳頭像-label*/
-    .avatar-label {
-        position: absolute;
-        display: flex;
-        font-weight: bold;
-        width: 100%;
-        height: 55%;
-        font-size: 16px;
-        align-items: center;
-        justify-content: center;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0.53%, rgba(0, 0, 0, 0.43) 98%);
-        color: #ffffff;
-        cursor: pointer;
-    }
-    /*上傳頭像-input*/
-    .avatar-input {
-        display: none;
-    }
+        a{
+            text-decoration: none;
+        }
+
+        /*內容上方，預留header的高度*/
+        body{
+            padding-top: 60px;
+        }
+
+        /*header*/
+        header{
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, #B5D7FF, #8CAEF7);
+            position: fixed;
+            top: 0;
+            z-index: 45; /*層級數字要比內容高，但比目錄低*/
+        }
+        /*導覽列滾動會出現陰影事件(搭配js)*/
+        header.shadow {  
+            box-shadow: 0px 6px 10px 0px rgba(235, 238, 236, 0.46);
+        }
+        /*header中的所有內容*/
+        .nav{
+            width: 70%; /*和內容寬度一樣，避免突兀感*/
+            height: 100%;
+            margin:auto;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        /*logo圖的外框(被nav flex)*/
+        .logo{
+            height: 100%;
+            vertical-align: middle; /*再確認-是否拿掉*/
+        }
+        /*logo圖*/
+        .logo img{
+            width: 80px;
+            vertical-align: middle;
+        }
+        /*搜尋、放大鏡、辦活動(被nav flex)*/
+        .searchAndMagnifierAndHold{
+            display: flex;
+            align-items:center;
+            justify-content: right;
+        }
+        /*搜尋*/
+        .search{
+            border-radius: 30px;
+            padding: 8px 15px;
+            border: none;
+            outline: none;
+            width:calc(100px + 10%); 
+            height:calc(25px + 20%); 
+            margin: 0px 5px 0px 25px;
+            font-size:calc(12px + .1vw);
+        }
+        /*放大鏡*/
+        .magnifier img{
+            width:20px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        /* 辦活動 */
+        .holdActivities{
+            font-size:calc(10px + .1vw);
+            border-radius:5px;          
+            padding: 10px;
+            line-height: 12px;
+            background-color: #2ab3fc;
+            color: #fff;
+            border: none;
+        }
+
+
+        /*回頂端top箭頭*/
+        .top svg{ 
+            width: 30px;
+            height:30px;
+            fill:#ffffff;
+            position: fixed;
+            z-index: 100;
+            right: 10px;
+            bottom: 50px;
+            transition: .3s;
+            visibility: hidden;
+            border-radius: 50%;
+            padding: 5px;
+            background-color: #84848496;
+        }
+        /*回頂端top箭頭-滾動顯示事件*/
+        .top.visible svg{  
+            visibility: visible;
+        }
+        /*回頂端top箭頭-動畫*/
+        .top svg:hover{  
+            background-color: #273da796;
+        }
+
+
+        /*目錄&內容*/
+        .all{
+            display: flex;
+            width: 70%;   /*目錄+內容佔整個畫面70%*/
+            margin: 20px auto; /*內容置中，且上下留20px空白*/
+        }
+
+
+        /*目錄*/
+        .menu{
+            width: 30%; /*桌機大小時，佔30%，剩下70%給內容*/
+            z-index: 50; /*層級數字基本上最高*/
+        }
+        /*目錄-所有內容*/
+        .main-menu{
+            background-color: #fff;
+            width: 100%;
+            position: sticky;
+            top:80px; /*預留header的60px，加上.all留空的距離20px*/
+            box-shadow:0 0 10px 0px rgb(244, 244, 244);
+            border-radius: 10px;
+        }
+        /*清空ul預設*/
+        ul{
+            padding-left:0px;
+        }
+        /*目錄-所有內容-分隔線*/
+        .main-menu hr{
+            width: 100%;
+            color: #9e9e9e;
+            margin: 0px;
+        }
+        /*目錄-所有內容-超連結*/
+        .main-menu a{
+            font-size:calc(18px + .1vw);
+            display: block;
+            color:  #000;
+            line-height: 70px;
+            padding:0px 25px;
+            font-weight: bold;
+        }
+        /*目錄-所有內容-超連結-碰到的變化*/
+        .main-menu a:hover{
+            color: #0088d2;
+        }
+        /*目錄-漢堡聯動勾選框-平時隱藏*/  
+        .hb-input-item{
+            display: none;
+        }
+        /*目錄-當頁目錄換色*/
+        .currentPage a{
+            background: linear-gradient(to left, #80C3FF, #6D9FF4);
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        /*目錄-當頁目錄-碰到時不做效果*/
+        .currentPage a:hover{
+            color: #fff;
+        }
+
+
+        /*內容*/
+        .content{
+            background-color: #fff;
+            box-shadow:0 0 10px 0px rgb(244, 244, 244);
+            border-radius: 10px;
+            width:100%;
+            min-height: 100vh; /*避免footer黏在內容下方，而不是貼著視窗底部*/
+            margin-left: 20px; /*和左邊的目錄拉開距離*/
+        }
+        /*內容-照片與姓名&主要內容*/
+        .photoNameAndMainContent{
+            width: 80%; /*不想貼邊，所以抓80%*/
+            margin: 40px auto; 
+        }
+        /*內容-照片與姓名*/
+        .photoAndName{
+            display:flex;
+            align-items: center;
+            margin: 40px auto;
+        }
+        /*內容-照片與姓名-照片外框*/
+        .photo{
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        /*內容-照片與姓名-照片*/
+        .photoAndName img{
+            vertical-align:top;
+            object-fit: cover; /*這個別拿掉，不然圖會變形(cover=圖不變形的情況下，讓圖片放大到和外框一樣，多出的邊切掉)*/
+            object-position: center; /*圖片太大時，圖置中再切邊*/
+        }
+        /*內容-照片與姓名-姓名*/
+        .name{
+            font-size:calc(16px + 1vw);
+            padding-left:15px;
+            letter-spacing:3px;
+            margin-bottom: 0px; /*清掉p的預設空白*/
+        }
+
+        /*視窗小於768時*/
+        @media screen and (max-width: 767px) {
+            /*目錄+內容*/
+            .all{
+                width: 100%; /*目錄+內容，寬度從70%變100%*/
+                margin: 0px auto; /*上下留白的20px，變更為0px*/
+            }
+            /*內容-包裹容器*/
+            .content{
+                box-shadow:none;    /*陰影拿掉*/
+                border-radius: 0px;/*圓角拿掉*/
+                margin-left: 0px; /*和目錄拉開的距離拿掉(目錄變漢堡了)*/
+            }
+        }
+        /*視窗小於1200時*/
+        @media screen and (max-width: 1199px) {
+            /*header中的所有內容*/
+            .nav{
+                width: 100%; /*header，寬度從70%變100%*/
+            }
+            /*目錄*/
+            .menu {
+                position:absolute;
+                top:0px;
+                left: -300%;  /*平時藏起來*/
+                width: calc(150px + 10%); /*寬度依狀況調整*/
+                height: 100%;
+                background-color: #ffffff; 
+                box-shadow:0 0 50px 0px rgb(225, 225, 225);
+                transition: left .3s;
+                margin: 60px 0px; /*保留header高度*/
+                position: fixed;  
+            }
+            /*目錄-顯示(這是靠js事件)*/
+            .menu.show {
+                left: 0;  /*點漢堡時，顯示*/
+            }
+            /*目錄-所有內容*/
+            .main-menu {
+                box-shadow:none; /*陰影拿掉，不然會無法融合*/
+                margin: 30px auto;
+                width: calc(150px + 20%); /*寬度依狀況調整(要和.menu寬度一樣喔)*/
+                font-size: calc(18px + .1vw)
+            }
+            /*目錄-當頁目錄換色*/
+            .currentPage a{
+                border-top-left-radius: 0px; 
+                border-top-right-radius: 0px;
+            }
+            /*樓下一串都是漢堡樣式*/
+            .hb {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                cursor: pointer;
+            }
+            .hb span {
+                width: 80%;
+                height: 2px;
+                margin: 3px;
+                background-color: #ffffff;
+            }
+            .hb-input-item:checked + .hb span:first-child{
+                display: none;
+            }
+            .hb-input-item:checked + .hb span:nth-child(2){
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                rotate: 45deg;
+            }
+            .hb-input-item:checked + .hb span:nth-child(3){
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                rotate: -45deg;
+            }
+            /*logo圖*/
+            .logo img{
+                margin-left: 20px; /*漢堡出現後，拉開距離*/
+            }
+            /*辦活動*/
+            .holdActivities{
+                display: none; /*按鈕隱藏*/
+            }
+        }
 
     </style>
 </head>
 <body>
 
-    <!-- 上傳背景+頭像 -->
-    <div class="upload-section">
-        <!-- 上傳背景圖 -->
-        <div class="upload-container">
-            <div class="upload-preview">
-                <img src="image/backgroundUploadImg.png" alt="">
-                <label for="bgImg" class="upload-label">
-                    <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                        <path d="m11.093 15.43-3.039-3.04c.543-.956 1.335-1.903 2.375-2.838 1.341-1.208 3.708-3.25 7.1-6.126a1.795 1.795 0 0 1 2.53 2.53c-2.88 3.398-4.921 5.765-6.125 7.1-.935 1.037-1.882 1.828-2.841 2.373Zm-4.416-1.587 2.965 2.964-1.366 1.906L3 20.508l1.771-5.3 1.906-1.365Z" fill="current"></path>
-                    </svg>
-                    上傳
-                </label>
-            </div>
-            <input id="bgImg" type="file" accept="*/*" class="upload-input">
-            <div class="upload-note">
-                <p>建議上傳 1200 × 400 的封面照片、檔案大小不可大於 4 MB</p>
+    <header>
+        <!-- 全部 -->
+        <div class="nav">
+
+            <!-- 漢堡 -->
+            <input type="checkbox" class="hb-input-item" id="hb-input-item">
+            <label class="hb" id="menu-toggle" for="hb-input-item">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Logo -->
+            <a href="#" class="logo"><img src="./image/logo.png" alt="Logo" ></a>
+
+            <!-- 搜尋活動 -->
+            <div class="searchAndMagnifierAndHold">
+                <input type="search" placeholder="找活動" class="search">
+                <a href="#" class="magnifier"><img src="./image/search.png" alt="搜尋放大鏡" ></a>
+                <button value="saveChanges" class="holdActivities">辦活動</button>
             </div>
         </div>
-        <!-- 上傳頭像 -->
-        <div class="avatar-container">
-            <div class="avatar-preview">
-                <img src="image/headImg.png" alt="">
-                <label for="headImg" class="avatar-label">
-                    <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="transform: rotate(-90deg);">
-                        <path d="M18 12h2.793a.5.5 0 0 1 .353.854l-3.792 3.792a.5.5 0 0 1-.708 0l-3.792-3.792a.5.5 0 0 1 .353-.854H16c0-3.31-2.69-6-6-6s-6 2.69-6 6a6.006 6.006 0 0 0 5.5 5.98c.275.022.5.244.5.52v1a.477.477 0 0 1-.5.485A7.998 7.998 0 0 1 2 12c0-4.42 3.58-8 8-8s8 3.58 8 8Z" fill="current"></path>
-                    </svg>
-                    更新
-                </label>
-            </div>
-            <input type="file" id="headImg" accept="*/*" class="upload-input">
+
+    </header>
+
+    <!-- 目錄+內容 -->
+    <div class="all">
+
+        <!-- 目錄區 -->
+        <div class="menu" >
+            <ul class="main-menu">
+                <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
+                <hr>
+                <li><a href="https://m04u4a87.github.io/SeniorProject/myTicket.html" class="menu-myTicket">我的票券</a></li>
+                <hr>
+                <li><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
+                <hr>
+                <li><a href="https://m04u4a87.github.io/SeniorProject/changePassword.html" class="menu-changePassword">變更密碼</a></li>
+            </ul>
         </div>
+
+        <!-- 內容區 --> 
+        <div class="content">
+            <!-- 照片與名字&主要內容 -->
+            <div class="photoNameAndMainContent">
+                <!-- 照片與名字 -->
+                <div class="photoAndName">
+                    <img src="./image/LINE_ALBUM_兒子特輯_240201_1.jpg" class="photo">
+                    <p class="name">譚舒舒</p>
+                </div>
+                <!-- 主要內容 -->
+                <div class="mainContent">                    
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <script>
+        //抓取漢堡和目錄
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.querySelector('.menu'); 
+        //增加點擊漢堡，目錄顯示的事件
+        menuToggle.addEventListener('click', function () {
+            menu.classList.toggle('show');
+        });
     
+        //導覽列滾動      
+        const headerScroll = document.querySelector('header');  /*透過選擇器header，取得DOM元素，放進變數headerScroll*/
+        window.addEventListener('scroll', () =>     /*針對「視窗」，新增「滾動」這個事件，進行監聽*/
+            {
+                const scroll = window.scrollY;         /*將滾動視窗y軸這件事，放進變數scroll*/
+                
+                if (scroll > 0) {                         /*如果變數scroll(滾動視窗y軸)大於0*/
+                    headerScroll.classList.add('shadow'); /*就在變數headerScroll的class，新增一個叫做shadow的class*/
+                } else {                                  /*否則移除叫做shadow的class*/
+                    headerScroll.classList.remove('shadow');
+                }
+            }
+        );
+    
+        //回頂端
+        const arrow = document.querySelector('.top');  /*透過選擇器(.top)，取得DOM元素，放進變數arrow*/
+        window.addEventListener('scroll', () =>        /*針對「視窗」，新增「滾動」這個事件，進行監聽*/
+            {
+                const scroll = window.scrollY;         /*將滾動視窗y軸這件事，放進變數scroll*/
+    
+                if (scroll > 0) {                           /*如果變數scroll(滾動視窗y軸)大於0*/
+                    arrow.classList.add('visible');         /*就在變數arrow的class，新增一個叫做visible的class*/   
+                } else {                                    /*否則移除叫做visible的class*/
+                    arrow.classList.remove('visible');
+                }
+            }
+        );
+    </script>
+
     
     
 </body>
