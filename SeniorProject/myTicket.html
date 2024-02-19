@@ -465,9 +465,16 @@
         }
         /*內容-明細彈跳視窗-內容文字*/
         .modal-body p{
-            font-size: calc(14px + .1vw);
+            font-size: calc(16px + .1vw);
             line-height: 14px;
-            padding-left: 18px;        
+            padding-left: 18px; 
+            margin: 20px 0px;       
+        }
+        /**/
+        .modal-body .modal-singleWord{
+            margin: 5px 0px;
+            line-height: 30px; 
+            font-size: calc(18px + .1vw);
         }
         /*切換頁碼*/
         .pageNumber {
@@ -715,71 +722,23 @@
                             <!-- 單個格子 -->
                             <div class="grid">
                                 <div class="grid-content">
-                                    <a href="#"><h2>【台北二月場次】下班隨手作 ‖ 手作課程-經典北歐酒精畫木托盤</h2></a>
-                                    <p class="date">2024-02-28 19:00 ~ 2024-02-28 21:00</p>
-                                    <p class="orderNumber">訂單編號：2402020657261239040093</p>
-                                </div>
-                                <div class="grid-operate">
-                                    <div class="operate-header">
-                                        <a href="#" class="getTicket">取票</a>
-                                    </div>
-                                    <div class="operate-footer">
-                                        <a href="#" class="returnTicket">退票</a>
-                                        <a href="#" class="download">下載</a>
-                                        <a href="#" class="details" data-bs-toggle="modal" data-bs-target="#myModal1">明細</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 彈跳視窗 -->
-                            <div class="modal" tabindex="-1" id="myModal1">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">票劵明細</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div>
-                                                <h3>票券資訊</h3>
-                                                <p>票號: 2402020657266463693710</p>
-                                                <p>票種: 2024/02/28 (三) 1900-2100</p>
-                                                <p>單價: $1380</p>
-                                                <p>有效期限: 2024-02-28 19:00 ~ 2024-02-28 21:00</p>
-                                            </div>
-                                            <hr>
-                                            <div>
-                                                <h3>參加人資訊</h3>
-                                                <p>姓名: 譚舒舒</p>
-                                                <p>電子郵件: 123456@gmail.com</p>
-                                                <p>行動電話: 886909090090</p>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 單個格子 -->
-                            <div class="grid">
-                                <div class="grid-content">
                                     <a href="#"><h2>第一波 免費住宿抽獎活動</h2></a>
                                     <p class="date">2024-02-28 19:00 ~ 2024-02-28 21:00</p>
                                     <p class="orderNumber">訂單編號：2402020657261239040094</p>
                                 </div>
                                 <div class="grid-operate">
                                     <div class="operate-header">
-                                        <a href="#" class="getTicket button">取票</a>
+                                        <a href="#" class="getTicket">取票</a>
                                     </div>
                                     <div class="operate-footer">
-                                        <a href="#" class="returnTicket button">退票</a>
-                                        <a href="#" class="download button">下載</a>
-                                        <a href="#" class="details button" data-bs-toggle="modal" data-bs-target="#myModal2">明細</a>
+                                        <a href="#" class="returnTicket" data-bs-toggle="modal" data-bs-target="#returnTicketData1">退票</a>
+                                        <a href="#" class="download">下載</a>
+                                        <a href="#" class="details" data-bs-toggle="modal" data-bs-target="#detailsModal1">明細</a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- 彈跳視窗 -->
-                            <div class="modal" tabindex="-1" id="myModal2">
+                            <!-- 彈跳視窗-明細 -->
+                            <div class="modal" tabindex="-1" id="detailsModal1">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -806,6 +765,65 @@
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <!-- 彈跳視窗-退票(第一個) -->
+                            <div class="modal" tabindex="-1" id="returnTicketData1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">退票資訊</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <h3>票券資訊</h3>
+                                                <p>票號: 1608231155381041612322</p>
+                                                <p>票種: 抽獎劵</p>
+                                                <p>單價: $0</p>
+                                                <p>有效期限: 2016-08-19 15:00 ~ 2016-09-09 15:00</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#returnTicketConfirm1">申請退票</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 彈跳視窗-退票(第二個) -->
+                            <div class="modal fade" id="returnTicketConfirm1" tabindex="-1" aria-labelledby="firstModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="firstModalLabel">確認退票</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                    <div class="modal-body">
+                                            <p class="modal-singleWord">點擊「確認」後，將為您進行退票。</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#returnTicketOK1">確認</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- 彈跳視窗-退票(第三個) -->
+                            <div class="modal fade" id="returnTicketOK1" tabindex="-1" aria-labelledby="secondModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="secondModalLabel">退票成功</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <p class="modal-singleWord">退票申請已成功!<br>若為付費票，退款作業時間約為14～21個工作天，敬請耐心等候。</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
