@@ -119,7 +119,7 @@
         }
         /*回頂端top箭頭-動畫*/
         .top svg:hover{  
-            background-color: #273da796;
+            background-color: #6d9ff4;
         }
 
         /*目錄&內容*/
@@ -155,16 +155,16 @@
         }
         /*目錄-所有超連結*/
         .main-menu a{
-            font-size:calc(18px + .1vw);
+            font-size:18px;
             display: block;
-            color:  #000;
+            color:  #6481E0;
             line-height: 70px;
             padding:0px 25px;
             font-weight: bold;
         }
         /*目錄-所有超連結-碰到的變化*/
         .main-menu a:hover{
-            color: #0088d2;
+            color: #a7c2ff;
         }
         /*目錄-漢堡聯動勾選框-平時隱藏*/  
         .hb-input-item{
@@ -216,10 +216,12 @@
         }
         /*內容-照片與姓名-姓名*/
         .name{
-            font-size:calc(16px + 1vw);
+            color: #6481E0;
+            font-size:23px;
             padding-left:15px;
-            letter-spacing:3px;
+            letter-spacing:5px;
             margin-bottom: 0px;
+            font-weight: bold;
         }
         /*內容-我的活動-ul預設空格清空*/
         .myActivities ul{
@@ -231,7 +233,7 @@
         }
         /*內容-我的活動-標籤-文字*/
         .tab > ul li a { 
-            font-size: 18px;
+            font-size: 16px;
             color: #000;
             float: left;
             padding: 10px 22px;
@@ -240,7 +242,7 @@
             border-bottom: none;
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
-            color:#4e68e8;
+            color:#6D9FF4;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         /*內容-我的活動-標籤的內容*/
@@ -255,7 +257,7 @@
         #joined-activities:target ~ .tab > ul li a[href$="#joined-activities"],
         #liked-activities:target ~ .tab > ul li a[href$="#liked-activities"],
         #followed-organizers:target ~ .tab > ul li a[href$="#followed-organizers"]{
-            background-color:#8696e7;
+            background-color:#6D9FF4;
             color: #fff;
         }
         /*內容-我的活動-當有標籤被點時，預設顯示的參加活動內容隱藏*/
@@ -267,7 +269,7 @@
         /*內容-我的活動-當有標籤被點時，預設顏色的參加活動，拿掉顏色*/
         .tabLink:target ~ .tab > ul li:first-child a{
             background-color:#ffffff;
-            color:#4e68e8;
+            color:#6D9FF4;
         }
         /*內容-我的活動-參加活動預設顯示%各標籤被點時，內容顯示*/
         .tabLink ~ .tab > .tabContent:first-of-type,
@@ -277,7 +279,7 @@
             visibility: visible;
             height: 100%;
             background: #fff;
-            border-top: 2px solid #8696e7;
+            border-top: 2px solid #6D9FF4;
         }
         /*內容-我的活動-標籤連結，平常不顯示*/
         .tabLink {
@@ -335,31 +337,18 @@
         }
         /*內容-卡片-頭部-觀看人數*/
         .viewNumber {
-            font-size: calc(14px + .1vw);
+            font-size: 14px;
         }
         /*內容-卡片-主體*/
         .card-body {
             padding: 10px 15px;
             height: auto;
         }
-        /*內容-卡片-主體-標題外層的超連結*/
-        .card-body a {
-            /* color: #273da7; */
-        }
         /*內容-卡片-主體-標題*/
         h2 {
-            font-size: calc(16px + .1vw);
+            font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
-            display:-webkit-box;
-            -webkit-line-clamp: 1; 
-            -webkit-box-orient: vertical;  
-            overflow: hidden; 
-        }
-        /*內容-卡片-主體-日期*/
-        .date{
-            color: #bdbdbd;
-            line-height: 20px;
             display:-webkit-box;
             -webkit-line-clamp: 1; 
             -webkit-box-orient: vertical;  
@@ -368,12 +357,22 @@
         /*內容-卡片-主體-簡介*/
         p:not(.name) {
             margin: 10px 0px;
-            font-size: calc(14px + .1vw);
+            font-size: 16px;
             display:-webkit-box;
             -webkit-line-clamp: 2; 
             -webkit-box-orient: vertical;  
             overflow: hidden;
-
+            
+        }
+        /*內容-卡片-主體-日期*/
+        .date{
+            color: #bdbdbd;
+            font-size: 14px;
+            line-height: 20px;
+            display:-webkit-box;
+            -webkit-line-clamp: 1; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden; 
         }
         /*內容-卡片-尾部*/
         .card-footer {
@@ -384,6 +383,7 @@
         /*內容-卡片-尾部-喜歡人數*/
         .card-footer .likeNumber{
             margin-left: 5px;
+            font-size: 14px;
         }
         /*內容-卡片-尾部-愛心圖案(按喜歡時)*/
         .iconLikeLove svg {
@@ -408,20 +408,20 @@
         }
         /*內容-卡片-尾部-熱銷標籤*/
         .hotSale{
-            background-color: #1fb0ff;
+            background: linear-gradient(to bottom, #80c3fF, #6d9ff4);
             color: #fff;
-            font-size: calc(14px + .1vw);
+            font-size: 14px;
             padding: 5px 15px;
-            border-radius: 5px;
+            border-radius: 10px;
             margin-left: auto;
         }
         /*內容-卡片-尾部-已結束標籤*/
         .end{
-            background-color: #bdbdbd;
+            background: linear-gradient(to bottom, #dbdbdb, #aeaeae);
             color: #fff;
-            font-size: calc(14px + .1vw);
+            font-size: 14px;
             padding: 5px 15px;
-            border-radius: 4px;
+            border-radius: 10px;
             margin-left: auto;
         }
         /*內容-格子-追蹤清單*/
@@ -470,7 +470,7 @@
         }
         /*內容-格子-單個追蹤單位-標題*/
         .organizersName h2{
-            font-size: calc(16px + .1vw);
+            font-size: 18px;
             font-weight: bold;
             display:-webkit-box;
             -webkit-line-clamp: 2; 
@@ -479,13 +479,13 @@
         }
         /*內容-格子-單個追蹤單位-總活動數&追蹤人數*/
         .totalActivitiesNumber,.trackNumber{
-            font-size: calc(14px + .1vw);
+            font-size: 16px;
             margin: 5px 0;
         }
         /*內容-格子-單個追蹤單位-追蹤狀態(勾勾+字)*/
         .trackStatus {
-            font-size: calc(14px + .1vw);
-            background-color: #007bff;
+            font-size: 16px;
+            background: linear-gradient(to bottom, #80c3fF, #6d9ff4);
             color: #fff;
             border: none;
             padding: 8px 10px;
@@ -494,7 +494,7 @@
         }
         /*內容-格子-單個追蹤單位-追蹤狀態(勾勾+字)-碰到效果*/
         .trackStatus:hover {
-            background-color: #0056b3;
+            transform: scale(0.95);
         }
         /*內容-格子-單個追蹤單位-追蹤勾勾*/
         .trackStatus svg {
@@ -536,10 +536,6 @@
             .grid{
                 width:100%;
                 margin: 15px auto;
-            }
-            /*內容-格子-單個追蹤單位-標題*/
-            .organizersName h2{
-                font-size: calc(18px + .1vw);
             }
         }
 

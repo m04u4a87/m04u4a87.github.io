@@ -120,7 +120,7 @@
         }
         /*回頂端top箭頭-動畫*/
         .top svg:hover{  
-            background-color: #273da796;
+            background-color: #6d9ff4;
         }
 
         /*目錄&內容*/
@@ -156,16 +156,16 @@
         }
         /*目錄-所有超連結*/
         .main-menu a{
-            font-size:calc(18px + .1vw);
+            font-size:18px;
             display: block;
-            color:  #000;
+            color:  #6481E0;
             line-height: 70px;
             padding:0px 25px;
             font-weight: bold;
         }
         /*目錄-所有超連結-碰到的變化*/
         .main-menu a:hover{
-            color: #0088d2;
+            color: #a7c2ff;
         }
         /*目錄-漢堡聯動勾選框-平時隱藏*/  
         .hb-input-item{
@@ -206,7 +206,7 @@
             line-height:25px;
             padding: 10px 15px;
             color: rgb(130, 130, 130);
-            font-size:calc(14px + .1vw);
+            font-size:14px;
             width:100%;
             margin-bottom: 10px;
             height: 46px
@@ -218,16 +218,36 @@
         .aboutMe .address{
             width: 79%;
         }
+        /*內容-關於自己&個人頁面按鈕*/
+        .h2AndBrowse{
+            display: flex;
+            justify-content: space-between;
+        }
         /*內容-關於自己-h2*/
         .aboutMe h2{
-            font-size: calc(23px + .1vw);
-            line-height: 35px;
+            font-size:18px;
             font-weight: bold;
             color:#278aff;
+            margin: auto 0px;
+        }
+        /*內容-個人頁面按鈕*/
+        .h2AndBrowse .browse{
+            margin: 0px 0px auto;
+            font-size:16px;
+            border-radius:5px;       
+            padding: 8px 10px;
+            border: 1px solid;
+            transition: transform .2s;
+            color: #fff;
+            font-weight: bold;
+            background-color: #2ab3fc;
+        }
+        .h2AndBrowse .browse:hover{
+            transform: scale(0.95);
         }
         /*內容-關於自己-所有label*/
         .aboutMe label{
-            font-size:calc(16px + .1vw);
+            font-size:16px;
             line-height: 35px;
             margin-top: 25px;
         }
@@ -240,7 +260,7 @@
         /*內容-關於自己-按鈕*/
         .button{
             margin: 50px 5px 0px;
-            font-size:calc(14px + .1vw);
+            font-size:16px;
             border-radius:5px;          
             padding: 10px;
             line-height: 15px;
@@ -249,21 +269,20 @@
         }
         /*內容-關於自己-按鈕-捨棄變更*/
         .button1{
-            color: rgb(130, 130, 130);
+            background-color: #fff;
+            color:#828282;
         }
         /*內容-關於自己-按鈕-儲存變更*/
         .button2{
-            background-color:#425bd6;
+            background-color:#6D9FF4;
             color:#fff;
         }
         /*內容-關於自己-按鈕-捨棄變更-碰到的變化*/
         .button1:hover{
-            color: rgb(100, 100, 100);
             transform: scale(0.95);
         }
         /*內容-關於自己-按鈕-儲存變更-碰到的變化*/
         .button2:hover{
-            background-color: #32439b;
             transform: scale(0.95);
         }
         /*內容-關於自己-必填*號*/
@@ -274,9 +293,9 @@
         .aboutMe .note {
             background-color: rgba(193, 241, 252, 0.436);
             display: inline-block;
-            font-size:calc(16px + .1vw);
-            margin-bottom: 45px;
-            margin-top: 10px;
+            font-size:16px;
+            margin-bottom: 60px;
+            margin-top: 20px;
         }
         /*內容-關於自己-身分的按鈕*/
         .yourSex,.yourRelationship{
@@ -288,7 +307,7 @@
             border-radius: 15px;
             margin-right: 3px;
             padding: 5px 15px;
-            font-size: calc(14px + .1vw);
+            font-size: 14px;
             line-height: 1.5em;
         }
         /*內容-關於自己-身分的按鈕，原本為藍色，點擊後變灰色*/
@@ -297,7 +316,7 @@
         }
         /*內容-關於自己-身分的按鈕，原本為灰色，點擊後變藍色*/
         .yourSex.blue-background ,.yourRelationship.blue-background {
-            background-color: #0088d2;
+            background-color: #6481E0;
             color: #fff;
         }
         /*上傳背景&頭像*/
@@ -321,20 +340,19 @@
         .upload-preview .upload-label {
             margin-top: 0px;
             position: absolute;
-            top: 5px;
-            font-size: 14px;
+            bottom: 5px;
             right: 5px;
-            background-color: #595959ab;
-            padding: 5px 10px;
-            line-height: 25px;
-            border-radius: 8px;
+            font-size: 14px;
+            background-color: #858585c4;
+            padding: 5px 8px;
+            line-height: 20px;
+            border-radius: 5px;
             cursor: pointer;
             color: #fff;
             font-weight: bold;
             transition: transform .2s;
         }
         .upload-preview .upload-label:hover{
-            background-color: #7d7d7dfe;
             transform: scale(0.95);
         }
         /*上傳背景-input*/
@@ -344,7 +362,7 @@
         /*上傳背景-提示文字*/
         .upload-note {
             width: 100%;
-            font-size: calc(14px + .1vw);
+            font-size: 14px;
             position: absolute;
             right: 0px;
             top: -20px;
@@ -410,7 +428,7 @@
             }
             /*上傳背景-提示文字*/
             .upload-note {
-                font-size: calc(10px + .1vw);
+                font-size: 10px;
             }
             .avatar-container {
                 margin-top: -50px;
@@ -552,7 +570,14 @@
         <div class="photoNameAndMainContent">
             <!-- 關於自己 -->
             <div class="aboutMe">
-                <h2>關於自己</h2>
+                <div class="h2AndBrowse">
+                    <h2>關於自己</h2>
+                        <a href="#" class="browse">
+                            <svg xmlns="http://www.w3.org/2000/svg"  fill="#fff" width="14" height="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                            個人頁面
+                        </a>
+                    
+                </div>
                 <p class="note">以下資訊將用於活動推薦及報名使用。</p><br>
                 <!-- 上傳背景+頭像 -->
                 <div class="upload-section">
@@ -561,7 +586,7 @@
                         <div class="upload-preview">
                             <img src="image/backgroundUploadImg.png" alt="">
                             <label for="bgImg" class="upload-label">
-                                <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                <svg fill="#fff" width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
                                     <path d="m11.093 15.43-3.039-3.04c.543-.956 1.335-1.903 2.375-2.838 1.341-1.208 3.708-3.25 7.1-6.126a1.795 1.795 0 0 1 2.53 2.53c-2.88 3.398-4.921 5.765-6.125 7.1-.935 1.037-1.882 1.828-2.841 2.373Zm-4.416-1.587 2.965 2.964-1.366 1.906L3 20.508l1.771-5.3 1.906-1.365Z" fill="current"></path>
                                 </svg>
                                 上傳
@@ -569,7 +594,7 @@
                         </div>
                         <input id="bgImg" type="file" accept="*/*" class="upload-input">
                         <div class="upload-note">
-                            <p>建議上傳 1200 × 400 的封面照片、檔案大小不可大於 4 MB</p>
+                            <p>建議上傳1200×400的封面照片、檔案不可大於4MB</p>
                         </div>
                     </div>
                     <!-- 上傳頭像 -->

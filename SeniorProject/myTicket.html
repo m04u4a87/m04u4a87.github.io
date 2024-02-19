@@ -119,7 +119,7 @@
         }
         /*回頂端top箭頭-動畫*/
         .top svg:hover{  
-            background-color: #273da796;
+            background-color: #6d9ff4;
         }
 
         /*目錄&內容*/
@@ -157,14 +157,14 @@
         .main-menu a{
             font-size:calc(18px + .1vw);
             display: block;
-            color:  #000;
+            color:  #6481E0;
             line-height: 70px;
             padding:0px 25px;
             font-weight: bold;
         }
         /*目錄-所有超連結-碰到的變化*/
         .main-menu a:hover{
-            color: #0088d2;
+            color: #a7c2ff;
         }
         /*目錄-漢堡聯動勾選框-平時隱藏*/  
         .hb-input-item{
@@ -215,10 +215,12 @@
         }
         /*內容-照片與姓名-姓名*/
         .name{
-            font-size:calc(16px + 1vw);
+            color: #6481E0;
+            font-size:23px;
             padding-left:15px;
-            letter-spacing:3px;
+            letter-spacing:5px;
             margin-bottom: 0px;
+            font-weight: bold;
         }
 
         /*內容-我的票劵-ul預設空格清空*/
@@ -231,7 +233,7 @@
         }
         /*內容-我的票劵-標籤-文字*/
         .tab > ul li a { 
-            font-size: 18px;
+            font-size: 16px;
             color: #000;
             float: left;
             padding: 10px 22px;
@@ -240,7 +242,7 @@
             border-bottom: none;
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
-            color:#4e68e8;
+            color:#6D9FF4;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         /*內容-我的票劵-標籤的內容*/
@@ -256,7 +258,7 @@
         #undone:target ~ .tab > ul li a[href$="#undone"],
         #canceled:target ~ .tab > ul li a[href$="#canceled"],
         #returnTicketHistory:target ~ .tab > ul li a[href$="#returnTicketHistory"]{
-            background-color:#8696e7;
+            background-color:#6D9FF4;
             color: #fff;
         }
         /*內容-我的票劵-當有標籤被點時，預設顯示的參加活動內容隱藏*/
@@ -268,7 +270,7 @@
         /*內容-我的票劵-當有標籤被點時，預設顏色的參加活動，拿掉顏色*/
         .tabLink:target ~ .tab > ul li:first-child a{
             background-color:#ffffff;
-            color:#4e68e8;
+            color:#6D9FF4;
         }
         /*內容-我的票劵-參加活動預設顯示%各標籤被點時，內容顯示*/
         .tabLink ~ .tab > .tabContent:first-of-type,
@@ -279,7 +281,7 @@
             visibility: visible;
             height: 100%;
             background: #fff;
-            border-top: 2px solid #8696e7;
+            border-top: 2px solid #6D9FF4;
         }
         /*內容-我的票劵-標籤連結，平常不顯示*/
         .tabLink {
@@ -313,7 +315,7 @@
         .grid-content {
             width: 70%;
             padding: 15px;
-            border-left: 8px solid #7AB8FB;
+            border-left: 8px solid #6d9ff4;
             border-right: 2px dashed #ddd;
             position:relative;
         }
@@ -321,7 +323,7 @@
 
         /*內容-格子-單張票劵-文字內容-標題*/
         .grid-content h2 {
-            font-size: calc(18px + .1vw);
+            font-size: calc(16px + .1vw);
             font-weight: bold;
             margin-bottom: 10px;
             display:-webkit-box;
@@ -332,7 +334,7 @@
         /*內容-格子-單張票劵-文字內容-日期&訂單標號*/
         .grid-content p {
             margin: 5px 0px;
-            font-size: calc(16px + .1vw);
+            font-size: calc(14px + .1vw);
             color: #7e7e7ee8;
             display:-webkit-box;
             -webkit-line-clamp: 1; 
@@ -408,7 +410,7 @@
         .getTicket{
             margin-bottom: 5px;
             display: inline-block;
-            background-color: #7AB8FB;
+            background: linear-gradient(to bottom, #80c3fF, #6d9ff4);
             color: #fff;
             border-radius: 30px;
             padding: 8px 30px;
@@ -498,7 +500,7 @@
                 border-top-right-radius: 0px;
                 border-bottom-left-radius: 10px;
                 display: inline-block;
-                border-top: 8px solid #0579ed;
+                border-top: 8px solid #6d9ff4;
             }
             /*內容-格子-單張票劵-文字內容*/
             .grid-content {
