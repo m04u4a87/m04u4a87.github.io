@@ -126,6 +126,7 @@
             display: flex;
             width: 70%;
             margin: 20px auto;
+            max-width: 1080px;
         }
 
         /*目錄*/
@@ -451,26 +452,26 @@
             transform: scale(0.95);
         }
         
-        /*內容-明細彈跳視窗*/
+        /*內容-彈跳視窗-內容*/
         .modal-body{
             color: #787878;
         }
-        /*內容-明細彈跳視窗-標題*/
+        /*內容-彈跳視窗-標題*/
         .modal-body h3{
             font-size: calc(18px + .1vw);
             margin-bottom: 20px;
             padding-left: 18px; 
             font-weight: bold;  
         }
-        /*內容-明細彈跳視窗-內容文字*/
+        /*內容-彈跳視窗-內容文字*/
         .modal-body p{
             font-size: calc(16px + .1vw);
-            line-height: 14px;
+            line-height: 25px;
             padding-left: 18px; 
             margin: 20px 0px;       
         }
-        /**/
-        .modal-body .modal-singleWord{
+        /*內容-彈跳視窗-退票成功文字*/
+        .modal-body .returnTicketOKWord{
             margin: 5px 0px;
             line-height: 30px; 
             font-size: calc(18px + .1vw);
@@ -727,7 +728,7 @@
                                 </div>
                                 <div class="grid-operate">
                                     <div class="operate-header">
-                                        <a href="#" class="getTicket button" target="_blank">取票</a>
+                                        <a href="https://m04u4a87.github.io/SeniorProject/getTicket.html" class="getTicket button" target="_blank">取票</a>
                                     </div>
                                     <div class="operate-footer">
                                         <a href="#" class="returnTicket" data-bs-toggle="modal" data-bs-target="#returnTicketData1">退票</a>
@@ -798,7 +799,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                            <p class="modal-singleWord">已成功退票!<br>若為付費票，退款作業時間約為14～21個工作天，敬請耐心等候。</p>
+                                            <p class="returnTicketOKWord">已成功退票!<br>若為付費票，退款作業時間約為14～21個工作天，敬請耐心等候。</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
