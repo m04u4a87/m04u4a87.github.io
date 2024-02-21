@@ -378,7 +378,7 @@
             top:-5px;
             right: -11px;
         }
-        /*內容-格子-單張票劵-剪口(下)*/
+        /*內容-格子-單張票劵-剪口(已報名-下)*/
         .grid-operate::before{
             content: ' ';
             position: absolute;
@@ -392,6 +392,29 @@
             box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
         }
         .grid-operate::after{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-10px;
+            left: -11px;
+        }
+        /*內容-格子-單張票劵-剪口(退票紀錄-下)*/
+        .returnTicketHistory-operate::before{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-1px;
+            left: -11px;
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+        }
+        .returnTicketHistory-operate::after{
             content: ' ';
             position: absolute;
             width: 21px;
@@ -446,6 +469,20 @@
             height: 30px;
             width: 50%;
             line-height: 30px;
+        }
+        /*退票紀錄*/
+        .returnTicketHistory-operate{
+            width: 30%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            
+        }
+        .returnTicketHistory-operate a{
+            color: #7e7e7ee8;
+            width: 100%;
+            font-weight: bold;
         }
         /*內容-格子-單張票劵-操作-按鈕們-碰到效果*/
         .getTicket:hover,.returnTicket:hover,.details:hover {
@@ -507,7 +544,7 @@
                 border-top-right-radius: 0px;
                 border-bottom-left-radius: 10px;
                 display: inline-block;
-                border-top: 8px solid #6d9ff4;
+                border-top: 10px solid #6d9ff4;
             }
             /*內容-格子-單張票劵-文字內容*/
             .grid-content {
@@ -529,6 +566,11 @@
             .getTicket{
                 margin: 10px;
             }
+            /*退票紀錄*/
+            .returnTicketHistory-operate{
+                width: 100%;
+            }
+
             /*內容-格子-單張票劵-剪口(上)*/
             .grid-content::before{
                 width: 15px;
@@ -545,7 +587,7 @@
                 top:105px;
                 right: -4px;
             }
-            /*內容-格子-單張票劵-剪口(下)*/
+            /*內容-格子-單張票劵-剪口(已報名-下)*/
             .grid-operate::before{
                 width: 15px;
                 height: 21px;
@@ -561,6 +603,23 @@
                 bottom:91px;
                 left: -6px;
             }
+            /*內容-格子-單張票劵-剪口(退票紀錄-下)*/
+            .returnTicketHistory-operate::before{
+                width: 15px;
+                height: 21px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:30px;
+                left: -1px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) inset;
+            }
+            .returnTicketHistory-operate::after{
+                width: 12px;
+                height: 20px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:30px;
+                left: -6px;
+            }
+            
 
         }
 
@@ -713,7 +772,7 @@
                     <!-- 我的票劵-標籤本身-->
                     <ul>
                         <li><a href="#registered" class="registered-tab">已報名(2)</a></li>
-                        <li><a href="#returnTicketHistory" class="returnTicketHistory-tab">退票紀錄(0)</a></li>
+                        <li><a href="#returnTicketHistory" class="returnTicketHistory-tab">退票紀錄(1)</a></li>
                     </ul>
                     <!-- 我的票劵-標籤內容-已報名-->
                     <div class="registered-content tabContent">
@@ -807,6 +866,94 @@
                                 </div>
                                 </div>
                             </div>
+                            <!-- 單個格子 -->
+                            <div class="grid">
+                                <div class="grid-content">
+                                    <a href="#"><h2>設計交流之夜：工藝師與建築師的空間打造</h2></a>
+                                    <p class="date">2024-03-01 19:00 ~ 2024-03-01 20:30</p>
+                                    <p class="orderNumber">訂單編號：2401310739245645659000</p>
+                                </div>
+                                <div class="grid-operate">
+                                    <div class="operate-header">
+                                        <a href="https://m04u4a87.github.io/SeniorProject/getTicket.html" class="getTicket button" target="_blank">取票</a>
+                                    </div>
+                                    <div class="operate-footer">
+                                        <a href="#" class="returnTicket" data-bs-toggle="modal" data-bs-target="#returnTicketData2">退票</a>
+                                        <a href="#" class="details" data-bs-toggle="modal" data-bs-target="#detailsModal2">明細</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 彈跳視窗-明細 -->
+                            <div class="modal" tabindex="-1" id="detailsModal2">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">票劵明細</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <h3>票券資訊</h3>
+                                                <p>票號: 2401310739245745410350</p>
+                                                <p>票種: 一般票</p>
+                                                <p>單價: $350</p>
+                                                <p>有效期限: 2024-03-01 19:00 ~ 2024-03-01 20:30</p>
+                                            </div>
+                                            <hr>
+                                            <div>
+                                                <h3>參加人資訊</h3>
+                                                <p>姓名: 譚舒舒</p>
+                                                <p>電子郵件: 123456@gmail.com</p>
+                                                <p>行動電話: 886909090090</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 彈跳視窗-退票(第一個) -->
+                            <div class="modal" tabindex="-1" id="returnTicketData2">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">進行退票</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <h3>票券資訊</h3>
+                                                <p>票號: 2401310739245745410350</p>
+                                                <p>票種: 一般票</p>
+                                                <p>單價: $350</p>
+                                                <p>有效期限: 2024-03-01 19:00 ~ 2024-03-01 20:30</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#returnTicketOK2">確認退票</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 彈跳視窗-退票(第二個) -->
+                            <div class="modal fade" id="returnTicketOK2" tabindex="-1" aria-labelledby="secondModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="secondModalLabel">退票成功</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <p class="returnTicketOKWord">已成功退票!<br>若為付費票，退款作業時間約為14～21個工作天，敬請耐心等候。</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- 切換頁碼 -->
                         <nav aria-label="Page navigation example" class="pageNumber" >
@@ -828,7 +975,59 @@
 
                     <!-- 我的票劵-標籤內容-退票紀錄-->
                     <div class="returnTicketHistory-content tabContent">
+                        <!-- 格子清單 -->
+                        <div class="grid-list">
+                            <!-- 單個格子 -->
+                            <div class="grid">
+                                <div class="grid-content">
+                                    <a href="#"><h2>2024 藝集講堂 |【美學旅行：走進歐洲藝術博物館】</h2></a>
+                                    <p class="date">2024-03-10 14:00 ~ 2024-09-15 16:00</p>
+                                    <p class="orderNumber">訂單編號：2402122007561368342685</p>
+                                </div>
+                                <div class="returnTicketHistory-operate">
+                                        <a href="#" class="details" data-bs-toggle="modal" data-bs-target="#detailsModal3">明細</a>
+                                    </div>
 
+                                </div>
+                            </div>
+                            <!-- 彈跳視窗-明細 -->
+                            <div class="modal" tabindex="-1" id="detailsModal3">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">票劵明細</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <h3>退票資訊</h3>
+                                                <p>退票時間: 2024-02-21 15:00</p>
+                                            </div>
+                                            <hr>
+                                            <div>
+                                                <h3>票券資訊</h3>
+                                                <p>票號: 2402122007561782024220</p>
+                                                <p>票種: 六講套票</p>
+                                                <p>單價: $2040</p>
+                                                <p>有效期限: 2024-03-10 14:00 ~ 2024-09-15 16:00</p>
+                                                
+                                            </div>
+                                            <hr>
+                                            <div>
+                                                <h3>參加人資訊</h3>
+                                                <p>姓名: 譚舒舒</p>
+                                                <p>電子郵件: 123456@gmail.com</p>
+                                                <p>行動電話: 886909090090</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- 切換頁碼 -->
                         <nav aria-label="Page navigation example" class="pageNumber" >
                             <ul class="pagination">

@@ -97,13 +97,24 @@
             margin: 20px auto 50px;
             width: 300px;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
+            position: relative;
         }
         /*上半部-QrCode區塊-圖片*/
         .qrCode .qrCodeImg{
+            opacity:0.2; /*過期才出現*/
             vertical-align: middle;
             height: 250px;
             width: 250px;
             padding: 20px;
+        }
+        .postMark{  /*過期才出現*/
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            margin: 0px auto;
         }
         /*上半部-QrCode區塊-參加人&票劵編號*/
         .participant,.ticketNumber{
@@ -190,9 +201,13 @@
                 width: 250px;
             }
             /*上半部-QrCode區塊-圖片*/
-            .qrCode img{
+            .qrCode .qrCodeImg{
                 height: 200px;
                 width: 200px;
+            }
+            .postMark{  /*過期才出現*/
+                width: 200px;
+                height: 200px;
             }
         }
 
@@ -217,6 +232,7 @@
 
                 <div class="qrCode">
                     <img class="qrCodeImg" src="image/QRcode.png" alt="">
+                    <img class="postMark" src="image/postmark-14.png" alt="">
                     <p class="participant">參加人：譚舒舒</p>
                     <p class="ticketNumber">票券編號：16082311553</p>
                 </div>
