@@ -267,163 +267,141 @@
         .top svg:hover{  
             background-color: #6d9ff4;
         }
-
-        /*目錄&內容*/
-        .content{
+        
+        /*所有內容*/
+        .all{
             display: flex;
             width: 70%;
             margin: 20px auto;
             max-width: 1080px;
             flex-grow: 1;
         }
-
-        /*目錄*/
-        .menu{
-            width: 30%;
-            z-index: 50;
-        }
-        /*目錄-所有內容*/
-        .main-menu{
-            background-color: #fff;
-            width: 100%;
-            position: sticky;
-            top:80px;
-            box-shadow:0 0 10px 0px rgb(244, 244, 244);
-            border-radius: 10px;
-        }
-        /*目錄-線條*/
-        .main-menu hr{
-            width: 100%;
-            color: #9e9e9e;
-            margin: 0px;
-        }
-        /*目錄-所有超連結*/
-        .main-menu a{
-            font-size:18px;
-            display: block;
-            color:  #6481E0;
-            line-height: 70px;
-            padding:0px 25px;
-            font-weight: bold;
-        }
-        /*目錄-所有超連結-碰到的變化*/
-        .main-menu a:hover{
-            color: #a7c2ff;
-        }
-        /*目錄-當頁目錄換色*/
-        .currentPage a{
-            /* border-left: 5px solid #0088d2; */
-            background: linear-gradient(to left, #80C3FF, #6D9FF4);
-            color: #fff;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-        /*目錄-當頁目錄-碰到時不做效果*/
-        .currentPage a:hover{
-            color: #fff;
-        }
-
         /*內容-包裹容器*/
-        .all{
+        .content{
             background-color: #fff;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
             border-radius: 10px;
             width:100%;
-            margin-left: 20px;
+            min-height: 100vh;
             line-height: 1.5;
         }
-        /*內容-主要內容*/
-        .photoNameAndMainContent{
+        /*上、下半內容*/
+        .h2AndAddressAndQrCode,.accordion{
             width: 80%;
-            margin: 40px auto;
+            margin: 0px auto;
         }
-        /*內容-變更密碼-input框線換新樣式*/
-        .changePassword  input{
-            border-radius: 5px;
-            outline: none;
-            background-color: #eff2f4;
-            border: 1px solid #f3f4fa;
-            line-height:25px;
-            padding: 10px 15px;
-            color: rgb(130, 130, 130);
-            font-size:14px;
-            width:100%;
-        }
-        /*內容-變更密碼-h2*/
-        .changePassword h2{
+        /*上半部-標題*/
+        .h2AndAddressAndQrCode h2{
             font-size: 23px;
-            padding: 8px 0px;
-            margin: auto 0px;
+            line-height: 25px;
+            padding: 40px 0px 10px;
             font-weight: bold;
             color:#278aff;
         }
-        /*內容-變更密碼-所有label*/
-        .changePassword label{
-            font-size:16px;
-            line-height: 35px;
-            margin-top: 30px;
-        }
-        /*內容-變更密碼-按鈕清單*/
-        .button-list{
-            text-align:center;
-            line-height: 40px;
-            width:100%;
-        }
-        /*內容-變更密碼-按鈕*/
-        .button{
-            margin: 50px 5px 0px;
-            font-size:16px;
-            border-radius:5px;          
-            padding: 10px;
-            line-height: 15px;
-            border: 1px solid;
-            transition: transform .2s;
-        }
-        /*內容-變更密碼-按鈕-捨棄變更*/
-        .button1{
-            background-color: #fff;
-            color:#828282;
-        }
-        /*內容-變更密碼-按鈕-儲存變更*/
-        .button2{
-            background-color:#6D9FF4;
-            color:#fff;
-        }
-        /*內容-變更密碼-按鈕-捨棄變更-碰到的變化*/
-        .button1:hover{
-            transform: scale(0.95);
-        }
-        /*內容-變更密碼-按鈕-儲存變更-碰到的變化*/
-        .button2:hover{
-            transform: scale(0.95);
-        }
-        /*內容-變更密碼-必填*號*/
-        .requiredSymbols{
-            color:red;
-        }
-        /*內容-變更密碼-忘記密碼*/
-        .forgetPassword{
-            text-align:right;
-            margin-top: 5px;
-            width: 100%;
-        }
-        /*內容-變更密碼-忘記密碼的超連結*/
-        .forgetPassword a{
+        /*上半部-地址-超連結*/
+        .address a{
             font-size: 14px;
-            color: #273da7;
-            text-decoration: underline;
+            font-weight: bold;
+            color: #6481e0;
+        }
+        /*上半部-地址-超連結，碰到效果*/
+        .address a:hover{
+            color: #85d7ff;
+        }
+        /*上半部-QrCode區塊*/
+        .qrCode{
+            border: 1px solid #c4c4c480;
+            text-align: center;
+            margin: 20px auto 50px;
+            width: 300px;
+            box-shadow:0 0 10px 0px rgb(244, 244, 244);
+        }
+        /*上半部-QrCode區塊-圖片*/
+        .qrCode .qrCodeImg{
+            vertical-align: middle;
+            height: 250px;
+            width: 250px;
+            padding: 20px;
+        }
+        /*上半部-QrCode區塊-參加人&票劵編號*/
+        .participant,.ticketNumber{
+            margin-bottom: 0px;
+            color: #fff;
+            font-size: 16px;
+            line-height: 30px;
+        }
+        /*上半部-QrCode區塊-參加人*/
+        .participant{
+            background-color:#6d9ff4;
+        }
+        /*上半部-QrCode區塊-票劵編號*/
+        .ticketNumber{
+            background-color: #868686c9;
+        }
+        /*下半部-風琴區-單個*/
+        .accordion-item{
+            margin-bottom: 20px;
+            box-shadow:0 0 10px 0px rgb(244, 244, 244);
+        }
+        /*下半部-風琴區-標題區域*/
+        .accordion .accordion-button{
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background:linear-gradient(to bottom, #80c3ff, #6d9ff4);
+            letter-spacing: 2px;
+        }
+        /*下半部-風琴區-標題區域-箭頭*/
+        .accordion-button::after {
+            filter: brightness(0) invert(1);
+        }
+        /*下半部-風琴區-標題區域-圖示*/    
+        .accordion-button svg{
+            margin-right: 10px;
+        }
+        /*下半部-風琴區-內容-超連結*/  
+        .accordion a{
+            color: #6481e0;
+            padding-left: 20px;
+            font-size: 18px;
+        }
+        /*下半部-風琴區-內容-超連結，碰到效果*/  
+        .accordion a:hover{
+            color: #85d7ff;
+        }
+        /*下半部-風琴區-內容-小標題*/  
+        .accordion h4{
+            font-size: 16px;
+            line-height: 20px;
+            color:#868686;
+            font-weight: bold;
+            margin: 20px 0px 15px;
+        }
+        /*下半部-風琴區-內容-文字*/  
+        .accordion p{
+            padding-left: 20px;
+            font-size: 16px;
+            color:#868686;
+        }
+        /*下半部-風琴區-內容-附註文字*/  
+        .accordion .note{
+            padding-left: 0px;
+            font-weight: bold;
+            background-color: #fff9b5a8;
+            display: inline-block;
+            margin-top: 15px;
         }
         /*視窗小於768*/
         @media screen and (max-width: 768px) {
-            .content{
+            /*所有內容*/
+            .all{
                 width: 100%;
                 margin: 0px auto;
             }
             /*內容-包裹容器*/
-            .all{
+            .content{
                 box-shadow:none;
                 border-radius: 0px;
-                margin-left: 0px;
             }
             html,body{
                 overflow-x: hidden; 
@@ -441,7 +419,15 @@
                 display: none;
                 z-index: 10;
             }
-
+            /*上半部-QrCode區塊*/
+            .qrCode{
+                width: 250px;
+            }
+            /*上半部-QrCode區塊-圖片*/
+            .qrCode .qrCodeImg{
+                height: 200px;
+                width: 200px;
+            }
             .search input {
                 display: none;
             }
@@ -778,9 +764,7 @@
                 background-color: #e7e7e7;
                 color: red;
             }
-
         }
-
         @media screen and (min-width:768px){
         .hamburger-btn {
             display: none;
@@ -876,13 +860,3 @@
             /* align-items: center; */
         }
     }
-
-        /*視窗小於1200，大於768*/
-        @media screen and (max-width: 1199px) {
-            .menu 
-            {
-                display: none;
-            }
-        }
-
-

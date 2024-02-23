@@ -269,7 +269,7 @@
         }
 
         /*目錄&內容*/
-        .content{
+        .all{
             display: flex;
             width: 70%;
             margin: 20px auto;
@@ -310,13 +310,16 @@
         .main-menu a:hover{
             color: #a7c2ff;
         }
+        /*目錄-漢堡聯動勾選框-平時隱藏*/  
+        .hb-input-item{
+            display: none;
+        }
         /*目錄-當頁目錄換色*/
         .currentPage a{
-            /* border-left: 5px solid #0088d2; */
             background: linear-gradient(to left, #80C3FF, #6D9FF4);
             color: #fff;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
         /*目錄-當頁目錄-碰到時不做效果*/
         .currentPage a:hover{
@@ -324,7 +327,7 @@
         }
 
         /*內容-包裹容器*/
-        .all{
+        .content{
             background-color: #fff;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
             border-radius: 10px;
@@ -337,8 +340,8 @@
             width: 80%;
             margin: 40px auto;
         }
-        /*內容-變更密碼-input框線換新樣式*/
-        .changePassword  input{
+        /*內容-關於自己-input框線換新樣式*/
+        .aboutMe input,.city,.textarea{
             border-radius: 5px;
             outline: none;
             background-color: #eff2f4;
@@ -348,28 +351,56 @@
             color: rgb(130, 130, 130);
             font-size:14px;
             width:100%;
+            margin-bottom: 10px;
+            height: 46px
         }
-        /*內容-變更密碼-h2*/
-        .changePassword h2{
-            font-size: 23px;
-            padding: 8px 0px;
-            margin: auto 0px;
+        /*內容-關於自己-城市下拉選單和地址並排*/
+        .aboutMe .city{
+            width: 20%;
+        }
+        .aboutMe .address{
+            width: 79%;
+        }
+        /*內容-關於自己&個人頁面按鈕*/
+        .h2AndBrowse{
+            display: flex;
+            justify-content: space-between;
+        }
+        /*內容-關於自己-h2*/
+        .aboutMe h2{
+            font-size:23px;
             font-weight: bold;
             color:#278aff;
+            margin: auto 0px;
         }
-        /*內容-變更密碼-所有label*/
-        .changePassword label{
+        /*內容-個人頁面按鈕*/
+        .h2AndBrowse .browse{
+            margin: 0px 0px auto;
+            font-size:16px;
+            border-radius:5px;       
+            padding: 8px 10px;
+            border: 1px solid;
+            transition: transform .2s;
+            color: #fff;
+            font-weight: bold;
+            background-color: #2ab3fc;
+        }
+        .h2AndBrowse .browse:hover{
+            transform: scale(0.95);
+        }
+        /*內容-關於自己-所有label*/
+        .aboutMe label{
             font-size:16px;
             line-height: 35px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
-        /*內容-變更密碼-按鈕清單*/
+        /*內容-關於自己-按鈕清單*/
         .button-list{
             text-align:center;
             line-height: 40px;
             width:100%;
         }
-        /*內容-變更密碼-按鈕*/
+        /*內容-關於自己-按鈕*/
         .button{
             margin: 50px 5px 0px;
             font-size:16px;
@@ -379,48 +410,161 @@
             border: 1px solid;
             transition: transform .2s;
         }
-        /*內容-變更密碼-按鈕-捨棄變更*/
+        /*內容-關於自己-按鈕-捨棄變更*/
         .button1{
             background-color: #fff;
             color:#828282;
         }
-        /*內容-變更密碼-按鈕-儲存變更*/
+        /*內容-關於自己-按鈕-儲存變更*/
         .button2{
             background-color:#6D9FF4;
             color:#fff;
         }
-        /*內容-變更密碼-按鈕-捨棄變更-碰到的變化*/
+        /*內容-關於自己-按鈕-捨棄變更-碰到的變化*/
         .button1:hover{
             transform: scale(0.95);
         }
-        /*內容-變更密碼-按鈕-儲存變更-碰到的變化*/
+        /*內容-關於自己-按鈕-儲存變更-碰到的變化*/
         .button2:hover{
             transform: scale(0.95);
         }
-        /*內容-變更密碼-必填*號*/
+        /*內容-關於自己-必填*號*/
         .requiredSymbols{
             color:red;
         }
-        /*內容-變更密碼-忘記密碼*/
-        .forgetPassword{
-            text-align:right;
-            margin-top: 5px;
-            width: 100%;
+        /*內容-關於自己-附註文字*/
+        .aboutMe .note {
+            background-color: rgba(193, 241, 252, 0.436);
+            display: inline-block;
+            font-size:16px;
+            margin-bottom: 60px;
+            margin-top: 20px;
         }
-        /*內容-變更密碼-忘記密碼的超連結*/
-        .forgetPassword a{
+        /*內容-關於自己-身分的按鈕*/
+        .yourSex,.yourRelationship{
+            color: rgb(130, 130, 130);
+            background-color: #eff2f4;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            margin-right: 3px;
+            padding: 5px 15px;
             font-size: 14px;
-            color: #273da7;
-            text-decoration: underline;
+            line-height: 1.5em;
+        }
+        /*內容-關於自己-身分的按鈕，原本為藍色，點擊後變灰色*/
+        .yourSex.grey-background ,.yourRelationship.grey-background {
+            background-color: #eff2f4;
+        }
+        /*內容-關於自己-身分的按鈕，原本為灰色，點擊後變藍色*/
+        .yourSex.blue-background ,.yourRelationship.blue-background {
+            background-color: #6481E0;
+            color: #fff;
+        }
+        /*上傳背景&頭像*/
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /*上傳背景*/
+        .upload-container {
+            position: relative;
+        }
+        /*上傳背景-背景圖*/
+        .upload-preview img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            vertical-align: bottom;
+        }
+        /*上傳背景-label*/
+        .upload-preview .upload-label {
+            margin-top: 0px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 14px;
+            background-color: #858585c4;
+            padding: 5px 8px;
+            line-height: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            transition: transform .2s;
+        }
+        .upload-preview .upload-label:hover{
+            transform: scale(0.95);
+        }
+        /*上傳背景-input*/
+        .upload-input {
+            display: none;
+        }
+        /*上傳背景-提示文字*/
+        .upload-note {
+            width: 100%;
+            font-size: 14px;
+            position: absolute;
+            right: 0px;
+            top: -20px;
+            margin-bottom: 0px;
+            color: darkgray;
+        }
+        /*上傳頭像*/
+        .avatar-container {
+            position: relative;
+            margin-top: -60px;
+            width: 120px;
+            height: 120px;
+            box-shadow: 0px 2px 5px rgba(175, 175, 175, 0.135);
+            border: solid 5px #ffffff;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        /*上傳頭像-頭像圖*/
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            vertical-align: middle;
+            transform: scale(1);
+            transition: transform .8s; 
+        }
+        /*上傳頭像-label*/
+        .avatar-preview .avatar-label {
+            position: absolute;
+            display: flex;
+            font-weight: bold;
+            width: 100%;
+            height: 50%;
+            font-size: 14px;
+            align-items: center;
+            justify-content: center;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0.53%, rgba(0, 0, 0, 0.43) 98%);
+            color: #ffffff;
+            cursor: pointer;
+
+        }
+        .avatar-container:hover .avatar-preview img{
+            transform: scale(1.1);
+        }
+        /*上傳頭像-input*/
+        .avatar-input {
+            display: none;
         }
         /*視窗小於768*/
         @media screen and (max-width: 768px) {
-            .content{
+            .all{
                 width: 100%;
                 margin: 0px auto;
             }
             /*內容-包裹容器*/
-            .all{
+            .content{
                 box-shadow:none;
                 border-radius: 0px;
                 margin-left: 0px;
@@ -440,6 +584,22 @@
                 background-color: rgba(106, 106, 106, 0.213);
                 display: none;
                 z-index: 10;
+            }
+            /*上傳背景-提示文字*/
+            .upload-note {
+                font-size: 10px;
+            }
+            .avatar-container {
+                margin-top: -50px;
+                width: 100px;
+                height: 100px;
+            }
+            /*內容-關於自己-城市下拉選單和地址並排*/
+            .aboutMe .city{
+                width: 100%;
+            }
+            .aboutMe .address{
+                width: 100%;
             }
 
             .search input {
@@ -778,9 +938,7 @@
                 background-color: #e7e7e7;
                 color: red;
             }
-
         }
-
         @media screen and (min-width:768px){
         .hamburger-btn {
             display: none;
@@ -877,7 +1035,6 @@
         }
     }
 
-        /*視窗小於1200，大於768*/
         @media screen and (max-width: 1199px) {
             .menu 
             {

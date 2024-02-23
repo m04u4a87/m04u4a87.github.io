@@ -12,9 +12,134 @@
 </head>
 <body>
 
+<!-- header -->
+<input type="checkbox" name="" id="menu-switch">
+<input type="checkbox" name="" id="profile-container-switch">
+<input type="checkbox" name="" id="activity-switch">
+<input type="checkbox" name="" id="memberCenter-switch">
+<header class="header ">
+        <div class="header-container">
+            <button class="hamburger-btn">
+            <label for="menu-switch">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            </button>
+            
+            <a href="#" class="logo-image">
+                <img class="logo" src="./image/logosandsearch/newlogo.png" alt="">
+            </a>
+            <div class="search">
+            <input type="text" class="searchTerm" placeholder="" >
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>探索活動
+            </button>
+            </div>
+            <div class="createEvent-container">
+            <label for="profile-container-switch">
+                <div class="photo-container">
+                <img src="./image/logosandsearch/profile-photo.png" alt="">
+                </div>
+            </label>
+            <a href="#"><button class="createBtn">辦活動</button> </a>
+            </div>
+            <div class="profile-container">
+            <ul class="editor">
+                <li><a href="#"><button class="browse">探索活動</button></a>
+                    <ul class="">
+                    <li><a href="#">戶外體驗</a></li>
+                    <li><a href="#">公益講座</a></li>
+                    <li><a href="#">學習課程</a></li>
+                    <li><a href="#">查看更多</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><button class="edit">會員中心</button></a>
+                    <ul class="">
+                    <li><a href="#">我的票券</a></li>
+                    <li><a href="#">我的活動</a></li>
+                    <li><a href="#">關於自己</a></li>
+                    <li><a href="#">變更密碼</a></li>
+                    </ul></li>
+                <li><a href="#"><button class="edit-info">主辦中心</button></a></li>
+            </ul>
+            <div class="logout">
+                <!-- <p>tino010394@gmail.com</p> -->
+                <a href="">登出</a>
+            </div>
+            </div>
+        </div>    
+    </header>
+
+    <nav class="sideBar">
+    <div class="top-section">
+        <div class="cross">
+        <label for="menu-switch">
+            <i class="fa-solid fa-xmark"></i>
+        </label>
+        </div>
+        <img src="./image/logosandsearch/2309010226371137845832_P520x260.jpg" alt="用戶背景圖片">
+        <div class="user-section">
+            <div class="photo-container">
+            <img src="./image/logosandsearch/profile-photo.png" alt="">
+            </div>
+            <div class="user-info">
+            <span class="name">Tino123445436</span>
+            <a href="#"><div class="createEvent-btn">辦活動</div></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sideMenu middle-section">
+        <ul class="side-menu">
+        <li class="menu-item menu-item1">
+            <label for="activity-switch" style="display: block;width: 100%;">
+            <p >
+                <i class="fa-solid fa-magnifying-glass"></i>
+                探索活動
+                <i class="fa-solid fa-chevron-down"></i>
+            </p>
+            </label>
+            <ul class="sub-menu sub-menu1">
+            <li><a href="#">戶外體驗</a></li>
+            <li><a href="#">公益講座</a></li>
+            <li><a href="#">學習課程</a></li>
+            <li><a href="#">查看更多</a></li>
+            </ul>
+        </li>
+        <li class="menu-item menu-item2">
+            <label for="memberCenter-switch" style="display: block;width: 100%;">
+            <p >
+                <i class="fa-solid fa-id-card"></i>
+                會員中心
+                <i class="fa-solid fa-chevron-down"></i>
+            </p>
+            </label>
+            <ul class="sub-menu sub-menu2">
+            <li><a href="#">我的票券</a></li>
+            <li><a href="#">我的活動</a></li>
+            <li><a href="#">關於自己</a></li>
+            <li><a href="#">變更密碼</a></li>
+            </ul>
+        </li>
+        <li class="menu-item hostCenter">
+            
+            <a href="#"><i class="fa-solid fa-user-pen"></i>主辦中心</a>
+        </li>
+        </ul>
+    </div>
+
+    <div class="bottom-section">
+        <a href="#">
+        <!-- <i class="fa-solid fa-arrow-right-from-bracket"></i> -->
+        <button class="logout-btn">登出</button>
+        </a>
+
+    </div>
+    </nav>
+    <div class="overlay"></div>
 
 <!-- 目錄+內容 -->
-<div class="content">
+<div class="all">
 
     <!-- 目錄 -->
     <div class="menu" >
@@ -30,7 +155,7 @@
     </div>
 
     <!-- 內容 --> 
-    <div class="all">
+    <div class="content">
         <!-- 照片與名字&主要內容 -->
         <div class="photoNameAndMainContent">
             <!-- 關於自己 -->
@@ -127,6 +252,13 @@
     </div>
 </div>
 
+<!-- footer -->
+<div class="footer">
+    <div class="footer-container">
+        <p class="companyName">eJoin Inc</p>
+        <span> 你揪你股份有限公司 © eJoin Inc. All Rights Reserved.</span>
+    </div>
+</div>
 
 <!-- 回頂端 -->
 <a href="#" class="top">

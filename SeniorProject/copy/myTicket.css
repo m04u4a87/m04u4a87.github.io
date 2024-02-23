@@ -244,6 +244,7 @@
         }
         /* ↑↑↑↑↑↑footer */
 
+
         /*回頂端top箭頭*/
         .top svg{ 
             width: 30px;
@@ -269,7 +270,7 @@
         }
 
         /*目錄&內容*/
-        .content{
+        .all{
             display: flex;
             width: 70%;
             margin: 20px auto;
@@ -299,7 +300,7 @@
         }
         /*目錄-所有超連結*/
         .main-menu a{
-            font-size:18px;
+            font-size:calc(18px + .1vw);
             display: block;
             color:  #6481E0;
             line-height: 70px;
@@ -312,11 +313,8 @@
         }
         /*目錄-當頁目錄換色*/
         .currentPage a{
-            /* border-left: 5px solid #0088d2; */
             background: linear-gradient(to left, #80C3FF, #6D9FF4);
             color: #fff;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
         }
         /*目錄-當頁目錄-碰到時不做效果*/
         .currentPage a:hover{
@@ -324,103 +322,378 @@
         }
 
         /*內容-包裹容器*/
-        .all{
+        .content{
             background-color: #fff;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
             border-radius: 10px;
             width:100%;
+            min-height: 100vh;
             margin-left: 20px;
-            line-height: 1.5;
         }
-        /*內容-主要內容*/
+        /*內容-照片與姓名&主要內容*/
         .photoNameAndMainContent{
             width: 80%;
             margin: 40px auto;
         }
-        /*內容-變更密碼-input框線換新樣式*/
-        .changePassword  input{
-            border-radius: 5px;
-            outline: none;
-            background-color: #eff2f4;
-            border: 1px solid #f3f4fa;
-            line-height:25px;
-            padding: 10px 15px;
-            color: rgb(130, 130, 130);
-            font-size:14px;
-            width:100%;
+        /*內容-照片與姓名*/
+        .photoAndName{
+            display:flex;
+            align-items: center;
+            margin: 40px auto;
         }
-        /*內容-變更密碼-h2*/
-        .changePassword h2{
-            font-size: 23px;
-            padding: 8px 0px;
-            margin: auto 0px;
+        /*內容-照片與姓名-照片外框*/
+        .photo{
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        /*內容-照片與姓名-照片*/
+        .photoAndName img{
+            vertical-align:top;
+            object-fit: cover;
+            object-position: center;
+        }
+        /*內容-照片與姓名-姓名*/
+        .photoAndName .name{
+            color: #6481E0;
+            font-size:23px;
+            padding-left:15px;
+            letter-spacing:5px;
+            margin-bottom: 0px;
             font-weight: bold;
-            color:#278aff;
         }
-        /*內容-變更密碼-所有label*/
-        .changePassword label{
-            font-size:16px;
-            line-height: 35px;
-            margin-top: 30px;
+        /*內容-我的票劵-標籤*/
+        .tab {
+            margin-top: 20px;
         }
-        /*內容-變更密碼-按鈕清單*/
-        .button-list{
-            text-align:center;
-            line-height: 40px;
-            width:100%;
+        /*內容-我的票劵-標籤-文字*/
+        .tab > ul li a { 
+            font-size: 16px;
+            color: #000;
+            float: left;
+            padding: 10px 22px;
+            margin-right: 10px;
+            border: 1px solid #4e68e824;
+            border-bottom: none;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            color:#6D9FF4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        /*內容-變更密碼-按鈕*/
-        .button{
-            margin: 50px 5px 0px;
-            font-size:16px;
-            border-radius:5px;          
-            padding: 10px;
-            line-height: 15px;
+        /*內容-我的票劵-標籤的內容*/
+        .tabContent {
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+        /*內容-我的票劵-參加活動預設變色&各標籤被點時變色*/
+        .tabLink ~ .tab > ul li:first-child a,
+        #registered:target ~ .tab > ul li a[href$="#registered"],
+        #undone:target ~ .tab > ul li a[href$="#undone"],
+        #canceled:target ~ .tab > ul li a[href$="#canceled"],
+        #returnTicketHistory:target ~ .tab > ul li a[href$="#returnTicketHistory"]{
+            background-color:#6D9FF4;
+            color: #fff;
+        }
+        /*內容-我的票劵-當有標籤被點時，預設顯示的參加活動內容隱藏*/
+        .tabLink:target ~ .tab > .tabContent:first-of-type {
+            visibility: hidden;
+            height: 0;
+            border: none
+        }
+        /*內容-我的票劵-當有標籤被點時，預設顏色的參加活動，拿掉顏色*/
+        .tabLink:target ~ .tab > ul li:first-child a{
+            background-color:#ffffff;
+            color:#6D9FF4;
+        }
+        /*內容-我的票劵-參加活動預設顯示%各標籤被點時，內容顯示*/
+        .tabLink ~ .tab > .tabContent:first-of-type,
+        #registered:target ~ .tab > .registered-content,
+        #undone:target ~ .tab > .undone-content,
+        #canceled:target ~ .tab > .canceled-content,
+        #returnTicketHistory:target ~ .tab > .returnTicketHistory-content{
+            visibility: visible;
+            height: 100%;
+            background: #fff;
+            border-top: 2px solid #6D9FF4;
+        }
+        /*內容-我的票劵-標籤連結，平常不顯示*/
+        .tabLink {
+            display: none;
+        }
+
+        /*內容-格子-票劵清單*/
+        .grid-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        /*內容-格子-單張票劵*/
+        .grid {
+            width: 100%;
+            margin: 10px 0px;
+            display: flex;
+            border: 1px solid #d1d1d1;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            position:relative;
+        }
+        /*內容-格子-單張票劵-碰到效果*/
+        .grid:hover {
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+        }
+        /*內容-格子-單張票劵-文字內容*/
+        .grid-content,.grid-returnTicket-content {
+            width: 70%;
+            padding: 15px;
+            border-left: 8px solid #6d9ff4;
+            border-right: 2px dashed #ddd;
+            position:relative;
+        }
+
+
+        /*內容-格子-單張票劵-文字內容-標題*/
+        .grid-content h2,.grid-returnTicket-content h2 {
+            font-size: calc(16px + .1vw);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display:-webkit-box;
+            -webkit-line-clamp: 1; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            line-height: 1.5;
+        }
+        /*內容-格子-單張票劵-文字內容-日期&訂單標號*/
+        .grid-content p ,.grid-returnTicket-content p {
+            margin: 5px 0px;
+            font-size: calc(14px + .1vw);
+            color: #7e7e7ee8;
+            display:-webkit-box;
+            -webkit-line-clamp: 1; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            line-height: 1.5;
+        }
+        /*內容-格子-單張票劵-文字內容-標題*/
+        .grid-content .date,.grid-returnTicket-content .date {
+            color: #7e7e7ee8;
+        }
+        /*內容-格子-單張票劵-操作*/
+        .grid-operate {
+            padding: 15px;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        /*內容-格子-單張票劵-剪口(已報名-上)*/
+        .grid-content::before{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border: 1px solid #d1d1d1;
+            border-radius: 0px 0px 10px 10px;
+            background-color:#ffffff;
+            top:-1px;
+            right: -11px;
+            box-shadow: -0px -1px 2px 0px rgba(0, 0, 0, 0.1) inset;
+        }
+        .grid-content::after{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 10px;
+            border-radius: 0px 0px 10px 
+            10px;
+            background-color:#ffffff;
+            top:-5px;
+            right: -11px;
+        }
+        /*內容-格子-單張票劵-剪口(退票紀錄-上)*/
+        .grid-returnTicket-content::before{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border: 1px solid #d1d1d1;
+            border-radius: 0px 0px 10px 10px;
+            background-color:#ffffff;
+            top:-1px;
+            right: -11px;
+            box-shadow: -0px -1px 2px 0px rgba(0, 0, 0, 0.1) inset;
+        }
+        .grid-returnTicket-content::after{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 10px;
+            border-radius: 0px 0px 10px 
+            10px;
+            background-color:#ffffff;
+            top:-5px;
+            right: -11px;
+        }
+        /*內容-格子-單張票劵-剪口(已報名-下)*/
+        .grid-operate::before{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-1px;
+            left: -11px;
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+        }
+        .grid-operate::after{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-10px;
+            left: -11px;
+        }
+        /*內容-格子-單張票劵-剪口(退票紀錄-下)*/
+        .grid-returnTicket-operate::before{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-1px;
+            left: -11px;
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1) inset;
+        }
+        .grid-returnTicket-operate::after{
+            content: ' ';
+            position: absolute;
+            width: 21px;
+            height: 15px;
+            border-radius: 10px 10px 0px 0px;
+            background-color:#ffffff;
+            bottom:-10px;
+            left: -11px;
+        }
+        /*內容-格子-單張票劵-操作-按鈕們*/
+        .operate-header{
+            border-bottom: 2px dashed #ddd;
+            width: 100%;
+            text-align: center;
+        }
+        .getTicket{
+            margin-bottom: 5px;
+            display: inline-block;
+            background: linear-gradient(to bottom, #80c3fF, #6d9ff4);
+            color: #fff;
+            border-radius: 30px;
+            padding: 8px 30px;
+            font-size: calc(14px + .1vw);
             border: 1px solid;
             transition: transform .2s;
+            font-weight: bold;
+            letter-spacing:3px;
+            line-height: 1.5;
         }
-        /*內容-變更密碼-按鈕-捨棄變更*/
-        .button1{
-            background-color: #fff;
-            color:#828282;
-        }
-        /*內容-變更密碼-按鈕-儲存變更*/
-        .button2{
-            background-color:#6D9FF4;
-            color:#fff;
-        }
-        /*內容-變更密碼-按鈕-捨棄變更-碰到的變化*/
-        .button1:hover{
-            transform: scale(0.95);
-        }
-        /*內容-變更密碼-按鈕-儲存變更-碰到的變化*/
-        .button2:hover{
-            transform: scale(0.95);
-        }
-        /*內容-變更密碼-必填*號*/
-        .requiredSymbols{
-            color:red;
-        }
-        /*內容-變更密碼-忘記密碼*/
-        .forgetPassword{
-            text-align:right;
-            margin-top: 5px;
+        .operate-footer {
+            display: flex;
+            text-align: center;
             width: 100%;
+            font-size: calc(14px + .1vw);
+            transition: transform .2s;
+            color: #838383fd;
+            font-weight: bold;
+            letter-spacing:3px;
         }
-        /*內容-變更密碼-忘記密碼的超連結*/
-        .forgetPassword a{
-            font-size: 14px;
-            color: #273da7;
-            text-decoration: underline;
+        .returnTicket{
+            color: #7e7e7ee8;
+            display: inline-block;
+            margin: 5px 0px;
+            height: 30px;
+            width: 50%;
+            line-height: 30px;
+            border-right: 2px dashed #ddd;
         }
-        /*視窗小於768*/
+        .details{
+            color: #7e7e7ee8;
+            display: inline-block;
+            margin: 5px 0px;
+            height: 30px;
+            width: 50%;
+            line-height: 30px;
+        }
+        /*退票紀錄*/
+        .grid-returnTicket-operate{
+            width: 30%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            
+        }
+        .grid-returnTicket-operate a{
+            color: #7e7e7ee8;
+            width: 100%;
+            font-weight: bold;
+            letter-spacing:3px;
+        }
+        /*內容-格子-單張票劵-操作-按鈕們-碰到效果*/
+        .getTicket:hover,.returnTicket:hover,.details:hover {
+            transform: scale(0.95);
+        }
+        
+        /*內容-彈跳視窗-內容*/
+        .modal-body{
+            color: #787878;
+        }
+        /*內容-彈跳視窗-標題*/
+        .modal-body h3{
+            font-size: calc(18px + .1vw);
+            margin-bottom: 20px;
+            padding-left: 18px; 
+            font-weight: bold;  
+        }
+        /*內容-彈跳視窗-內容文字*/
+        .modal-body p{
+            font-size: calc(16px + .1vw);
+            line-height: 25px;
+            padding-left: 18px; 
+            margin: 20px 0px;       
+        }
+        /*內容-彈跳視窗-退票成功文字*/
+        .modal-body .returnTicketOKWord{
+            margin: 5px 0px;
+            line-height: 30px; 
+            font-size: calc(18px + .1vw);
+        }
+        /*切換頁碼*/
+        .pageNumber {
+            display: flex;
+            justify-content: center;
+        }
+        /*切換頁碼-ul*/
+        .pagination {
+            margin-top:20px;
+        }
+
         @media screen and (max-width: 768px) {
-            .content{
+            .all{
                 width: 100%;
                 margin: 0px auto;
             }
             /*內容-包裹容器*/
-            .all{
+            .content{
                 box-shadow:none;
                 border-radius: 0px;
                 margin-left: 0px;
@@ -441,7 +714,102 @@
                 display: none;
                 z-index: 10;
             }
-
+            .tab ul li a { 
+                width: 100%;
+                border-top-right-radius: 0px;
+                border-top-left-radius: 0px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .grid {
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: 10px;
+                display: inline-block;
+                border-top: 10px solid #6d9ff4;
+            }
+            /*內容-格子-單張票劵-文字內容*/
+            .grid-content,.grid-returnTicket-content {
+                width: 100%;
+                border-left: 0px;
+                border-right: none;
+                border-bottom: 2px dashed #ddd;
+            }
+            /*內容-格子-單張票劵-操作*/
+            .grid-operate {
+                width: 100%;
+                padding: 0px;
+                justify-content:space-evenly;
+            }
+            .getTicket{
+                margin: 10px;
+            }
+            /*退票紀錄*/
+            .grid-returnTicket-operate{
+                width: 100%;
+            }
+            /*內容-格子-單張票劵-剪口(已報名-上)*/
+            .grid-operate::before{
+                width: 15px;
+                height: 21px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:91px;
+                left: -1px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) inset;
+            }
+            .grid-operate::after{
+                width: 12px;
+                height: 20px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:91px;
+                left: -6px;
+            }
+            /*內容-格子-單張票劵-剪口(退票紀錄-上)*/
+            .grid-returnTicket-content::before{
+                width: 15px;
+                height: 21px;
+                border-radius: 10px 0px 0px 10px;
+                top:108px;
+                right: -1px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) inset;
+            }
+            .grid-returnTicket-content::after{
+                width: 12px;
+                height: 20px;
+                border-radius: 10px 0px 0px 10px;
+                top:108px;
+                right: -4px;
+            }
+            /*內容-格子-單張票劵-剪口(已報名-下)*/
+            .grid-content::before{
+                width: 15px;
+                height: 21px;
+                border-radius: 10px 0px 0px 10px;
+                top:108px;
+                right: -1px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) inset;
+            }
+            .grid-content::after{
+                width: 12px;
+                height: 20px;
+                border-radius: 10px 0px 0px 10px;
+                top:108px;
+                right: -4px;
+            }
+            /*內容-格子-單張票劵-剪口(退票紀錄-下)*/
+            .grid-returnTicket-operate::before{
+                width: 15px;
+                height: 21px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:30px;
+                left: -1px;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1) inset;
+            }
+            .grid-returnTicket-operate::after{
+                width: 12px;
+                height: 20px;
+                border-radius: 0px 10px 10px 0px;
+                bottom:30px;
+                left: -6px;
+            }
             .search input {
                 display: none;
             }
@@ -778,9 +1146,8 @@
                 background-color: #e7e7e7;
                 color: red;
             }
-
+            
         }
-
         @media screen and (min-width:768px){
         .hamburger-btn {
             display: none;
