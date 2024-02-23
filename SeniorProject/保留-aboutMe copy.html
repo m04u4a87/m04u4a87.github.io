@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於自己</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{/*上方預留導覽列的寬度*/
+            padding-top: 60px;
+            background-color: #F8FBFF;
+            font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+            letter-spacing: 1px;
+        }
+        /* ↓↓↓↓↓↓等待mona */
+        header{
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, #B5D7FF, #8CAEF7);
+            position: fixed;
+            top: 0;
+            z-index: 45;
+        }
+        header.shadow {  /*導覽列滾動會出現陰影事件*/
+            box-shadow: 0px 6px 10px 0px rgba(235, 238, 236, 0.46);
+        }    
+        .nav{
+            width: 70%;
+            height: 100%;
+            margin:auto;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .logo{
+            height: 100%;
+            vertical-align: middle;
+        }
+        .logo img{
+            width: 80px;
+            vertical-align: middle;
+        }
+        .searchAndMagnifierAndHold{
+            display: flex;
+            align-items:center;
+            justify-content: right;
+        }
+        .search{
+            border-radius: 30px;
+            padding: 8px 15px;
+            border: none;
+            outline: none;
+            width:calc(100px + 10%); 
+            height:calc(25px + 20%); 
+            margin: 0px 5px 0px 25px;
+            font-size:calc(12px + .1vw);
+        }
+        .magnifier img{
+            width:20px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .holdActivities{
+            font-size:calc(10px + .1vw);
+            border-radius:5px;          
+            padding: 10px;
+            line-height: 12px;
+            background-color: #2ab3fc;
+            color: #fff;
+            border: none;
+        }
+        /* ↑↑↑↑↑↑等待mona */
+
+        /*footer*/
+        .footer{
+            height: 40px;
+            background: linear-gradient(to bottom, #B5D7FF, #8CAEF7);
+            position: relative;
+            z-index: 100;
+        }
+        /*footer-公司資訊*/
+        .companyInformation{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #ffffff;
+            font-size:calc(12px + .1vw);
+        }
+
+        /*回頂端top箭頭*/
+        .top svg{ 
+            width: 30px;
+            height:30px;
+            fill:#ffffff;
+            position: fixed;
+            z-index: 100;
+            right: 10px;
+            bottom: 50px;
+            transition: .3s;
+            visibility: hidden;
+            border-radius: 50%;
+            padding: 5px;
+            background-color: #84848496;
+        }
+        /*回頂端top箭頭-滾動顯示事件*/
+        .top.visible svg{  
+            visibility: visible;
+        }
+        /*回頂端top箭頭-動畫*/
+        .top svg:hover{  
+            background-color: #6d9ff4;
+        }
+
+        /*目錄&內容*/
+        .all{
+            display: flex;
+            width: 70%;
+            margin: 20px auto;
+            max-width: 1080px;
+        }
+
+        /*目錄*/
+        .menu{
+            width: 30%;
+            z-index: 50;
+        }
+        /*目錄-所有內容*/
+        .main-menu{
+            background-color: #fff;
+            width: 100%;
+            position: sticky;
+            top:80px;
+            box-shadow:0 0 10px 0px rgb(244, 244, 244);
+            border-radius: 10px;
+        }
+        /*清空預設*/
+        ul{
+            padding-left:0px;
+        }
+        /*目錄-線條*/
+        .main-menu hr{
+            width: 100%;
+            color: #9e9e9e;
+            margin: 0px;
+        }
+        /*目錄-所有超連結*/
+        .main-menu a{
+            font-size:18px;
+            display: block;
+            color:  #6481E0;
+            line-height: 70px;
+            padding:0px 25px;
+            font-weight: bold;
+        }
+        /*目錄-所有超連結-碰到的變化*/
+        .main-menu a:hover{
+            color: #a7c2ff;
+        }
+        /*目錄-漢堡聯動勾選框-平時隱藏*/  
+        .hb-input-item{
+            display: none;
+        }
+        /*目錄-當頁目錄換色*/
+        .currentPage a{
+            background: linear-gradient(to left, #80C3FF, #6D9FF4);
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        /*目錄-當頁目錄-碰到時不做效果*/
+        .currentPage a:hover{
+            color: #fff;
+        }
+
+        /*內容-包裹容器*/
+        .content{
+            background-color: #fff;
+            box-shadow:0 0 10px 0px rgb(244, 244, 244);
+            border-radius: 10px;
+            width:100%;
+            min-height: 100vh;
+            margin-left: 20px;
+        }
+        /*內容-主要內容*/
+        .photoNameAndMainContent{
+            width: 80%;
+            margin: 40px auto;
+        }
+        /*內容-關於自己-input框線換新樣式*/
+        .aboutMe input,.city,.textarea{
+            border-radius: 5px;
+            outline: none;
+            background-color: #eff2f4;
+            border: 1px solid #f3f4fa;
+            line-height:25px;
+            padding: 10px 15px;
+            color: rgb(130, 130, 130);
+            font-size:14px;
+            width:100%;
+            margin-bottom: 10px;
+            height: 46px
+        }
+        /*內容-關於自己-城市下拉選單和地址並排*/
+        .aboutMe .city{
+            width: 20%;
+        }
+        .aboutMe .address{
+            width: 79%;
+        }
+        /*內容-關於自己&個人頁面按鈕*/
+        .h2AndBrowse{
+            display: flex;
+            justify-content: space-between;
+        }
+        /*內容-關於自己-h2*/
+        .aboutMe h2{
+            font-size:23px;
+            font-weight: bold;
+            color:#278aff;
+            margin: auto 0px;
+        }
+        /*內容-個人頁面按鈕*/
+        .h2AndBrowse .browse{
+            margin: 0px 0px auto;
+            font-size:16px;
+            border-radius:5px;       
+            padding: 8px 10px;
+            border: 1px solid;
+            transition: transform .2s;
+            color: #fff;
+            font-weight: bold;
+            background-color: #2ab3fc;
+        }
+        .h2AndBrowse .browse:hover{
+            transform: scale(0.95);
+        }
+        /*內容-關於自己-所有label*/
+        .aboutMe label{
+            font-size:16px;
+            line-height: 35px;
+            margin-top: 25px;
+        }
+        /*內容-關於自己-按鈕清單*/
+        .button-list{
+            text-align:center;
+            line-height: 40px;
+            width:100%;
+        }
+        /*內容-關於自己-按鈕*/
+        .button{
+            margin: 50px 5px 0px;
+            font-size:16px;
+            border-radius:5px;          
+            padding: 10px;
+            line-height: 15px;
+            border: 1px solid;
+            transition: transform .2s;
+        }
+        /*內容-關於自己-按鈕-捨棄變更*/
+        .button1{
+            background-color: #fff;
+            color:#828282;
+        }
+        /*內容-關於自己-按鈕-儲存變更*/
+        .button2{
+            background-color:#6D9FF4;
+            color:#fff;
+        }
+        /*內容-關於自己-按鈕-捨棄變更-碰到的變化*/
+        .button1:hover{
+            transform: scale(0.95);
+        }
+        /*內容-關於自己-按鈕-儲存變更-碰到的變化*/
+        .button2:hover{
+            transform: scale(0.95);
+        }
+        /*內容-關於自己-必填*號*/
+        .requiredSymbols{
+            color:red;
+        }
+        /*內容-關於自己-附註文字*/
+        .aboutMe .note {
+            background-color: rgba(193, 241, 252, 0.436);
+            display: inline-block;
+            font-size:16px;
+            margin-bottom: 60px;
+            margin-top: 20px;
+        }
+        /*內容-關於自己-身分的按鈕*/
+        .yourSex,.yourRelationship{
+            color: rgb(130, 130, 130);
+            background-color: #eff2f4;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            margin-right: 3px;
+            padding: 5px 15px;
+            font-size: 14px;
+            line-height: 1.5em;
+        }
+        /*內容-關於自己-身分的按鈕，原本為藍色，點擊後變灰色*/
+        .yourSex.grey-background ,.yourRelationship.grey-background {
+            background-color: #eff2f4;
+        }
+        /*內容-關於自己-身分的按鈕，原本為灰色，點擊後變藍色*/
+        .yourSex.blue-background ,.yourRelationship.blue-background {
+            background-color: #6481E0;
+            color: #fff;
+        }
+        /*上傳背景&頭像*/
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /*上傳背景*/
+        .upload-container {
+            position: relative;
+        }
+        /*上傳背景-背景圖*/
+        .upload-preview img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            vertical-align: bottom;
+        }
+        /*上傳背景-label*/
+        .upload-preview .upload-label {
+            margin-top: 0px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 14px;
+            background-color: #858585c4;
+            padding: 5px 8px;
+            line-height: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            transition: transform .2s;
+        }
+        .upload-preview .upload-label:hover{
+            transform: scale(0.95);
+        }
+        /*上傳背景-input*/
+        .upload-input {
+            display: none;
+        }
+        /*上傳背景-提示文字*/
+        .upload-note {
+            width: 100%;
+            font-size: 14px;
+            position: absolute;
+            right: 0px;
+            top: -20px;
+            margin-bottom: 0px;
+            color: darkgray;
+        }
+        /*上傳頭像*/
+        .avatar-container {
+            position: relative;
+            margin-top: -60px;
+            width: 120px;
+            height: 120px;
+            box-shadow: 0px 2px 5px rgba(175, 175, 175, 0.135);
+            border: solid 5px #ffffff;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        /*上傳頭像-頭像圖*/
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            vertical-align: middle;
+            transform: scale(1);
+            transition: transform .8s; 
+        }
+        /*上傳頭像-label*/
+        .avatar-preview .avatar-label {
+            position: absolute;
+            display: flex;
+            font-weight: bold;
+            width: 100%;
+            height: 50%;
+            font-size: 14px;
+            align-items: center;
+            justify-content: center;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0.53%, rgba(0, 0, 0, 0.43) 98%);
+            color: #ffffff;
+            cursor: pointer;
+
+        }
+        .avatar-container:hover .avatar-preview img{
+            transform: scale(1.1);
+        }
+        /*上傳頭像-input*/
+        .avatar-input {
+            display: none;
+        }
+        /*視窗小於768*/
+        @media screen and (max-width: 767px) {
+            .all{
+                width: 100%;
+                margin: 0px auto;
+            }
+            /*內容-包裹容器*/
+            .content{
+                box-shadow:none;
+                border-radius: 0px;
+                margin-left: 0px;
+            }
+            /*上傳背景-提示文字*/
+            .upload-note {
+                font-size: 10px;
+            }
+            .avatar-container {
+                margin-top: -50px;
+                width: 100px;
+                height: 100px;
+            }
+            /*內容-關於自己-城市下拉選單和地址並排*/
+            .aboutMe .city{
+                width: 100%;
+            }
+            .aboutMe .address{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 1199px) {
+            .nav{
+                width: 100%;
+            }
+            .menu {
+                position:absolute;
+                top:0px;
+                left: -300%;
+                width: calc(150px + 10%);
+                height: 100%;
+                background-color: #ffffff; 
+                box-shadow:0 0 50px 0px rgb(225, 225, 225);
+                transition: left .3s;
+                margin: 60px 0px;
+                position: fixed;
+            }
+            /*目錄-顯示*/
+            .menu.show {
+                left: 0;
+            }
+            .main-menu {
+                box-shadow:none;
+                margin: 30px auto;
+                width: calc(150px + 20%);
+                font-size: calc(18px + .1vw)
+            }
+            /*目錄-當頁目錄換色*/
+            .currentPage a{
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+            }
+            .hb {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                cursor: pointer;
+            }
+            .hb span {
+                width: 80%;
+                height: 2px;
+                margin: 3px;
+                background-color: #ffffff;
+            }
+            .hb-input-item:checked + .hb span:first-child{
+                display: none;
+            }
+            .hb-input-item:checked + .hb span:nth-child(2){
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                rotate: 45deg;
+            }
+            .hb-input-item:checked + .hb span:nth-child(3){
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                rotate: -45deg;
+            }
+            .logo img{
+                margin-left: 20px;
+            }
+            .holdActivities{
+                display: none;
+            }
+        }
+
+        /* 視窗大於1200*/
+        @media screen and (min-width: 1200px) {
+            .hb {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- 全部 -->
+    <div class="nav">
+
+        <!-- 漢堡 -->
+        <input type="checkbox" class="hb-input-item" id="hb-input-item">
+        <label class="hb" id="menu-toggle" for="hb-input-item">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Logo -->
+        <a href="#" class="logo"><img src="./image/logo.png" alt="Logo" ></a>
+
+        <!-- 搜尋活動 -->
+        <div class="searchAndMagnifierAndHold">
+            <input type="search" placeholder="找活動" class="search">
+            <a href="#" class="magnifier"><img src="./image/search.png" alt="搜尋放大鏡" ></a>
+            <button value="saveChanges" class="holdActivities">辦活動</button>
+        </div>
+    </div>
+
+</header>
+
+<!-- 目錄+內容 -->
+<div class="all">
+
+    <!-- 目錄 -->
+    <div class="menu" >
+        <ul class="main-menu">
+            <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
+            <hr>
+            <li><a href="https://m04u4a87.github.io/SeniorProject/myTicket.html" class="menu-myTicket">我的票券</a></li>
+            <hr>
+            <li><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
+            <hr>
+            <li><a href="https://m04u4a87.github.io/SeniorProject/changePassword.html" class="menu-changePassword">變更密碼</a></li>
+        </ul>
+    </div>
+
+    <!-- 內容 --> 
+    <div class="content">
+        <!-- 照片與名字&主要內容 -->
+        <div class="photoNameAndMainContent">
+            <!-- 關於自己 -->
+            <div class="aboutMe">
+                <div class="h2AndBrowse">
+                    <h2>關於自己</h2>
+                        <a href="#" class="browse">
+                            <svg xmlns="http://www.w3.org/2000/svg"  fill="#fff" width="14" height="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                            個人頁面
+                        </a>
+                    
+                </div>
+                <p class="note">以下資訊將用於活動推薦及報名使用。</p><br>
+                <!-- 上傳背景+頭像 -->
+                <div class="upload-section">
+                    <!-- 上傳背景圖 -->
+                    <div class="upload-container">
+                        <div class="upload-preview">
+                            <img src="image/backgroundUploadImg.png" alt="">
+                            <label for="bgImg" class="upload-label">
+                                <svg fill="#fff" width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                                    <path d="m11.093 15.43-3.039-3.04c.543-.956 1.335-1.903 2.375-2.838 1.341-1.208 3.708-3.25 7.1-6.126a1.795 1.795 0 0 1 2.53 2.53c-2.88 3.398-4.921 5.765-6.125 7.1-.935 1.037-1.882 1.828-2.841 2.373Zm-4.416-1.587 2.965 2.964-1.366 1.906L3 20.508l1.771-5.3 1.906-1.365Z" fill="current"></path>
+                                </svg>
+                                上傳
+                            </label>
+                        </div>
+                        <input id="bgImg" type="file" accept="*/*" class="upload-input">
+                        <div class="upload-note">
+                            <p>建議上傳1200×400的封面照片、檔案不可大於4MB</p>
+                        </div>
+                    </div>
+                    <!-- 上傳頭像 -->
+                    <div class="avatar-container">
+                        <div class="avatar-preview">
+                            <img src="image/headImg.png" alt="">
+                            <label for="headImg" class="avatar-label">
+                                <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="transform: rotate(-90deg);">
+                                    <path d="M18 12h2.793a.5.5 0 0 1 .353.854l-3.792 3.792a.5.5 0 0 1-.708 0l-3.792-3.792a.5.5 0 0 1 .353-.854H16c0-3.31-2.69-6-6-6s-6 2.69-6 6a6.006 6.006 0 0 0 5.5 5.98c.275.022.5.244.5.52v1a.477.477 0 0 1-.5.485A7.998 7.998 0 0 1 2 12c0-4.42 3.58-8 8-8s8 3.58 8 8Z" fill="current"></path>
+                                </svg>
+                                更新
+                            </label>
+                        </div>
+                        <input type="file" id="headImg" accept="*/*" class="upload-input">
+                    </div>
+                </div>
+
+                <label>顯示名稱<span class="requiredSymbols">*</span></label></label>
+                <input type="text" required placeholder="您希望怎麼被稱呼">
+
+                <label>個人簡介</label><br>
+                <textarea class="textarea" name="" id="" cols="40" rows="10" placeholder="請輸入您的個人介紹" style="resize:vertical;height: 115px;" ></textarea>
+
+                <label>帳號/Email</label>
+                <input class="accountEmail" type="email" disabled placeholder="12345@gmail.com">
+
+                <label>姓名<span class="requiredSymbols">*</span></label>
+                <input type="text" required placeholder="請輸入您的名字">
+
+                <label>生日<span class="requiredSymbols">*</span></label>
+                <input type="date" required placeholder="請選擇您的生日">
+
+                <label>性別<span class="requiredSymbols">*</span></label></label><br>
+                <button value="male" class="yourSex">男</button>
+                <button value="female" class="yourSex">女</button>
+                <button value="diversity" class="yourSex">多元</button><br>
+
+                <label>感情狀態<span class="requiredSymbols">*</span></label></label><br>
+                <button value="single" class="yourRelationship">單身</button>
+                <button value="stable" class="yourRelationship">穩定交往</button>
+                <button value="married" class="yourRelationship">已婚</button><br>
+
+                <label>手機號碼</label>
+                <input type="tel" required placeholder="請輸入您的手機號碼">
+
+                <label>現居地</label><br>
+                <span>
+                    <select class="city">
+                        <option value="" disabled="">請選擇縣市</option>
+                        <option value="Taipei City">台北市</option>
+                        <option value="New Taipei City">新北市</option>
+                        <option value="Keelung City">基隆市</option>
+                        <option value="Taoyuan City">桃園市</option>
+                        <option value="Hsinchu County">新竹縣</option>
+                        <option value="Hsinchu City">新竹市</option>
+                    </select>
+                    <input class="address" type="text" required placeholder="請輸入詳細地址">
+                </span>
+            </div> 
+            <div class="button-list">
+                <button value="discardChanges" class="button button1">捨棄變更</button>
+                <button value="saveChanges" class="button button2">儲存變更</button>
+            </div>             
+        </div>        
+    </div>
+</div>
+
+<footer class="footer">
+    <p class="companyInformation">你揪你有限公司 © Ejoin Inc. All Rights Reserved.</p>
+</footer>
+
+<!-- 回頂端 -->
+<a href="#" class="top">
+    <?xml version="1.0" ?><svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><path d="M82.6074,62.1072,52.6057,26.1052a6.2028,6.2028,0,0,0-9.2114,0L13.3926,62.1072a5.999,5.999,0,1,0,9.2114,7.6879L48,39.3246,73.396,69.7951a5.999,5.999,0,1,0,9.2114-7.6879Z"/></svg>
+</a>
+
+<script>
+    //抓取漢堡和目錄
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.querySelector('.menu'); 
+    //增加點擊漢堡，目錄顯示的事件
+    menuToggle.addEventListener('click', function () {
+        menu.classList.toggle('show');
+    });
+
+    //導覽列滾動      
+    const headerScroll = document.querySelector('header');  /*透過選擇器header，取得DOM元素，放進變數headerScroll*/
+    window.addEventListener('scroll', () =>     /*針對「視窗」，新增「滾動」這個事件，進行監聽*/
+        {
+            const scroll = window.scrollY;         /*將滾動視窗y軸這件事，放進變數scroll*/
+            
+            if (scroll > 0) {                      /*如果變數scroll(滾動視窗y軸)大於0*/
+                headerScroll.classList.add('shadow');/*就在變數headerScroll的class，新增一個叫做shadow的class*/
+            } else {                               /*否則移除叫做shadow的class*/
+                headerScroll.classList.remove('shadow');
+            }
+        }
+    );
+
+    //回頂端
+    const arrow = document.querySelector('.top');  /*透過選擇器(.top)，取得DOM元素，放進變數arrow*/
+    window.addEventListener('scroll', () =>     /*針對「視窗」，新增「滾動」這個事件，進行監聽*/
+        {
+            const scroll = window.scrollY;         /*將滾動視窗y軸這件事，放進變數scroll*/
+
+            if (scroll > 0) {                           /*如果變數scroll(滾動視窗y軸)大於0*/
+                arrow.classList.add('visible');         /*就在變數arrow的class，新增一個叫做visible的class*/   
+            } else {                                    /*否則移除叫做visible的class*/
+                arrow.classList.remove('visible');
+            }
+        }
+    );
+
+        //一網頁有多分頁時，防止回頂端改變網址，造成被彈回預設頁面
+        document.addEventListener('DOMContentLoaded', function() {
+        const top = document.querySelector('.top');
+
+        top.addEventListener('click', (event) => {
+            event.preventDefault(); 
+            scrollToTop();
+        });
+
+        function scrollToTop() {
+            const scroll = document.documentElement.scrollTop || document.body.scrollTop;
+            if (scroll > 0) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' /*平滑捲動*/
+                });
+            }
+        }
+    });
+    
+    // 抓取"你的身分"的三顆按鈕
+    const yourSex = document.querySelectorAll('.yourSex','yourRelationship');
+    const yourRelationship = document.querySelectorAll('.yourRelationship');
+    // 預設目前選擇的按鈕
+    let selectedSexButton = null;
+    let selectedRelationshipButton = null;
+    //增加點擊按鈕，按鈕會變色&單選事件
+    yourSex.forEach(button => {
+        button.addEventListener('click', function() {
+            //如果已經有選著按鈕，或目前點著的按鈕，不是原本選著的按鈕，就移除原本按鈕的藍色
+            if (selectedSexButton !== null && selectedSexButton !== button) {
+                selectedSexButton.classList.remove('blue-background');
+            }
+            //將點著的按鈕切成藍色，如果原本就是藍色，則切換為灰色
+            button.classList.toggle('blue-background');
+            selectedSexButton = button.classList.contains('blue-background') ? button : null;
+        });
+    });
+    yourRelationship.forEach(button => {
+        button.addEventListener('click', function() {
+            //如果已經有選著按鈕，或目前點著的按鈕，不是原本選著的按鈕，就移除原本按鈕的藍色
+            if (selectedRelationshipButton !== null && selectedRelationshipButton !== button) {
+                selectedRelationshipButton.classList.remove('blue-background');
+            }
+            //將點著的按鈕切成藍色，如果原本就是藍色，則切換為灰色
+            button.classList.toggle('blue-background');
+            selectedRelationshipButton = button.classList.contains('blue-background') ? button : null;
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
