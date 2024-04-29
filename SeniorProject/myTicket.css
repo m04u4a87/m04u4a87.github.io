@@ -502,7 +502,9 @@
                 top:0;
             }
             .tab ul li a { 
-                width: 100%;
+                width: 50%; /*改這*/
+                margin-right: 0px;/*改這*/
+                text-align: center;
                 border-top-right-radius: 0px;
                 border-top-left-radius: 0px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

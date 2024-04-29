@@ -1,0 +1,30 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+
+    <!-- <button v-on:click="add">count:{{count}}</button> -->
+    <button @click="reduce">-</button>
+    <button v-on:click="add">+</button>
+    <div>現在的值：{{count}}</div>
+
+</div>
+
+<script>
+    const { createApp } = Vue
+    
+    createApp({
+        data() {
+        return {
+            count: 0,
+        };
+        },
+        methods:{
+            add(){
+                this.count++
+            },
+            reduce(){
+                this.count--
+            }
+        }
+    }).mount('#app')
+</script>

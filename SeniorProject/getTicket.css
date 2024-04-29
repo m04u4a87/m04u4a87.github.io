@@ -99,13 +99,36 @@
             margin: 20px auto 50px;
             width: 300px;
             box-shadow:0 0 10px 0px rgb(244, 244, 244);
+            position: relative;
         }
-        /*上半部-QrCode區塊-圖片*/
+        /*上半部-QrCode區塊-圖片(未過期版)*/
         .qrCode .qrCodeImg{
             vertical-align: middle;
             height: 250px;
             width: 250px;
             padding: 20px;
+        }
+        /*上半部-QrCode區塊-圖片(過期版)*/
+        .qrCode .overTimeQrCodeImg{
+            vertical-align: middle;
+            height: 250px;
+            width: 250px;
+            padding: 20px;
+            opacity:0.2;
+        }
+        /*上半部-QrCode區塊-過期標章(未過期版)*/
+        .postMark{ 
+            display: none;
+        }
+        /*上半部-QrCode區塊-過期標章(過期版)*/
+        .overTimePostMark{  
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            margin: 0px auto;
         }
         /*上半部-QrCode區塊-參加人&票劵編號*/
         .participant,.ticketNumber{
@@ -211,6 +234,16 @@
             .qrCode .qrCodeImg{
                 height: 200px;
                 width: 200px;
+            }
+            /*上半部-QrCode區塊-圖片(過期版)*/
+            .qrCode .overTimeQrCodeImg{
+                height: 200px;
+                width: 200px;
+            }
+            /*上半部-QrCode區塊-過期標章(過期版)*/
+            .overTimePostMark{ 
+                width: 200px;
+                height: 200px;
             }
             nav.sideBar{              
                 z-index: 50;  /*目錄層級要比header、footer、內容高*/              

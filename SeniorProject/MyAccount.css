@@ -28,6 +28,8 @@
         }  
 
 
+
+
         /*回頂端top箭頭*/
         .top svg{ 
             width: 30px;
@@ -196,6 +198,23 @@
             font-size: 14px;
             color: #273da7;
             text-decoration: underline;
+        }
+        /*眼睛和input外框*/
+        .passwordAndIcon{
+            position: relative;
+        }
+        /*睜眼、閉眼svg*/
+        .closeEye,.openEye{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            
+        }
+        /*睜眼svg*/
+        .openEye{
+            display: none;
         }
         /*視窗小於768*/
         @media screen and (max-width: 768px) {

@@ -34,34 +34,40 @@
         }
     });
 
-    function resetCheckbox() {
-        var checkbox = document.getElementById('profile-container-switch');
-        checkbox.checked = false;
-    }
+    //必填未填
+    document.getElementById('saveChanges').addEventListener('click', function(event) {
+        document.querySelectorAll('[required]').forEach(function(input) {
+            input.classList.toggle('error', input.value.trim() === '');
+        });
     
-    window.addEventListener('resize', function () {
-        // Add your responsive logic here
-        resetCheckbox();
-    });
-    
-    // Call resetCheckbox initially to handle the initial state
-    resetCheckbox();
-    
-    
-    
-    // 獲取側邊選單開關的 checkbox 和 overlay 元素
-    const menuSwitch = document.getElementById('menu-switch');
-    const overlay = document.querySelector('.overlay');
-    
-    // 為 checkbox 添加事件監聽器
-    menuSwitch.addEventListener('change', function() {
-        // 根據 checkbox 是否被選中來顯示或隱藏 overlay
-        if (menuSwitch.checked) {
-            overlay.style.display = 'block';
-        } else {
-            overlay.style.display = 'none';
+        if (document.querySelectorAll('.error').length > 0) {
+            event.preventDefault();
+            alert('請完整填寫必填項目');
         }
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordAndIconContainers = document.querySelectorAll('.passwordAndIcon');
+    
+        passwordAndIconContainers.forEach(container => {
+            const passwordInput = container.querySelector('input[type="password"]');
+            const closeEyeIcon = container.querySelector('.closeEye');
+            const openEyeIcon = container.querySelector('.openEye');
+    
+            closeEyeIcon.addEventListener('click', function () {
+                passwordInput.type = 'text';
+                closeEyeIcon.style.display = 'none';
+                openEyeIcon.style.display = 'block';
+            });
+    
+            openEyeIcon.addEventListener('click', function () {
+                passwordInput.type = 'password';
+                closeEyeIcon.style.display = 'block';
+                openEyeIcon.style.display = 'none';
+            });
+        });
+    });
+    
 
 
 

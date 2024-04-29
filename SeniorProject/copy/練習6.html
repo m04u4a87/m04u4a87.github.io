@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+    <div id="app">
+        <div >姓名：{{person.name}}</div>
+        <div >成績：{{person.score}}</div>
+        <!-- <div >通過狀態：{{displayResult()}}</div> -->
+        <!-- <div >通過狀態：{{person.score>=60 ?"通過":"不通過"}}</div> -->
+        <div >通過狀態：{{showResult}}</div>
+        <button class="btnClass" @click="add">加10分</button>
+        <button @click="minus">減10分</button>
+        <button @click="reset">重來</button>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+            const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    person: {
+                        name:"馬布丁",
+                        score:90
+                    },
+                    btnClass:{
+                    btn:true,
+                    "btn-success":true,
+                    disabled:false,
+                    }
+                }            
+            },
+            methods:{
+                displayResult(){
+                    return this.person.score>=60?"通過":"不通過";
+                },
+                add(){
+                    this.person.score +=10
+                },
+                minus(){
+                    this.person.score -=10
+                },
+                reset(){
+                    this.person.score=0
+                }
+            },
+            computed:{
+                showResult(){
+                    if(this.person.score>100)
+                    return "超過100分!"
+                
+                    return this.person.score>=60?"通過":"不通過";
+                }
+            }
+        }).mount('#app')
+</script>
+    
+</body>
+</html>

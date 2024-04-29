@@ -465,7 +465,10 @@
                 margin: 15px auto;
             }
             .tab ul li a { 
-                width: 100%;
+                width: 33.33%; /*改這*/
+                margin-right: 0px;/*改這*/
+                text-align: center;/*改這*/
+                padding: 10px 0px;
                 border-top-right-radius: 0px;
                 border-top-left-radius: 0px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

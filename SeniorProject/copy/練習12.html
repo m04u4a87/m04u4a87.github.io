@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <div >姓名：{{person.name}}</div>
+        <div >成績：{{person.score}}</div>
+        <!-- <div >通過狀態：{{displayResult()}}</div> -->
+        <!-- <div >通過狀態：{{person.score>=60 ?"通過":"不通過"}}</div> -->
+        <div >通過狀態：{{showResult}}</div>
+        <button @click="add">加10分</button>
+        <button @click="minus">減10分</button>
+        <button @click="reset">重來</button>
+        <hr>
+
+        <input type="text" v-model="email">
+        <div style="color:brown">{{errMsg}}</div>
+    </div>
+    
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+            return {
+                person: {
+                    name:"馬布丁",
+                    score:90
+                },
+                email:"123@gmail.com",
+                errMsg:""
+            }
+            },
+            methods:{
+                displayResult(){
+                    return this.person.score>=60?"通過":"不通過";
+                },
+                add(){
+                    this.person.score +=10
+                },
+                minus(){
+                    this.person.score -=10
+                },
+                reset(){
+                    this.person.score=0
+                },
+                validateMail(value){
+                    return value.includes("@")
+                }
+            },
+            computed:{
+                showResult(){
+                    if(this.person.score>100)
+                    return "超過100分!"
+                
+                    return this.person.score>=60?"通過":"不通過";
+                }
+            },
+            watch:{
+                // person:{
+                //     handler(newValue,oldValue){
+                //         console.log(`new:${newValue.score}`)
+                //         console.log(`old:${oldValue.score}`)
+                //         console.log('person變了')
+                //     },
+                //     deep:true
+                // },
+                // 'person.score'(newVal){
+                //     console.log(`person變了${newVal}`)
+                // },
+                'person.score'(newVal,oldVal){
+                    console.log(`person變了 new:${newVal}`)
+                    console.log(`person變了 old:${oldVal}`)
+                },
+                email(newVal){
+                    if(this.validateMail(newVal)){
+                        return;
+                    }
+                    this.errMsg="非合法的mail"
+                }
+            }
+        }).mount('#app')
+    </script>
+    
+</body>
+</html>

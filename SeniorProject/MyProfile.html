@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="aboutMe.css">
+    <link rel="stylesheet" href="MyProfile.css">
 </head>
 <body>
 
@@ -19,13 +19,13 @@
     <!-- 目錄 -->
     <div class="menu" >
         <ul class="main-menu">
-            <li class="currentPage"><a href="https://m04u4a87.github.io/SeniorProject/aboutMe.html" class="menu-aboutMe">關於自己</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/myTicket.html" class="menu-myTicket">我的票券</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/myActivities.html" class="menu-myActivities">我的活動</a></li>
-            <hr>
-            <li><a href="https://m04u4a87.github.io/SeniorProject/changePassword.html" class="menu-changePassword">變更密碼</a></li>
+            <li class="currentPage"><a href="#" class="menu-aboutMe">關於自己</a></li>
+            
+            <li><a href="#" class="menu-myTicket">我的票券</a></li>
+            
+            <li><a href="#" class="menu-myActivities">我的活動</a></li>
+            
+            <li><a href="#" class="menu-changePassword">變更密碼</a></li>
         </ul>
     </div>
 
@@ -38,7 +38,7 @@
                 <div class="h2AndBrowse">
                     <h2>關於自己</h2>
                         <a href="#" class="browse">
-                            <svg xmlns="http://www.w3.org/2000/svg"  fill="#fff" width="14" height="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg"  fill="#fff" width="14" height="14" viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
                             個人頁面
                         </a>
                     
@@ -77,14 +77,15 @@
                     </div>
                 </div>
 
-                <label>顯示名稱<span class="requiredSymbols">*</span></label></label>
+                <label>顯示名稱<span class="requiredSymbols">*</span></label>
                 <input type="text" required placeholder="您希望怎麼被稱呼">
 
                 <label>個人簡介</label><br>
-                <textarea class="textarea" name="" id="" cols="40" rows="10" placeholder="請輸入您的個人介紹" style="resize:vertical;height: 115px;" ></textarea>
+                <textarea class="textarea" name="" id="" onkeyup="updateCount()" maxlength="255" cols="40" rows="10" placeholder="請輸入您的個人介紹"  style="resize:vertical;height: 115px;">123</textarea>
+                <div class="textareaCount">0 / 255</div>
 
                 <label>帳號/Email</label>
-                <input class="accountEmail" type="email" disabled placeholder="12345@gmail.com">
+                <input class="accountEmail" type="email" disabled placeholder="12345gmail.com">
 
                 <label>姓名<span class="requiredSymbols">*</span></label>
                 <input type="text" required placeholder="請輸入您的名字">
@@ -92,12 +93,12 @@
                 <label>生日<span class="requiredSymbols">*</span></label>
                 <input type="date" required placeholder="請選擇您的生日">
 
-                <label>性別<span class="requiredSymbols">*</span></label></label><br>
+                <label>性別<span class="requiredSymbols">*</span></label><br>
                 <button value="male" class="yourSex">男</button>
                 <button value="female" class="yourSex">女</button>
                 <button value="diversity" class="yourSex">多元</button><br>
 
-                <label>感情狀態<span class="requiredSymbols">*</span></label></label><br>
+                <label>感情狀態<span class="requiredSymbols">*</span></label><br>
                 <button value="single" class="yourRelationship">單身</button>
                 <button value="stable" class="yourRelationship">穩定交往</button>
                 <button value="married" class="yourRelationship">已婚</button><br>
@@ -121,22 +122,23 @@
             </div> 
             <div class="button-list">
                 <button value="discardChanges" class="button button1">捨棄變更</button>
-                <button value="saveChanges" class="button button2">儲存變更</button>
+                <button id="saveChanges" value="saveChanges" class="button button2">儲存變更</button>
             </div>             
         </div>        
     </div>
+    <!-- 回頂端 -->
+    <a href="#" class="top">
+    <?xml version="1.0" ?><svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><path d="M82.6074,62.1072,52.6057,26.1052a6.2028,6.2028,0,0,0-9.2114,0L13.3926,62.1072a5.999,5.999,0,1,0,9.2114,7.6879L48,39.3246,73.396,69.7951a5.999,5.999,0,1,0,9.2114-7.6879Z"/></svg>
+</a>
 </div>
 
 
-<!-- 回頂端 -->
-<a href="#" class="top">
-    <?xml version="1.0" ?><svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><path d="M82.6074,62.1072,52.6057,26.1052a6.2028,6.2028,0,0,0-9.2114,0L13.3926,62.1072a5.999,5.999,0,1,0,9.2114,7.6879L48,39.3246,73.396,69.7951a5.999,5.999,0,1,0,9.2114-7.6879Z"/></svg>
-</a>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 
-    <script src="aboutMe.js"></script>
+    <script src="MyProfile.js"></script>
 
 
 </body>

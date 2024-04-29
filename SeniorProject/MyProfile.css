@@ -107,6 +107,7 @@
         /*目錄-當頁目錄-碰到時不做效果*/
         .currentPage a:hover{
             color: #fff;
+            background-color: #bdbdbd;
         }
 
         /*內容-包裹容器*/

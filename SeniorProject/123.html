@@ -1,0 +1,5 @@
+dotnet ef dbcontext scaffold Name=ConnectionStrings:NorthwindContext Microsoft.EntityFrameworkCore.SqlServer --context NorthwindContext --context-dir Data --context-namespace Infrastructure.Data --output-dir ../ApplicationCore/Entities --namespace ApplicationCore.Entities --force --project Infrastructure --startup-project Web
+
+
+
+dotnet ef migrations add initDb --output-dir Data/Migrations --project Infrastructure  --startup-project Web
